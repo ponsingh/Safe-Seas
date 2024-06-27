@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to the Shipping Route Risk Analysis</h1>
+<div id="map" style="height: 600px;"></div>
+<script>
+    const mockRoutes = [
+        {
+            "route_id": 1,
+            "coordinates": [[51.5, -0.1], [40.7, -74.0]]
+        },
+        {
+            "route_id": 2,
+            "coordinates": [[35.6, 139.7], [37.8, -122.4]]
+        }
+    ];
+    renderMap(mockRoutes);
+</script>
+{% endblock %}

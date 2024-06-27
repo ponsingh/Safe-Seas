@@ -1,0 +1,16 @@
+.container {
+    margin: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.dashboard {
+    margin-bottom: 20px;
+}

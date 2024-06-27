@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Risk Calculator</h1>
+<form id="risk-form">
+    <label for="load-port">Load Port:</label>
+    <select id="load-port" name="load_port">
+        <option value="London">London</option>
+        <option value="Tokyo">Tokyo</option>
+    </select>
+    
+    <label for="discharge-port">Discharge Port:</label>
+    <select id="discharge-port" name="discharge_port">
+        <option value="New York">New York</option>
+        <option value="San Francisco">San Francisco</option>
+    </select>
+    
+    <button type="submit">Calculate Risk</button>
+</form>
+<div id="map" style="height: 600px;"></div>
+<script>
+    const mockRoutes = [
+        {
+            "route_id": 1,
+            "coordinates": [[51.5, -0.1], [40.7, -74.0]]
+        },
+        {
+            "route_id": 2,
+            "coordinates": [[35.6, 139.7], [37.8, -122.4]]
+        }
+    ];
+    renderMap(mockRoutes);
+
+    document.getElementById('risk-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var loadPort = document.getElementById('load-port').value;
+        var dischargePort = document.getElementById('discharge-port').value;
+
+        // Update the map with the selected ports (mock behavior)
+        const filteredRoutes = mockRoutes.filter(route => 
+            (loadPort === "London" && dischargePort === "New York" && route.route_id === 1) ||
+            (loadPort === "Tokyo" && dischargePort === "San Francisco" && route.route_id === 2)
+        );
+
+        // Clear the map and render the filtered routes
+        map.eachLayer(layer => {
+            if (layer instanceof L.Polyline) {
+                map.removeLayer(layer);
+            }
+        });
+
+        renderMap(filteredRoutes);
+    });
+</script>
+{% endblock %}
