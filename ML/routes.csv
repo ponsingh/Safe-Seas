@@ -1,5 +1,5 @@
 Route ID,Origin Port,Destination Port,Orgin Port Country,Destination Port Country,No Of Stops Between,Stops Names,"Stop Points (Orgin,[BetwwenStops],End]",Distance,Average Transit Time (days),Travel Direction,Vessel Type,No Of Travels
-R001,Tanger Med,Rotterdam, Morocco, Netherlands,,"Algeciras,Barcelona, Antwerp","[44.811855,-0.5906289]-[36.1311725,-5.4473991]-[41.3828939,2.1774322]-[51.2211097,4.3997081]-[51.9244424,4.47775]",600,18,W,Bulk carrier,2000
+R001,Tanger Med,Rotterdam, Morocco, Netherlands,,"Algeciras,Barcelona, Antwerp","[44.811855,-0.5906289]-[36.1311725,-5.4473991]-[41.3828939,2.1774322]-[51.2211097,4.3997081]-[51.9244424,4.47775]",600,18,W,Bulk carrier,15
 R002,Gioia Tauro,Hamburg, Italy, Germany,,"Gioia Tauro,Valencia,Barcelona,Marseille,Rotterdam,
 Antwerp,Hamburg,Gothenburg,Helsinki,St. Petersburg
 ","[38.424938, 15.899940]-[40.7127281,-74.0060152]-[41.3828939, 2.1774322]-[43.2965, 5.3698]-[51.9225, 4.4792]-[51.2211097, 4.3997081]-[53.5511,9.9937]-[ 57.7089, 11.9746]-[60.1699,24.9384]
