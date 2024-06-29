@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<head>Test</head>'
-    #return render_template('index.html')
+    #return '<head>Test</head>'
+    return render_template('index.html')
 
 @app.route('/dashboard')
 def dashboard():
