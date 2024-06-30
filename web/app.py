@@ -35,9 +35,13 @@ def dashboard():
 
 @app.route('/incidents/<route_id>')
 def incidents(route_id):
-    route_incidents = incidents_df[incidents_df['Route ID'] == str(route_id)]
-    incidents = route_incidents.to_dict(orient='records')
-    return render_template('incidents.html', incidents=incidents)
+    try:
+        route_incidents = incidents_df[incidents_df['RouteID'] == str(route_id)]
+        incidents = route_incidents.to_dict(orient='records')
+        return render_template('incidents.html', incidents=incidents)
+    except e:
+        print(f"File not found: {e}")
+        raise
 
 @app.route('/risk_calculator')
 def risk_calculator():

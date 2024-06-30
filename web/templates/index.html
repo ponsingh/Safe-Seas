@@ -29,7 +29,6 @@
                 <td>{{ route['No Of Travels'] }}</td>
                 <td>
                     <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
-                    <button onclick="clearRoute('{{ route['Route ID'] }}')">Clear</button>
                 </td>
             </tr>
         {% endfor %}
@@ -41,20 +40,14 @@
 <script>
     // Example using named functions
 function showIncidents(routeId) {
+    
     fetch(`/incidents/${routeId}`)
         .then(response => response.text())
         .then(html => {
             document.getElementById('incident-details').innerHTML = html;
         })
         .catch(error => console.error('Error fetching incidents:', error));
-}
+    }
 
-
-        // Function to clear the route (placeholder)
-        window.clearRoute = function(routeId) {
-            console.log("Clear route with ID:", routeId);
-            // Add your logic here to clear the route
-        };
-    });
 </script>
 {% endblock %}
