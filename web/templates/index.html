@@ -2,18 +2,55 @@
 
 {% block content %}
 <h1>Welcome to the Shipping Route Risk Analysis</h1>
-<div id="map" style="height: 600px;"></div>
+
+<h2>Routes</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Route ID</th>
+            <th>Origin Port</th>
+            <th>Destination Port</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for route in routes %}
+            <tr>		
+                <td>{{ route['Route ID'] }}</td>
+                <td>{{ route['Origin Port'] }}</td>
+                <td>{{ route['Destination Port'] }}</td>
+                <td>{{ route['Distance'] }}</td>
+                <td>{{ route['Travel Direction'] }}</td>
+                <td>{{ route['Vessel Type'] }}</td>
+                <td>{{ route['No Of Travels'] }}</td>
+                <td>
+                    <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
+                    <button onclick="clearRoute('{{ route['Route ID'] }}')">Clear</button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div id="incident-details"></div>
+
 <script>
-    const mockRoutes = [
-        {
-            "route_id": 1,
-            "coordinates": [[51.5, -0.1], [40.7, -74.0]]
-        },
-        {
-            "route_id": 2,
-            "coordinates": [[35.6, 139.7], [37.8, -122.4]]
-        }
-    ];
-    renderMap(mockRoutes);
+    // Example using named functions
+function showIncidents(routeId) {
+    fetch(`/incidents/${routeId}`)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('incident-details').innerHTML = html;
+        })
+        .catch(error => console.error('Error fetching incidents:', error));
+}
+
+
+        // Function to clear the route (placeholder)
+        window.clearRoute = function(routeId) {
+            console.log("Clear route with ID:", routeId);
+            // Add your logic here to clear the route
+        };
+    });
 </script>
 {% endblock %}

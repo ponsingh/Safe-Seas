@@ -14,3 +14,82 @@ nav ul li {
 .dashboard {
     margin-bottom: 20px;
 }
+
+/* Basic reset for consistent styling across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Button styling */
+button {
+    padding: 8px 16px;
+    margin: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+button:active {
+    background-color: #ccc;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Specific button colors */
+button.incident {
+    background-color: #2196F3;
+    color: white;
+}
+
+button.clear {
+    background-color: #f44336;
+    color: white;
+}
+
+button.incident:hover {
+    background-color: #1e87f0;
+}
+
+button.clear:hover {
+    background-color: #e53935;
+}
+

@@ -1,0 +1,7 @@
+{% for incident in incidents %}
+    <div>
+        <p><strong>Incident ID:</strong> {{ incident['Incident ID'] }}</p>
+        <p><strong>Description:</strong> {{ incident['Description'] }}</p>
+        <p><strong>Date:</strong> {{ incident['Date'] }}</p>
+    </div>
+{% endfor %}
