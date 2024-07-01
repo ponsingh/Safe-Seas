@@ -1,7 +1,21 @@
-{% for incident in incidents %}
-    <div>
-        <p><strong>Incident ID:</strong> {{ incident['Incident ID'] }}</p>
-        <p><strong>Description:</strong> {{ incident['Description'] }}</p>
-        <p><strong>Date:</strong> {{ incident['Date'] }}</p>
-    </div>
-{% endfor %}
+<table>
+        <thead>
+            <tr>
+                <th>Incident ID</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for incident in incidents %}
+            <tr>
+                <td>{{ incident['Incidents'] }}</td>
+                <td>{{ incident['Description'] }}</td>
+                <td>{{ incident['IncidentDate'] }}</td>
+                <td>{{ incident['Severity'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
