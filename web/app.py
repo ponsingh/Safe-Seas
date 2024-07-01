@@ -47,6 +47,48 @@ def incidents(route_id):
 def risk_calculator():
     return render_template('risk_calculator.html')
 
+@app.route('/import_excel', methods=['POST'])
+def import_excel():
+    try:
+        # Check if file part is present in the request
+        if 'excel_file' not in request.files:
+            return jsonify({'error': 'No file part in the request'}), 400
+        
+        excel_file = request.files['excel_file']
+        
+        # Check if no file is selected
+        if excel_file.filename == '':
+            return jsonify({'error': 'No file selected for uploading'}), 400
+        
+        # Validate file extension
+        if excel_file and allowed_file(excel_file.filename):
+            try:
+                # Load Excel file
+                routes_df = pd.read_excel(excel_file, sheet_name='Routes')
+                incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
+                
+                # Convert DataFrames to dictionaries
+                routes_data = routes_df.to_dict(orient='records')
+                incidents_data = incidents_df.to_dict(orient='records')
+                
+                # Return JSON response with routes and incidents data
+                return jsonify({'routes': routes_data, 'incidents': incidents_data})
+            
+            except Exception as e:
+                return jsonify({'error': f'Error processing Excel file: {str(e)}'}), 500
+        
+        else:
+            return jsonify({'error': 'Allowed file types are xls, xlsx'}), 400
+    
+    except Exception as e:
+        return jsonify({'error': f'Error uploading file: {str(e)}'}), 500
+
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+
 # Run the application
 if __name__ == "__main__":
     app.run(debug=True)
