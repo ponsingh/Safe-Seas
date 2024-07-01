@@ -4,6 +4,7 @@
 <h1>Welcome to the Shipping Route Risk Analysis</h1>
 
 <h2>Routes</h2>
+
 <table>
     <thead>
         <tr>
@@ -19,35 +20,81 @@
     </thead>
     <tbody>
         {% for route in routes %}
-            <tr>		
-                <td>{{ route['Route ID'] }}</td>
-                <td>{{ route['Origin Port'] }}</td>
-                <td>{{ route['Destination Port'] }}</td>
-                <td>{{ route['Distance'] }}</td>
-                <td>{{ route['Travel Direction'] }}</td>
-                <td>{{ route['Vessel Type'] }}</td>
-                <td>{{ route['No Of Travels'] }}</td>
-                <td>
-                    <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ route['Route ID'] }}</td>
+            <td>{{ route['Origin Port'] }}</td>
+            <td>{{ route['Destination Port'] }}</td>
+            <td>{{ route['Distance'] }}</td>
+            <td>{{ route['Travel Direction'] }}</td>
+            <td>{{ route['Vessel Type'] }}</td>
+            <td>{{ route['No Of Travels'] }}</td>
+            <td>
+                <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
+            </td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
 
-<div id="incident-details"></div>
+<div id="incident-details" class="modal"> 
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <div id="incident-content"></div> 
+    </div>
+</div>
 
 <script>
-    // Example using named functions
-function showIncidents(routeId) {
-    
-    fetch(`/incidents/${routeId}`)
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('incident-details').innerHTML = html;
-        })
-        .catch(error => console.error('Error fetching incidents:', error));
+    function showIncidents(routeId) {
+        fetch(`/incidents/${routeId}`) 
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('incident-content').innerHTML = html;
+                document.getElementById('incident-details').style.display = 'block';
+            })
+            .catch(error => console.error('Error fetching incidents:', error));
     }
 
+    function closeModal() {
+        document.getElementById('incident-details').style.display = 'none';
+        document.getElementById('incident-content').innerHTML = ''; // Clear content
+    }
 </script>
+
+<style>
+    /* Basic modal styling */
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.4); 
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; 
+    }
+
+    .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
 {% endblock %}
