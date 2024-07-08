@@ -15,6 +15,8 @@
             <th>Direction</th>
             <th>Vessel Type</th>
             <th>No of Travels</th>
+            <th>No of Incidents</th>
+            <th>Risk Score</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -28,6 +30,8 @@
             <td>{{ route['Travel Direction'] }}</td>
             <td>{{ route['Vessel Type'] }}</td>
             <td>{{ route['No Of Travels'] }}</td>
+            <td>{{ route['total_incidents_count'] }}</td>
+            <td>{{ route['risk_score'] }}</td>
             <td>
                 <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
             </td>
@@ -83,7 +87,7 @@
     }
 
     .close-button {
-        color: #aaa;
+        color: #532a2a;
         float: right;
         font-size: 28px;
         font-weight: bold;

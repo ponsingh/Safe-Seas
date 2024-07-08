@@ -1,21 +1,88 @@
-<table>
-        <thead>
-            <tr>
-                <th>Incident ID</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Severity</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for incident in incidents %}
-            <tr>
-                <td>{{ incident['Incidents'] }}</td>
-                <td>{{ incident['Description'] }}</td>
-                <td>{{ incident['IncidentDate'] }}</td>
-                <td>{{ incident['Severity'] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        td {
+            color: #333;
+        }
+        .progress {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 2px;
+            position: relative;
+            height: 20px;
+        }
+        .progress-bar {
+            height: 100%;
+            border-radius: 2px;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        .progress-bar.high {
+            width: 100%;
+            background-color: red;
+        }
+        .progress-bar.medium {
+            width: 66%;
+            background-color: orange;
+        }
+        .progress-bar.low {
+            width: 33%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Incident ID</th>
+                <th>Incident Type</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for incident in incidents %}
+            <tr>
+                <td>{{ incident['IncidentId'] }}</td>
+                <td>{{ incident['IncidentType'] }}</td>
+                <td>{{ incident['Description'] }}</td>
+                <td>{{ incident['IncidentDate'] }}</td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar {% if incident['Severity'] == 'High' %}high{% elif incident['Severity'] == 'Medium' %}medium{% else %}low{% endif %}">
+                            {{ incident['Severity'] }}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-    
+</body>
+</html>

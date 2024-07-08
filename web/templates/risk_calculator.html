@@ -2,117 +2,189 @@
 
 {% block content %}
 
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
 <h1>Risk Calculator</h1>
 
-<!-- Form for importing Excel file -->
-<form id="excel-form" enctype="multipart/form-data">
-    <input type="file" id="excel-file" name="excel_file" accept=".xlsx, .xls">
-    <button type="submit">Import Excel</button>
-</form>
-
-<hr>
-
-<!-- Display imported routes and incidents -->
-<div id="imported-data">
-    <!-- Routes and Incidents will be displayed here -->
+<!-- Section for importing Excel file and calculating risk score -->
+<div id="input-section">
+    <form id="excel-form" enctype="multipart/form-data">
+        <input type="file" id="excel-file" name="excel_file" accept=".xlsx, .xls">
+        <button type="submit">Import Excel</button>
+    </form>
+    <button id="calculate-risk-score" type="button">Calculate Risk Score</button>
+    <h2 id="risk-score-value"></h2>
 </div>
 
 <hr>
 
-<!-- Form for adding new Booking Date -->
-<form id="booking-date-form">
-    <label for="booking-date">New Booking Date:</label>
-    <input type="date" id="booking-date" name="booking_date">
-    <button type="submit">Add Booking Date</button>
-</form>
+<!-- Section divided into two columns -->
+<div style="display: flex;">
+    <!-- First column: Display imported data in tables -->
+    <div style="flex: 1;">
+        <h2>Routes</h2>
+        <table id="routes-table">
+            <thead>
+                <tr>
+                    <th>Route ID</th>
+                    <th>Load Port</th>
+                    <th>Discharge Port</th>
+                    <th>Coordinates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated here -->
+            </tbody>
+        </table>
 
-<hr>
+        <h2>Incidents</h2>
+        <table id="incidents-table">
+            <thead>
+                <tr>
+                    <th>Incident ID</th>
+                    <th>Route ID</th>
+                    <th>Description</th>
+                    <th>Risk Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
 
-<!-- Risk Calculator Form -->
-<form id="risk-form">
-    <label for="load-port">Load Port:</label>
-    <select id="load-port" name="load_port">
-        <option value="London">London</option>
-        <option value="Tokyo">Tokyo</option>
-    </select>
-    <label for="discharge-port">Discharge Port:</label>
-    <select id="discharge-port" name="discharge_port">
-        <option value="New York">New York</option>
-        <option value="San Francisco">San Francisco</option>
-    </select>
-    <button type="submit">Calculate Risk</button>
-</form>
-
-<hr>
-
-<!-- Leaflet Map -->
-<div id="map" style="height: 600px;"></div>
+    <!-- Second column: Leaflet map -->
+    <div style="flex: 1;">
+        <div id="map" style="height: 600px;"></div>
+    </div>
+</div>
 
 <script>
-    // Mock routes for initial map rendering
-    const mockRoutes = [
-        {
-            "route_id": 1,
-            "coordinates": [[51.5, -0.1], [40.7, -74.0]]
-        },
-        {
-            "route_id": 2,
-            "coordinates": [[35.6, 139.7], [37.8, -122.4]]
-        }
-    ];
+    // Mock routes for initial map rendering
+    const mockRoutes = [
+        {
+            "route_id": 1,
+            "coordinates": [[3.337954, -78.925776]
+                            ,[-1.757537, -83.847651]
+                            ,[-11.523087, -78.925776]
+                            ,[-26.745610, -75.761714]
+                            ,[-35.173808, -74.707026]
+                            ,[-47.040181, -78.574214]
+                            ,[-55.677584, -75.937495]
+                            ,[-57.421294, -64.335933]
+                            ,[-54.367758, -63.281246]
+                            ,[-49.037867, -65.917965]
+                            ,[-41.508577, -61.699215]
+                            ,[-35.603718, -55.371090]
+                            ,[-23.241346, -41.484372]
+                            ,[-10.833306, -32.695310]
+                            ,[8.059229, -14.062499]
+                            ,[3.513421, -2.285156]
+                            ,[-2.986927, 8.437499]]
+        },
+    ];
 
-    // Function to render the Leaflet map with routes
-    function renderMap(routes) {
-        // Leaflet map initialization (replace with your preferred map setup)
-        var map = L.map('map').setView([51.505, -0.09], 2);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    // Function to render the Leaflet map with routes
+    function renderMap(routes) {
+        // Leaflet map initialization (replace with your preferred map setup)
+        try
+        {
+         var map = L.map('map').setView([51.505, -0.09], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-        // Loop through routes and add polylines to the map
-        routes.forEach(route => {
-            L.polyline(route.coordinates, { color: 'blue' }).addTo(map);
-        });
-    }
+        // Loop through routes and add polylines to the map
+        routes.forEach(route => {
+            L.polyline(route.coordinates, { color: 'blue' }).addTo(map);
+        });
+        }
+        catch (e)
+        {
+            console.log(e);
+            alert('Error importing Excel file:', e)
+        }
+        
+    }
 
-    // Initial map rendering
-    renderMap(mockRoutes);
+    function renderMapWcolor(routes) {
+        // Leaflet map initialization (replace with your preferred map setup)
+        try
+        {
+        var map = L.map('map').setView([51.505, -0.09], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    // Event listener for Excel file import form submission
-    document.getElementById('excel-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var formData = new FormData();
-        formData.append('excel_file', document.getElementById('excel-file').files[0]);
+        // Loop through routes and add polylines to the map
+        routes.forEach(route => {
+            L.polyline(route.coordinates, { color: 'green' }).addTo(map);
+        });
+        }
+        catch (e)
+        {
+            console.log(e);
+            alert('Error importing Excel file:', e)
+        }
+        
+    }
 
-        fetch('/import_excel', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Display imported data in the UI (replace with your implementation)
-            console.log('Imported data:', data);
-        })
-        .catch(error => console.error('Error importing Excel file:', error));
-    });
+    // Initial map rendering
+    renderMap(mockRoutes);
 
-    // Event listener for Booking Date form submission
-    document.getElementById('booking-date-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var bookingDate = document.getElementById('booking-date').value;
+    // Event listener for Excel file import form submission
+    document.getElementById('excel-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var formData = new FormData();
+        formData.append('excel_file', document.getElementById('excel-file').files[0]);
+        
+        fetch('/import_excel', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display imported data in the UI
+            populateTables(data.routes, data.incidents);
+            renderMapWcolor(data.routes);
+        })
+        .catch(error => alert('Error importing Excel file:', error));
+    });
 
-        // Implement logic to add booking date (replace with your implementation)
-        console.log('New Booking Date:', bookingDate);
-    });
+    // Function to populate tables with imported data
+    function populateTables(routes, incidents) {
+        // Populate routes table
+        const routesTableBody = document.getElementById('routes-table').getElementsByTagName('tbody')[0];
+        routesTableBody.innerHTML = ''; // Clear existing rows
+        routes.forEach(route => {
+            const row = routesTableBody.insertRow();
+            row.insertCell(0).textContent = route.route_id;
+            row.insertCell(1).textContent = route.load_port;
+            row.insertCell(2).textContent = route.discharge_port;
+            row.insertCell(3).textContent = route.discharge_port;
+        });
 
-    // Event listener for Risk Calculator form submission
-    document.getElementById('risk-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var loadPort = document.getElementById('load-port').value;
-        var dischargePort = document.getElementById('discharge-port').value;
+        // Populate incidents table
+        const incidentsTableBody = document.getElementById('incidents-table').getElementsByTagName('tbody')[0];
+        incidentsTableBody.innerHTML = ''; // Clear existing rows
+        incidents.forEach(incident => {
+            const row = incidentsTableBody.insertRow();
+            row.insertCell(0).textContent = incident.incident_id;
+            row.insertCell(1).textContent = incident.route_id;
+            row.insertCell(2).textContent = incident.description;
+            row.insertCell(3).textContent = incident.risk_score;
+        });
+    }
 
-        // Implement logic to calculate risk (replace with your implementation)
-        console.log('Load Port:', loadPort);
-        console.log('Discharge Port:', dischargePort);
-    });
+    // Event listener for Calculate Risk Score button
+    document.getElementById('calculate-risk-score').addEventListener('click', function () {
+        fetch('/calculate_risk_score', {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display calculated risk score in the UI
+            document.getElementById('risk-score-value').textContent = 'Calculated Risk Score: ' + data.risk_score;
+        })
+        .catch(error => console.error('Error calculating risk score:', error));
+    });
 
 </script>
 

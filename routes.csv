@@ -1,15 +1,15 @@
-Route ID,Origin Port,Destination Port,Orgin Port Country,Destination Port Country,No Of Stops Between,Stops Names,"Stop Points (Orgin,[BetwwenStops],End]",Distance,Average Transit Time (days),Travel Direction,Vessel Type,No Of Travels
-R001,Tanger Med,Rotterdam, Morocco, Netherlands,,"Algeciras,Barcelona, Antwerp","[44.811855,-0.5906289]-[36.1311725,-5.4473991]-[41.3828939,2.1774322]-[51.2211097,4.3997081]-[51.9244424,4.47775]",600,18,W,Bulk carrier,15
+Route ID,Origin Port,Destination Port,Orgin Port Country,Destination Port Country,No Of Stops Between,Stops Names,"Stop Points (Orgin,[BetwwenStops],End]",Distance,Average Transit Time (days),Travel Direction,Vessel Type,No Of Travels,total_incidents_count,risk_score
+R001,Tanger Med,Rotterdam, Morocco, Netherlands,,"Algeciras,Barcelona, Antwerp","[44.811855,-0.5906289]-[36.1311725,-5.4473991]-[41.3828939,2.1774322]-[51.2211097,4.3997081]-[51.9244424,4.47775]",600,18,W,Bulk carrier,3161,136,16
 R002,Gioia Tauro,Hamburg, Italy, Germany,,"Gioia Tauro,Valencia,Barcelona,Marseille,Rotterdam,
 Antwerp,Hamburg,Gothenburg,Helsinki,St. Petersburg
 ","[38.424938, 15.899940]-[40.7127281,-74.0060152]-[41.3828939, 2.1774322]-[43.2965, 5.3698]-[51.9225, 4.4792]-[51.2211097, 4.3997081]-[53.5511,9.9937]-[ 57.7089, 11.9746]-[60.1699,24.9384]
-",2468,29,E,Tank,1500
-R003,Piraeus,Hamburg, Greece, Belgium,,,"[37.942986, 23.646982]-[51.219448, 4.402464]",3457,39,N,Container Shipo,789
-R004,Alexandria,Bremerhaven, Egypt, Germany,,,"[31.1991806,29.8951716]-[53.5505392,8.5851945]",4500,15,E,Reefer ship,1467
-R005,Port Sudan,Le Havre, Sudan, France,,,"[19.619217,37.211709]-[49.4938975,0.1079732]",200,27,N,Project cargo ship,938
-R006,Jebel Ali,Dunkerque, United Arab Emirates, France,,,"[24.9775987,55.0910742]-[51.0347708,2.3772525]",2670,34,S,Barge,1072
-R007,Mumbai (Bombay),Sines, India, Portugal,,,"[19.0815772,72.8866275]-[37.956549,-8.8689639]",400,45,E,Dredgers,1206
-R008,Visakhapatnam,Valencia, India, Spain,,,"[17.7231276,83.3012842]-[39.4697065,-0.3763353]",2000,65,E,Tugs,1340
+",2468,29,E,Tank,2065,150,28
+R003,Piraeus,Hamburg, Greece, Belgium,,,"[37.942986, 23.646982]-[51.219448, 4.402464]",3457,39,N,Container Shipo,2908,141,16
+R004,Alexandria,Bremerhaven, Egypt, Germany,,,"[31.1991806,29.8951716]-[53.5505392,8.5851945]",4500,15,E,Reefer ship,2535,149,22
+R005,Port Sudan,Le Havre, Sudan, France,,,"[19.619217,37.211709]-[49.4938975,0.1079732]",200,27,N,Project cargo ship,1188,136,40
+R006,Jebel Ali,Dunkerque, United Arab Emirates, France,,,"[24.9775987,55.0910742]-[51.0347708,2.3772525]",2670,34,S,Barge,1499,148,36
+R007,Mumbai (Bombay),Sines, India, Portugal,,,"[19.0815772,72.8866275]-[37.956549,-8.8689639]",400,45,E,Dredgers,1269,167,46
+R008,Visakhapatnam,Valencia, India, Spain,,,"[17.7231276,83.3012842]-[39.4697065,-0.3763353]",2000,65,E,Tugs,3088,130,15
 R009,Chittagong,Algeciras, Bangladesh, Spain,8,"Port of Colombo,
 Port of Salalah,
 Port of Jeddah,
@@ -18,761 +18,695 @@ Port of Piraeus,
 Port of Valletta,
 Port of Algiers,
 Port of Barcelona,
-Port of Valencia,",,1433,43,N,Corvette,1474
-R010,Fremantle,Gioia Tauro, Australia, Italy,,,,844,21,S,Reefer Vessel,1608
-R011,Adelaide,Piraeus, Australia, Greece,,,,4107,78,N,Frigate,1742
-R012,Perth,Alexandria, Australia, Egypt,,,,8314,22,E,Offshore Ships,1876
-R013,Wellington,Port Sudan, New Zealand, Sudan,,,,2444,50,N,Heavy Lift Ships,2010
-R014,Prince Rupert,Jebel Ali, Canada, United Arab Emirates,,,,572,26,S,Panamax Ship,2144
-R015,San Pedro,Mumbai (Bombay), USA, India,,,,995,48,E,Tanker,2278
-R016,Everett,Visakhapatnam, USA, India,,,,12271,70,E,Canoe,2412
-R017,Wilmington,Chittagong, USA, Bangladesh,,,,554,59,N,Hovercraft,2546
-R018,Mobile,Fremantle, USA, Australia,,,,1882,49,S,Submarine,2680
-R019,Corpus Christi,Adelaide, USA, Australia,,,,2098,163,N,Yacht,211
-R020,Baltimore,Perth, USA, Australia,,,,2537,165,E,Sailboat,422
-R021,Miami,Wellington, USA, New Zealand,,,,298,167,N,Gas carrier,633
-R022,Houston,Prince Rupert, USA, Canada,,,,341,39,S,High-speed craft,844
-R023,Callao,San Pedro, Peru, USA,,,,385,72,E,Passenger ship,1055
-R024,San Antonio,Everett, Chile, USA,,,,429,71,E,Roll-on/roll-off,1266
-R025,Buenaventura,Wilmington, Colombia, USA,,,,473,79,N,Naval ship,1477
-R026,Shanghai,Los Angeles, China, USA,,,,517,81,S,Livestock carrier,1688
-R027,Singapore,Rotterdam, Singapore, Netherlands,,,,561,10,N,Bulk carrier,1899
-R028,Busan,Long Beach, South Korea, USA,,,,341,32,N,Tank,2110
-R029,Rotterdam,Hamburg, Netherlands, Germany,,,,648,54,S,Container Shipo,2321
-R030,Yokohama,Shenzhen, Japan, China,,,,692,60,E,Reefer ship,2532
-R031,Ningbo-Zhoushan,New York, China, USA,,,,736,78,E,Project cargo ship,187
-R032,Qingdao,Tokyo, China, Japan,,,,7230,19,N,Barge,374
-R033,Tianjin,Tanjung Pelepas, China, Malaysia,,,,8070,21,S,Dredgers,561
-R034,Hong Kong,Kaohsiung, China, Taiwan,,,,8060,21,N,Tugs,748
-R035,Jebel Ali,Algeciras, United Arab Emirates, Spain,,,,6830,18,N,Corvette,935
-R036,Dubai,Singapore, United Arab Emirates, Singapore,,,,6770,18,N,Reefer Vessel,1122
-R037,Port Kelang,Colombo, Malaysia, Sri Lanka,,,,8080,21,S,Frigate,1309
-R038,Tanjung Pelepas,Los Angeles, Malaysia, USA,,,,8590,23,N,Offshore Ships,1496
-R039,Jakarta,Shenzhen, Indonesia, China,,,,7570,20,N,Heavy Lift Ships,1683
-R040,Bangkok,Haiphong, Thailand, Vietnam,,,,7860,21,N,Panamax Ship,1870
-R041,Manila,Yokohama, Philippines, Japan,,,,5630,15,S,Tanker,2057
-R042,Kaohsiung,Los Angeles, Taiwan, USA,,,,5460,14,N,Canoe,2244
-R043,Valencia,Genoa, Spain, Italy,,,,5920,15,N,Hovercraft,2431
-R044,Barcelona,Algeciras, Spain, Spain,,,,6140,16,S,Submarine,233
-R045,Santos,Ningbo-Zhoushan, Brazil, China,,,,6190,16,E,Yacht,466
-R046,Gioia Tauro,Piraeus, Italy, Greece,,,,6200,16,E,Sailboat,699
-R047,Felixstowe,Rotterdam, United Kingdom, Netherlands,,,,6160,16,N,Gas carrier,932
-R048,Southampton,Algeciras, United Kingdom, Spain,,,,5320,14,S,High-speed craft,1165
-R049,Bremerhaven,New York, Germany, USA,,,,1433,43,N,Tank,1398
-R050,Le Havre,Singapore, France, Singapore,,,,844,21,N,Container Shipo,1631
-R051,Antwerp,Hamburg, Belgium, Germany,,,,4107,78,N,Reefer ship,1864
-R052,Genoa,Barcelona, Italy, Spain,,,,8314,22,S,Reefer ship,2097
-R053,Piraeus,Alexandria, Greece, Egypt,,,,2444,50,N,Project cargo ship,2330
-R054,Salalah,Jebel Ali, Oman, United Arab Emirates,,,,572,26,N,Barge,2563
-R055,Dammam,Jeddah, Saudi Arabia, Saudi Arabia,,,,995,48,N,Dredgers,2796
-R056,Mumbai (Bombay),Singapore, India, Singapore,,,,12271,70,S,Tugs,3029
-R057,Chennai (Madras),Colombo, India, Sri Lanka,,,,554,59,N,Corvette,3262
-R058,Colombo,Chittagong, Sri Lanka, Bangladesh,,,,1882,49,N,Reefer Vessel,3495
-R059,Kelang,Jakarta, Malaysia, Indonesia,,,,2098,163,S,Frigate,3728
-R060,Brisbane,Singapore, Australia, Singapore,,,,2537,165,E,Offshore Ships,3961
-R061,Melbourne,Shanghai, Australia, China,,,,298,167,E,Panamax Ship,4194
-R062,Sydney,Long Beach, Australia, USA,,,,341,39,N,Bulk carrier,427
-R063,Auckland,Brisbane, New Zealand, Australia,,,,385,72,S,Tank,954
-R064,Vancouver,Yokohama, Canada, Japan,,,,429,71,N,Container Shipo,1481
-R065,Seattle,Busan, USA, South Korea,,,,473,79,N,Reefer ship,2008
-R066,Long Beach,Hong Kong, USA, China,,,,517,81,N,Project cargo ship,2535
-R067,Oakland,Kaohsiung, USA, Taiwan,,,,561,10,S,Barge,3062
-R068,Miami,Santos, USA, Brazil,,,,7810,21,N,Dredgers,3589
-R069,New Orleans,Progreso, USA, Mexico,,,,5290,14,N,Tugs,4116
-R070,Houston,Altamira, USA, Mexico,,,,5360,14,N,Corvette,4643
-R071,New York,Bremerhaven, USA, Germany,,,,4560,12,S,Reefer Vessel,5170
-R072,Savannah,Antwerp, USA, Belgium,,,,6220,16,N,Frigate,5697
-R073,Norfolk,Rotterdam, USA, Netherlands,,,,6050,16,N,Offshore Ships,6224
-R074,Charleston,Hamburg, USA, Germany,,,,2537,165,N,Heavy Lift Ships,6751
-R075,Jacksonville,Valencia, USA, Spain,,,,298,167,S,Panamax Ship,7278
-R076,Los Angeles,Yokohama, USA, Japan,,,,341,39,E,Tanker,7805
-R077,San Diego,Ensenada, USA, Mexico,,,,385,72,E,Canoe,8332
-R078,Seattle,Incheon, USA, South Korea,,,,429,71,N,Hovercraft,8859
-R079,Tacoma,Keelung, USA, Taiwan,,,,473,79,S,Submarine,233
-R080,Portland,Yantian, USA, China,,,,517,81,N,Yacht,466
-R081,Oakland,Qingdao, USA, China,,,,561,10,N,Sailboat,699
-R082,Long Beach,Ningbo-Zhoushan, USA, China,,,,341,32,N,Gas carrier,932
-R083,Los Angeles,Tianjin, USA, China,,,,648,54,S,High-speed craft,1165
-R084,Vancouver,Shanghai, Canada, China,,,,692,60,N,High-speed craft,1398
-R085,Montreal,Antwerp, Canada, Belgium,,,,736,78,N,Bulk carrier,1631
-R086,Halifax,Southampton, Canada, United Kingdom,,,,298,167,N,Tank,1864
-R087,Rotterdam,Felixstowe, Netherlands, United Kingdom,,,,341,39,S,Container Shipo,2097
-R088,Hamburg,Southampton, Germany, United Kingdom,,,,385,72,N,Reefer ship,2330
-R089,Antwerp,Tilbury, Belgium, United Kingdom,,,,429,71,N,Project cargo ship,2563
-R090,Bremerhaven,Liverpool, Germany, United Kingdom,,,,473,79,S,Barge,2796
-R091,Le Havre,Dunkerque, France, France,,,,517,81,E,Dredgers,3029
-R092,Sines,Algeciras, Portugal, Spain,,,,561,10,E,Tugs,3262
-R093,Valencia,Tanger Med, Spain, Morocco,,,,341,32,N,Corvette,3495
-R094,Gioia Tauro,Valencia, Italy, Spain,,,,648,54,S,Reefer Vessel,3728
-R095,Jeddah,Port Sudan, Saudi Arabia, Sudan,,,,692,60,N,Frigate,3961
-R096,Mumbai (Bombay),Jebel Ali, India, United Arab Emirates,,,,736,78,N,Offshore Ships,4194
-R097,Visakhapatnam,Chennai (Madras), India, India,,,,995,48,N,Heavy Lift Ships,427
-R098,Chittagong,Colombo, Bangladesh, Sri Lanka,,,,12271,70,S,Panamax Ship,954
-R099,Fremantle,Singapore, Australia, Singapore,,,,554,59,N,Tanker,1481
-R100,Adelaide,Melbourne, Australia, Australia,,,,1882,49,N,Canoe,2008
-R101,Perth,Singapore, Australia, Singapore,,,,2098,163,N,Hovercraft,2535
-R102,Wellington,Melbourne, New Zealand, Australia,,,,2537,165,S,Submarine,3062
-R103,Prince Rupert,Incheon, Canada, South Korea,,,,298,167,N,Yacht,3589
-R104,San Pedro,Yokohama, USA, Japan,,,,341,39,N,Sailboat,4116
-R105,Everett,Kaohsiung, USA, Taiwan,,,,385,72,S,Gas carrier,4643
-R106,Wilmington,Santos, USA, Brazil,,,,429,71,N,High-speed craft,5170
-R107,Mobile,Progreso, USA, Mexico,,,,473,79,N,Bulk carrier,5697
-R108,Corpus Christi,Altamira, USA, Mexico,,,,517,81,N,Tank,6224
-R109,Baltimore,Bremerhaven, USA, Germany,,,,561,10,S,Container Shipo,6751
-R110,Tacoma,Yokohama, USA, Japan,,,,341,32,N,Reefer ship,1683
-R111,Everett,Ningbo-Zhoushan, USA, China,,,,648,54,N,Project cargo ship,1870
-R112,Seattle,Qingdao, USA, China,,,,692,60,S,Barge,2057
-R113,Portland,Tianjin, USA, China,,,,736,78,E,Dredgers,2244
-R114,Montreal,Rotterdam, Canada, Netherlands,,,,298,167,E,Tugs,2431
-R115,Halifax,Hamburg, Canada, Germany,,,,341,39,N,Corvette,233
-R116,Felixstowe,Antwerp, United Kingdom, Belgium,,,,385,72,S,Reefer Vessel,466
-R117,Southampton,Le Havre, United Kingdom, France,,,,429,71,N,Frigate,699
-R118,Tilbury,Dunkerque, United Kingdom, France,,,,473,79,N,Offshore Ships,932
-R119,Liverpool,Sines, United Kingdom, Portugal,,,,517,81,N,Heavy Lift Ships,1165
-R120,Dunkerque,Valencia, France, Spain,,,,561,10,S,Panamax Ship,1398
-R121,Algeciras,Gioia Tauro, Spain, Italy,,,,341,32,N,Tanker,1631
-R122,Tanger Med,Piraeus, Morocco, Greece,,,,8060,21,N,Canoe,1864
-R123,Alexandria,Salalah, Egypt, Oman,,,,6830,18,N,Hovercraft,2097
-R124,Port Sudan,Jeddah, Sudan, Saudi Arabia,,,,6770,18,S,Submarine,2330
-R125,Jebel Ali,Mumbai (Bombay), United Arab Emirates, India,,,,8080,21,N,Yacht,2563
-R126,Chennai (Madras),Visakhapatnam, India, India,,,,8590,23,N,Sailboat,2796
-R127,Singapore,Fremantle, Singapore, Australia,,,,7570,20,N,Gas carrier,3029
-R128,Melbourne,Adelaide, Australia, Australia,,,,7860,21,N,High-speed craft,3262
-R129,Perth,Brisbane, Australia, Australia,,,,5630,15,S,Yacht,938
-R130,Auckland,Fremantle, New Zealand, Australia,,,,5460,14,N,Sailboat,1072
-R131,Incheon,Prince Rupert, South Korea, Canada,,,,5920,15,S,Gas carrier,1206
-R132,Yokohama,San Pedro, Japan, USA,,,,6140,16,N,High-speed craft,1340
-R133,Kaohsiung,Everett, Taiwan, USA,,,,6190,16,N,Passenger ship,1474
-R134,Santos,Wilmington, Brazil, USA,,,,6200,16,N,Roll-on/roll-off,1608
-R135,Progreso,Mobile, Mexico, USA,,,,6160,16,S,Naval ship,1742
-R136,Altamira,Corpus Christi, Mexico, USA,,,,5320,14,N,Livestock carrier,1876
-R137,Bremerhaven,Baltimore, Germany, USA,,,,995,48,N,Bulk carrier,2010
-R138,Cartagena,Miami, Colombia, USA,,,,12271,70,S,Tank,2144
-R139,Callao,Houston, Peru, USA,,,,554,59,E,Container Shipo,2278
-R140,San Antonio,Los Angeles, Chile, USA,,,,1882,49,E,Reefer ship,2412
-R141,Buenaventura,Oakland, Colombia, USA,,,,2098,163,N,Project cargo ship,2546
-R142,Santos,New Orleans, Brazil, USA,,,,2537,165,S,Barge,2680
-R143,Buenos Aires,Savannah, Argentina, USA,,,,298,167,N,Dredgers,211
-R144,Rio Grande,Norfolk, Brazil, USA,,,,341,39,N,Tugs,422
-R145,Itaguai,Charleston, Brazil, USA,,,,385,72,N,Corvette,633
-R146,Manaus,Jacksonville, Brazil, USA,,,,429,71,S,Reefer Vessel,844
-R147,Santos,Los Angeles, Brazil, USA,,,,473,79,N,Frigate,1055
-R148,Salina Cruz,San Diego, Mexico, USA,,,,517,81,N,Offshore Ships,1266
-R149,Incheon,Tacoma, South Korea, USA,,,,561,10,N,Heavy Lift Ships,1477
-R150,Keelung,Everett, Taiwan, USA,,,,341,32,S,Panamax Ship,1688
-R151,Yantian,Portland, China, USA,,,,648,54,N,Tanker,1899
-R152,Qingdao,Oakland, China, USA,,,,692,60,N,Canoe,2110
-R153,Ningbo-Zhoushan,Long Beach, China, USA,,,,736,78,S,Hovercraft,2321
-R154,Tianjin,Los Angeles, China, USA,,,,298,167,E,Submarine,2532
-R155,Shanghai,Vancouver, China, Canada,,,,341,39,E,Yacht,187
-R156,Antwerp,Montreal, Belgium, Canada,,,,385,72,N,Sailboat,374
-R157,Southampton,Halifax, United Kingdom, Canada,,,,429,71,S,Gas carrier,561
-R158,Dunkerque,Le Havre, France, France,,,,473,79,N,High-speed craft,748
-R159,Algeciras,Sines, Spain, Portugal,,,,517,81,N,Frigate,935
-R160,Gioia Tauro,Alexandria, Italy, Egypt,,,,561,10,N,Offshore Ships,1122
-R161,Piraeus,Port Sudan, Greece, Sudan,,,,341,32,S,Bulk carrier,1309
-R162,Jeddah,Jebel Ali, Saudi Arabia, United Arab Emirates,,,,5360,14,N,Tank,1496
-R163,Mumbai (Bombay),Salalah, India, Oman,,,,4560,12,N,Container Shipo,1683
-R164,Wellington,Auckland, New Zealand, New Zealand,,,,6220,16,N,Reefer ship,1870
-R165,Durban,Maputo, South Africa, Mozambique,,,,6050,16,S,Project cargo ship,2057
-R166,Lagos,Tema, Nigeria, Ghana,,,,6190,16,N,Barge,2244
-R167,Abidjan,Dakar, Ivory Coast, Senegal,,,,5320,14,N,Dredgers,2431
-R168,Tangier,Genoa, Morocco, Italy,,,,6190,16,S,Tugs,233
-R169,Alexandria,Izmir, Egypt, Turkey,,,,4660,12,N,Corvette,466
-R170,Ashdod,Piraeus, Israel, Greece,,,,8050,22,N,Reefer Vessel,699
-R171,Jeddah,Aqaba, Saudi Arabia, Jordan,,,,8040,21,S,Frigate,932
-R172,Dubai,Mumbai (Bombay), United Arab Emirates, India,,,,7450,20,E,Offshore Ships,1165
-R173,Mundra,Chittagong, India, Bangladesh,,,,8560,23,E,Heavy Lift Ships,1398
-R174,Colombo,Chennai (Madras), Sri Lanka, India,,,,7230,19,N,Panamax Ship,1631
-R175,Yangon,Port Kelang, Myanmar, Malaysia,,,,8070,21,S,Tanker,1864
-R176,Da Nang,Hong Kong, Vietnam, China,,,,8060,21,N,Canoe,2097
-R177,Shenzhen,Kaohsiung, China, Taiwan,,,,6830,18,N,Hovercraft,2330
-R178,Busan,Vladivostok, South Korea, Russia,,,,6770,18,N,Submarine,2563
-R179,Tokyo,Oakland, Japan, USA,,,,8080,21,S,Yacht,2796
-R180,Osaka,Long Beach, Japan, USA,,,,8590,23,N,Sailboat,3029
-R181,Keelung,Seattle, Taiwan, USA,,,,7570,20,N,Gas carrier,3262
-R182,Manila,Los Angeles, Philippines, USA,,,,7860,21,N,High-speed craft,3495
-R183,Ho Chi Minh City,Singapore, Vietnam, Singapore,,,,5630,15,S,Offshore Ships,3728
-R184,Belawan,Port Klang, Indonesia, Malaysia,,,,5460,14,N,Sailboat,3961
-R185,Semarang,Subic Bay, Indonesia, Philippines,,,,5920,15,S,Gas carrier,4194
-R186,Darwin,Dalian, Australia, China,,,,6140,16,N,High-speed craft,427
-R187,Cairns,Port Moresby, Australia, Papua New Guinea,,,,6190,16,N,Passenger ship,954
-R188,Noumea,Brisbane, New Caledonia, Australia,,,,6200,16,S,Roll-on/roll-off,1481
-R189,Auckland,Los Angeles, New Zealand, USA,,,,6160,16,N,Naval ship,2008
-R190,Vancouver,Incheon, Canada, South Korea,,,,5320,14,N,Livestock carrier,2535
-R191,Montreal,Hamburg, Canada, Germany,,,,1433,43,N,Barge,3062
-R192,Halifax,Antwerp, Canada, Belgium,,,,844,21,S,Dredgers,3589
-R193,New York,Le Havre, USA, France,,,,4107,78,E,Tugs,4116
-R194,Savannah,Felixstowe, USA, United Kingdom,,,,8314,22,E,Corvette,4643
-R195,Miami,Algeciras, USA, Spain,,,,2444,50,N,Reefer Vessel,5170
-R196,Houston,Santos, USA, Brazil,,,,572,26,S,Frigate,5697
-R197,New Orleans,Buenos Aires, USA, Argentina,,,,995,48,N,Offshore Ships,6224
-R198,Los Angeles,Callao, USA, Peru,,,,12271,70,N,Panamax Ship,6751
-R199,San Diego,Buenaventura, USA, Colombia,,,,554,59,N,Bulk carrier,7278
-R200,Seattle,Salina Cruz, USA, Mexico,,,,1882,49,S,Tank,7805
-R201,Prince Rupert,Yantian, Canada, China,,,,2098,163,N,Tank,8332
-R202,Everett,Qingdao, USA, China,,,,2537,165,N,Barge,8859
-R203,Wilmington,Ningbo-Zhoushan, USA, China,,,,298,167,N,Dredgers,6224
-R204,Mobile,Tianjin, USA, China,,,,341,39,S,Tugs,856
-R205,Corpus Christi,Shanghai, USA, China,,,,385,72,N,Corvette,911
-R206,Baltimore,Rotterdam, USA, Netherlands,,,,429,71,N,Reefer Vessel,686
-R207,Miami,Tanger Med, USA, Morocco,,,,473,79,S,Frigate,1026
-R208,Houston,Alexandria, USA, Egypt,,,,517,81,N,Offshore Ships,166
-R209,Callao,Jeddah, Peru, Saudi Arabia,,,,561,10,N,Panamax Ship,1136
-R210,San Antonio,Mumbai (Bombay), Chile, India,,,,7810,21,S,Bulk carrier,1187
-R211,Buenaventura,Visakhapatnam, Colombia, India,,,,5290,14,E,Tank,1267
-R212,Los Angeles,Shanghai, USA, China,,,,5360,14,E,Tugs,1297
-R213,Long Beach,Yokohama, USA, Japan,,,,4560,12,N,Corvette,500
-R214,San Francisco,Hong Kong, USA, China,,,,6220,16,S,Reefer Vessel,750
-R215,Portland,Ningbo, USA, China,,,,6050,16,N,Frigate,1000
-R216,Tacoma,Shenzhen, USA, China,,,,6190,16,N,Offshore Ships,1250
-R217,Houston,Tokyo, USA, Japan,,,,5320,14,N,Heavy Lift Ships,1500
-R218,Miami,Busan, USA, South Korea,,,,6190,16,S,Panamax Ship,1750
-R219,Shanghai,Rotterdam, China, Netherlands,,,,4660,12,N,Tanker,2000
-R220,Hong Kong,Antwerp, China, Belgium,,,,8050,22,N,Canoe,2250
-R221,Ningbo,Felixstowe, China, UK,,,,8040,21,N,Hovercraft,2500
-R222,Busan,Genoa, South Korea, Italy,,,,7450,20,S,Submarine,2750
-R223,Yokohama,Barcelona, Japan, Spain,,,,8560,23,N,Yacht,3000
-R224,Shenzhen,Le Havre, China, France,,,,7230,19,N,Sailboat,3250
-R225,Kaohsiung,Zeebrugge, Taiwan, Belgium,,,,8070,21,N,Gas carrier,3500
-R226,Qingdao,Bremerhaven, China, Germany,,,,8060,21,N,High-speed craft,3750
-R227,Tianjin,Southampton, China, UK,,,,6830,18,N,Bulk carrier,4000
-R228,New York,Rotterdam, USA, Netherlands,,,,6770,18,S,Tank,300
-R229,Charleston,Le Havre, USA, France,,,,8080,21,N,Container Shipo,600
-R230,Houston,Hamburg, USA, Germany,,,,8590,23,N,Reefer ship,900
-R231,Norfolk,Felixstowe, USA, UK,,,,7570,20,S,Project cargo ship,1200
-R232,Miami,Barcelona, USA, Spain,,,,7860,21,E,Barge,1500
-R233,Baltimore,Bremen, USA, Germany,,,,5630,15,E,Dredgers,1800
-R234,Philadelphia,Dublin, USA, Ireland,,,,5460,14,N,Tugs,2100
-R235,Boston,Cork, USA, Ireland,,,,5920,15,S,Corvette,2400
-R236,Jacksonville,Lisbon, USA, Portugal,,,,6140,16,N,Reefer Vessel,2700
-R237,Busan,Kaohsiung, South Korea, Taiwan,,,,6190,16,N,Frigate,3000
-R238,Hong Kong,Jakarta, China, Indonesia,,,,6200,16,N,Offshore Ships,427
-R239,Tokyo,Ho Chi Minh City, Japan, Vietnam,,,,6160,16,S,Heavy Lift Ships,954
-R240,Yokohama,Manila, Japan, Philippines,,,,5320,14,N,Panamax Ship,1481
-R241,Shenzhen,Bangkok, China, Thailand,,,,6190,16,N,Tanker,2008
-R242,Ningbo,Klang, China, Malaysia,,,,5320,14,N,Canoe,2535
-R243,Qingdao,Colombo, China, Sri Lanka,,,,6190,16,S,Hovercraft,3062
-R244,Tianjin,Penang, China, Malaysia,,,,4660,12,N,Submarine,3589
-R245,Dalian,Laem Chabang, China, Thailand,,,,8050,22,N,Yacht,856
-R246,Antwerp,Genoa, Belgium, Italy,,,,8040,21,S,Sailboat,911
-R247,Hamburg,Piraeus, Germany, Greece,,,,7450,20,N,Gas carrier,686
-R248,Rotterdam,Valencia, Netherlands, Spain,,,,8560,23,N,High-speed craft,1026
-R249,Le Havre,Barcelona, France, Spain,,,,7230,19,N,Livestock carrier,166
-R250,Felixstowe,Naples, UK, Italy,,,,8070,21,S,Project cargo ship,1136
-R251,Bremerhaven,Marseille, Germany, France,,,,8060,21,N,Barge,1187
-R252,Zeebrugge,Lisbon, Belgium, Portugal,,,,6830,18,N,Dredgers,1267
-R253,Southampton,Izmir, UK, Turkey,,,,6770,18,S,Tugs,1297
-R254,Gothenburg,Athens, Sweden, Greece,,,,8080,21,E,Corvette,500
-R255,Aarhus,Haifa, Denmark, Israel,,,,8590,23,E,Reefer Vessel,750
-R256,Hamburg,Durban, Germany, South Africa,,,,7570,20,N,Frigate,1000
-R257,Rotterdam,Lagos, Netherlands, Nigeria,,,,7860,21,S,Offshore Ships,1250
-R258,Antwerp,Cape Town, Belgium, South Africa,,,,5630,15,N,Panamax Ship,1500
-R259,Le Havre,Abidjan, France, Ivory Coast,,,,5460,14,N,Bulk carrier,1750
-R260,Genoa,Mombasa, Italy, Kenya,,,,5920,15,N,Tank,2000
-R261,Barcelona,Dakar, Spain, Senegal,,,,6140,16,S,Barge,2250
-R262,Marseille,Casablanca, France, Morocco,,,,6190,16,N,Dredgers,2500
-R263,Lisbon,Luanda, Portugal, Angola,,,,6200,16,N,Tugs,2750
-R264,Valencia,Alexandria, Spain, Egypt,,,,6160,16,N,Corvette,3000
-R265,Naples,Tema, Italy, Ghana,,,,5320,14,S,Reefer Vessel,3250
-R266,Jebel Ali,Mumbai, UAE, India,,,,995,48,N,Frigate,3500
-R267,Doha,Chennai, Qatar, India,,,,12271,70,S,Offshore Ships,3750
-R268,Dammam,Shanghai, Saudi Arabia, China,,,,554,59,N,Panamax Ship,4000
-R269,Muscat,Colombo, Oman, Sri Lanka,,,,1882,49,N,Bulk carrier,300
-R270,Aden,Bangkok, Yemen, Thailand,,,,2098,163,N,Tank,600
-R271,Manama,Penang, Bahrain, Malaysia,,,,2537,165,N,Tank,900
-R272,Jeddah,Jakarta, Saudi Arabia, Indonesia,,,,298,167,S,Barge,1200
-R273,Dubai,Ho Chi Minh City, UAE, Vietnam,,,,341,39,N,Dredgers,1500
-R274,Sharjah,Kaohsiung, UAE, Taiwan,,,,385,72,N,Tugs,1800
-R275,Melbourne,Hong Kong, Australia, China,,,,429,71,N,Corvette,2100
-R276,Brisbane,Tokyo, Australia, Japan,,,,473,79,N,Reefer Vessel,2400
-R277,Fremantle,Shanghai, Australia, China,,,,517,81,S,Frigate,2700
-R278,Adelaide,Klang, Australia, Malaysia,,,,561,10,N,Offshore Ships,3000
-R279,Darwin,Jakarta, Australia, Indonesia,,,,341,32,N,Panamax Ship,1398
-R280,Hobart,Busan, Australia, South Korea,,,,648,54,S,Bulk carrier,1631
-R281,Townsville,Manila, Australia, Philippines,,,,692,60,E,Tank,1864
-R282,Newcastle,Bangkok, Australia, Thailand,,,,736,78,E,Barge,2097
-R283,Cairns,Ho Chi Minh City, Australia, Vietnam,,,,298,167,N,Dredgers,2330
-R284,Hamburg,Antwerp, Germany, Belgium,,,,341,39,S,Tugs,2563
-R285,Rotterdam,Le Havre, Netherlands, France,,,,385,72,N,Corvette,2796
-R286,Felixstowe,Gothenburg, UK, Sweden,,,,429,71,N,Reefer Vessel,856
-R287,Bremerhaven,Zeebrugge, Germany, Belgium,,,,473,79,N,Frigate,911
-R288,Southampton,Rotterdam, UK, Netherlands,,,,517,81,S,Offshore Ships,686
-R289,Copenhagen,Oslo, Denmark, Norway,,,,561,10,N,Panamax Ship,1026
-R290,Helsinki,St. Petersburg, Finland, Russia,,,,341,32,N,Bulk carrier,166
-R291,Tallinn,Riga, Estonia, Latvia,,,,8060,21,N,Tank,1136
-R292,Stockholm,Helsinki, Sweden, Finland,,,,6830,18,S,Tank,1187
-R293,Gdynia,Klaipeda, Poland, Lithuania,,,,6770,18,N,Barge,1267
-R294,Los Angeles,Manzanillo, USA, Mexico,,,,8080,21,N,Dredgers,1297
-R295,Houston,Veracruz, USA, Mexico,,,,8590,23,S,Tugs,500
-R296,Miami,Cartagena, USA, Colombia,,,,7570,20,E,Corvette,750
-R297,New Orleans,Santos, USA, Brazil,,,,7860,21,E,Reefer Vessel,1000
-R298,New York,Callao, USA, Peru,,,,5630,15,N,Frigate,1250
-R299,Savannah,Buenos Aires, USA, Argentina,,,,5460,14,S,Offshore Ships,1500
-R300,Mobile,Guayaquil, USA, Ecuador,,,,5920,15,N,Panamax Ship,1750
-R301,Port Everglades,Limon, USA, Costa Rica,,,,6140,16,N,Bulk carrier,2000
-R302,San Juan,Colon, Puerto Rico, Panama,,,,6190,16,N,Tank,2250
-R303,Norfolk,Rio de Janeiro, USA, Brazil,,,,6200,16,S,Naval ship,2500
-R304,San Diego,Tokyo, USA, Japan,,,,6160,16,N,Livestock carrier,2750
-R305,Los Angeles,Busan, USA, South Korea,,,,5320,14,N,Barge,3000
-R306,Seattle,Shanghai, USA, China,,,,995,48,N,Dredgers,3250
-R307,Portland,Tokyo, USA, Japan,,,,12271,70,S,Tugs,3500
-R308,New York,Hong Kong, USA, China,0,,,554,59,N,Corvette,3750
-R309,San Francisco,Yokohama, USA, Japan,0,,,1882,49,N,Reefer Vessel,4000
-R310,Boston,Shanghai, USA, China,1,Panama Canal,,2098,163,N,Frigate,300
-R311,Miami,Ningbo, USA, China,3,"Panama Canal, Singapore",,2537,165,N,Offshore Ships,600
-R312,Charleston,Busan, USA, South Korea,1,Panama Canal,,298,167,S,Panamax Ship,900
-R313,Baltimore,Kaohsiung, USA, Taiwan,0,,,341,39,N,Bulk carrier,1200
-R314,Savannah,Shenzhen, USA, China,0,,,385,72,N,Tank,1500
-R315,Jacksonville,Hong Kong, USA, China,0,,,429,71,S,Tank,1800
-R316,Norfolk,Yokohama, USA, Japan,0,,,473,79,E,Barge,2100
-R317,Mobile,Busan, USA, South Korea,1,Panama Canal,,517,81,E,Dredgers,2400
-R318,Port Everglades,Shanghai, USA, China,2,"Panama Canal, Singapore",,561,10,N,Tugs,2700
-R319,San Juan,Kaohsiung, Puerto Rico, Taiwan,0,,,341,32,S,Corvette,3000
-R320,Houston,Shenzhen, USA, China,3,"Panama Canal, Singapore",,648,54,N,Reefer Vessel,2532
-R321,New Orleans,Hong Kong, USA, China,2,"Panama Canal, Singapore",,692,60,N,Frigate,187
-R322,Oakland,Busan, USA, South Korea,2,"Panama Canal, Singapore",,736,78,N,Offshore Ships,374
-R323,Tacoma,Shanghai, USA, China,2,"Panama Canal, Singapore",,298,167,S,Panamax Ship,561
-R324,Vancouver,Busan, Canada, South Korea,2,"Panama Canal, Singapore",,341,39,N,Bulk carrier,748
-R325,Seattle,Shenzhen, USA, China,3,"Panama Canal, Singapore",,385,72,N,Tank,935
-R326,Los Angeles,Ningbo, USA, China,2,"Panama Canal, Singapore",,429,71,N,Barge,1122
-R327,Long Beach,Kaohsiung, USA, Taiwan,0,,,473,79,S,Dredgers,1309
-R328,San Francisco,Busan, USA, South Korea,2,"Panama Canal, Singapore",,517,81,N,Tugs,1496
-R329,San Diego,Shanghai, USA, China,0,,,561,10,S,Corvette,1683
-R330,Portland,Yokohama, USA, Japan,0,,,341,32,E,Reefer Vessel,1870
-R331,Houston,Hong Kong, USA, China,2,"Panama Canal, Singapore",,8050,22,E,Frigate,856
-R332,New York,Kaohsiung, USA, Taiwan,2,"Panama Canal, Singapore",,8040,21,N,Offshore Ships,911
-R333,Boston,Busan, USA, South Korea,1,Panama Canal,,7450,20,S,Panamax Ship,938
-R334,Miami,Shanghai, USA, China,0,,,8560,23,N,Bulk carrier,1072
-R335,Charleston,Ningbo, USA, China,1,Panama Canal,,7230,19,N,Tank,1206
-R336,Savannah,Kaohsiung, USA, Taiwan,0,,,8070,21,N,Tank,1340
-R337,Baltimore,Shenzhen, USA, China,1,Panama Canal,,8060,21,S,Barge,1474
-R338,Norfolk,Shanghai, USA, China,3,"Panama Canal, Singapore",,6830,18,N,Dredgers,1608
-R339,Mobile,Hong Kong, USA, China,0,,,6770,18,N,Tugs,1742
-R340,Port Everglades,Busan, USA, South Korea,3,"Panama Canal, Singapore",,8080,21,N,Corvette,1876
-R341,San Juan,Ningbo, Puerto Rico, China,2,"Panama Canal, Singapore",,8590,23,S,Reefer Vessel,2010
-R342,Houston,Kaohsiung, USA, Taiwan,0,,,7570,20,N,Frigate,2144
-R343,New Orleans,Shenzhen, USA, China,1,Panama Canal,,7860,21,W,Offshore Ships,2278
-R344,Oakland,Shanghai, USA, China,1,Panama Canal,,5630,15,W,Panamax Ship,2412
-R345,Tacoma,Ningbo, USA, China,0,,,5460,14,N,Bulk carrier,2546
-R346,Vancouver,Shenzhen, Canada, China,2,"Panama Canal, Singapore",,5920,15,S,Tank,2680
-R347,Los Angeles,Shenzhen, USA, China,1,Panama Canal,,6140,16,E,Roll-on/roll-off,211
-R348,Long Beach,Ningbo, USA, China,0,,,6190,16,E,Naval ship,422
-R349,San Francisco,Kaohsiung, USA, Taiwan,0,,,6200,16,N,Livestock carrier,633
-R350,San Diego,Busan, USA, South Korea,2,"Panama Canal, Singapore",,6160,16,S,Canoe,844
-R351,Portland,Shanghai, USA, China,0,,,5320,14,N,Hovercraft,1055
-R352,Seattle,Yokohama, USA, Japan,0,,,4350,11,N,Submarine,1266
-R353,Los Angeles,Hong Kong, USA, China,3,"Panama Canal, Singapore",,6670,18,N,Yacht,1477
-R354,Long Beach,Busan, USA, South Korea,2,"Panama Canal, Singapore",,6030,16,S,Sailboat,1688
-R355,San Francisco,Shanghai, USA, China,3,"Panama Canal, Singapore",,5700,15,N,Gas carrier,1899
-R356,New York,Busan, USA, South Korea,1,Panama Canal,,6820,18,N,High-speed craft,2110
-R357,Boston,Hong Kong, USA, China,0,,,8030,21,N,Offshore Ships,2321
-R358,Tanger Med,Hong Kong, Morocco, China,,,,7230,19,S,Offshore Ships,2532
-R359,Gioia Tauro,Busan, Italy, South Korea,,,,8070,21,N,Heavy Lift Ships,187
-R360,Piraeus,Shanghai, Greece, China,,,,8060,21,N,Panamax Ship,374
-R361,Alexandria,Busan, Egypt, South Korea,,,,6830,18,N,Tanker,561
-R362,Port Sudan,Hong Kong, Sudan, China,,,,6770,18,S,Canoe,748
-R363,Jebel Ali,Yokohama, United Arab Emirates, Japan,,,,8080,21,N,Hovercraft,935
-R364,Mumbai (Bombay),Shanghai, India, China,,,,8590,23,N,Submarine,1122
-R365,Visakhapatnam,Busan, India, South Korea,,,,7570,20,N,Yacht,1309
-R366,Chittagong,Kaohsiung, Bangladesh, Taiwan,,,,7860,21,N,Sailboat,1496
-R367,Fremantle,Ningbo, Australia, China,,,,5630,15,S,Gas carrier,1683
-R368,Adelaide,Shenzhen, Australia, China,,,,5460,14,N,High-speed craft,1870
-R369,Perth,Shenzhen, Australia, China,,,,5920,15,N,Livestock carrier,2057
-R370,Wellington,Ningbo, New Zealand, China,,,,6140,16,S,Project cargo ship,2244
-R371,Prince Rupert,Shanghai, Canada, China,,,,6190,16,N,Barge,2431
-R372,San Pedro,Shenzhen, USA, China,,,,6200,16,N,Dredgers,233
-R373,Everett,Kaohsiung, USA, Taiwan,,,,6160,16,N,Tugs,466
-R374,Wilmington,Ningbo, USA, China,,,,5320,14,S,Corvette,699
-R375,Mobile,Busan, USA, South Korea,,,,1433,43,N,Reefer Vessel,932
-R376,Corpus Christi,Hong Kong, USA, China,,,,844,21,N,Frigate,1165
-R377,Baltimore,Shanghai, USA, China,,,,4107,78,S,Offshore Ships,1398
-R378,Miami,Shenzhen, USA, China,,,,8314,22,E,Panamax Ship,1631
-R379,Houston,Kaohsiung, USA, Taiwan,,,,2444,50,E,Bulk carrier,1864
-R380,Callao,Ningbo, Peru, China,,,,572,26,N,Tank,2097
-R381,San Antonio,Shanghai, Chile, China,,,,995,48,S,Barge,2330
-R382,Buenaventura,Busan, Colombia, South Korea,,,,12271,70,N,Dredgers,2563
-R383,Shanghai,Kaohsiung, China, Taiwan,,,,554,59,N,Tugs,2796
-R384,Singapore,Hong Kong, Singapore, China,,,,1882,49,N,Corvette,3029
-R385,Busan,Yokohama, South Korea, Japan,,,,2098,163,S,Reefer Vessel,3262
-R386,Rotterdam,Shanghai, Netherlands, China,,,,2537,165,N,Frigate,3495
-R387,Yokohama,Busan, Japan, South Korea,,,,298,167,N,Offshore Ships,3728
-R388,Ningbo-Zhoushan,Kaohsiung, China, Taiwan,,,,341,39,N,Panamax Ship,3961
-R389,Qingdao,Ningbo, China, China,,,,385,72,S,Bulk carrier,4194
-R390,Tianjin,Shenzhen, China, China,,,,429,71,N,Tank,427
-R391,Hong Kong,Busan, China, South Korea,,,,473,79,S,Tank,954
-R392,Jebel Ali,Shanghai, United Arab Emirates, China,,,,517,81,E,Barge,1481
-R393,Dubai,Busan, United Arab Emirates, South Korea,,,,561,10,E,Dredgers,2008
-R394,Port Kelang,Hong Kong, Malaysia, China,,,,7810,21,N,Tugs,2535
-R395,Tanjung Pelepas,Shenzhen, Malaysia, China,,,,5290,14,S,Corvette,3062
-R396,Jakarta,Kaohsiung, Indonesia, Taiwan,,,,5360,14,N,Reefer Vessel,3589
-R397,Bangkok,Shanghai, Thailand, China,,,,4560,12,N,Frigate,4116
-R398,Manila,Busan, Philippines, South Korea,,,,6220,16,N,Offshore Ships,4643
-R399,Kaohsiung,Yokohama, Taiwan, Japan,,,,6050,16,S,Panamax Ship,5170
-R400,Valencia,Hong Kong, Spain, China,,,,7230,19,N,Bulk carrier,5697
-R401,Barcelona,Shenzhen, Spain, China,,,,8070,21,N,Tank,6224
-R402,Santos,Kaohsiung, Brazil, Taiwan,,,,8060,21,N,Barge,6751
-R403,Gioia Tauro,Busan, Italy, South Korea,,,,6830,18,S,Dredgers,7278
-R404,Felixstowe,Ningbo, United Kingdom, China,,,,6770,18,N,Tugs,7805
-R405,Southampton,Shanghai, United Kingdom, China,,,,8080,21,S,Corvette,8332
-R406,Bremerhaven,Yokohama, Germany, Japan,,,,8590,23,N,Reefer Vessel,8859
-R407,Le Havre,Hong Kong, France, China,,,,7570,20,N,Frigate,561
-R408,Antwerp,Tokyo, Belgium, Japan,,,,7860,21,N,Offshore Ships,748
-R409,Genoa,Shanghai, Italy, China,,,,5630,15,S,Panamax Ship,935
-R410,Piraeus,Busan, Greece, South Korea,,,,5460,14,N,Bulk carrier,1122
-R411,Salalah,Tokyo, Oman, Japan,,,,5920,15,S,Tank,1309
-R412,Dammam,Rio de Janeiro, Saudi Arabia, Brazil,,,,6140,16,E,Tank,1496
-R413,Mumbai (Bombay),Colon, India, Panama,,,,6190,16,E,Barge,1683
-R414,Chennai (Madras),Limon, India, Costa Rica,,,,6200,16,N,Dredgers,1870
-R415,Colombo,Guayaquil, Sri Lanka, Ecuador,,,,6160,16,S,Tugs,2057
-R416,Kelang,Buenos Aires, Malaysia, Argentina,,,,5320,14,N,Corvette,2244
-R417,Brisbane,Callao, Australia, Peru,,,,1433,43,N,Reefer Vessel,2431
-R418,Melbourne,Santos, Australia, Brazil,,,,844,21,N,Frigate,233
-R419,Sydney,Cartagena, Australia, Colombia,,,,4107,78,S,Offshore Ships,466
-R420,Auckland,Veracruz, New Zealand, Mexico,,,,8314,22,N,Panamax Ship,699
-R421,Vancouver,Manzanillo, Canada, Mexico,,,,2444,50,N,Bulk carrier,932
-R422,Seattle,Klaipeda, USA, Lithuania,,,,572,26,N,Tank,1165
-R423,Long Beach,Helsinki, USA, Finland,,,,995,48,S,Naval ship,1398
-R424,Oakland,Riga, USA, Latvia,,,,12271,70,N,Livestock carrier,1631
-R425,Miami,St. Petersburg, USA, Russia,,,,554,59,N,Barge,1864
-R426,New Orleans,Oslo, USA, Norway,,,,1882,49,N,Dredgers,2097
-R427,Houston,Rotterdam, USA, Netherlands,,,,2098,163,N,Tugs,2330
-R428,New York,Zeebrugge, USA, Belgium,,,,2537,165,S,Corvette,2563
-R429,Savannah,Gothenburg, USA, Sweden,,,,298,167,N,Reefer Vessel,2796
-R430,Norfolk,Le Havre, USA, France,,,,341,39,S,Frigate,3029
-R431,Charleston,Antwerp, USA, Belgium,,,,385,72,E,Offshore Ships,3262
-R432,Jacksonville,Ho Chi Minh City, USA, Vietnam,,,,429,71,E,Panamax Ship,3495
-R433,Los Angeles,Bangkok, USA, Thailand,,,,473,79,N,Bulk carrier,3728
-R434,San Diego,Manila, USA, Philippines,,,,517,81,S,Tank,3961
-R435,Seattle,Busan, USA, South Korea,,,,561,10,N,Tank,4194
-R436,Tacoma,Jakarta, USA, Indonesia,,,,7810,21,N,Barge,427
-R437,Portland,Klang, USA, Malaysia,,,,5290,14,N,Dredgers,954
-R438,Oakland,Shanghai, USA, China,,,,5360,14,S,Tugs,1481
-R439,Long Beach,Tokyo, USA, Japan,,,,4560,12,N,Corvette,2008
-R440,Los Angeles,Hong Kong, USA, China,,,,6220,16,N,Reefer Vessel,2535
-R441,Vancouver,Kaohsiung, Canada, Taiwan,,,,6050,16,N,Frigate,3062
-R442,Montreal,Ho Chi Minh City, Canada, Vietnam,,,,517,81,S,Offshore Ships,3589
-R443,Halifax,Jakarta, Canada, Indonesia,,,,561,10,N,Panamax Ship,4116
-R444,Rotterdam,Penang, Netherlands, Malaysia,,,,7810,21,N,Bulk carrier,4643
-R445,Hamburg,Bangkok, Germany, Thailand,,,,5290,14,S,Tank,5170
-R446,Antwerp,Colombo, Belgium, Sri Lanka,,,,5360,14,N,Barge,5697
-R447,Bremerhaven,Shanghai, Germany, China,,,,4560,12,N,Dredgers,6224
-R448,Le Havre,Chennai, France, India,,,,6220,16,N,Tugs,6751
-R449,Sines,Mumbai, Portugal, India,,,,6050,16,S,Corvette,7278
-R450,Valencia,Tema, Spain, Ghana,,,,429,71,N,Reefer Vessel,7805
-R451,Gioia Tauro,Alexandria, Italy, Egypt,,,,473,79,S,Frigate,8332
-R452,Jeddah,Luanda, Saudi Arabia, Angola,,,,517,81,E,Offshore Ships,8859
-R453,Mumbai (Bombay),Casablanca, India, Morocco,,,,561,10,E,Panamax Ship,932
-R454,Visakhapatnam,Dakar, India, Senegal,,,,341,32,N,Bulk carrier,1165
-R455,Chittagong,Mombasa, Bangladesh, Kenya,,,,648,54,S,Tank,1398
-R456,Fremantle,Abidjan, Australia, Ivory Coast,,,,692,60,N,Tank,1631
-R457,Adelaide,Cape Town, Australia, South Africa,,,,736,78,N,Barge,1864
-R458,Perth,Lagos, Australia, Nigeria,,,,7230,19,N,Dredgers,2097
-R459,Wellington,Durban, New Zealand, South Africa,,,,8070,21,S,Tugs,2330
-R460,Prince Rupert,Haifa, Canada, Israel,,,,8060,21,N,Corvette,2563
-R461,San Pedro,Athens, USA, Greece,,,,6830,18,N,Reefer Vessel,2796
-R462,Everett,Izmir, USA, Turkey,,,,6770,18,N,Frigate,3029
-R463,Wilmington,Lisbon, USA, Portugal,,,,8080,21,S,Offshore Ships,3262
-R464,Mobile,Marseille, USA, France,,,,8590,23,N,Panamax Ship,3495
-R465,Corpus Christi,Naples, USA, Italy,,,,7570,20,N,Bulk carrier,3728
-R466,Baltimore,Barcelona, USA, Spain,,,,7860,21,N,Tank,3961
-R467,Tacoma,Valencia, USA, Spain,,,,5630,15,S,Roll-on/roll-off,4194
-R468,Everett,Piraeus, USA, Greece,,,,5460,14,N,Naval ship,427
-R469,Seattle,Genoa, USA, Italy,,,,5920,15,N,Livestock carrier,954
-R470,Portland,Laem Chabang, USA, Thailand,,,,6140,16,N,Offshore Ships,1481
-R471,Montreal,Penang, Canada, Malaysia,,,,6190,16,S,Heavy Lift Ships,2008
-R472,Halifax,Colombo, Canada, Sri Lanka,,,,6200,16,N,Panamax Ship,2535
-R473,Felixstowe,Klang, United Kingdom, Malaysia,,,,6200,16,S,Tanker,3062
-R474,Southampton,Bangkok, United Kingdom, Thailand,,,,6160,16,E,Canoe,3589
-R475,Tilbury,Manila, United Kingdom, Philippines,,,,5320,14,E,Hovercraft,4116
-R476,Liverpool,Ho Chi Minh City, United Kingdom, Vietnam,,,,1433,43,N,Submarine,4643
-R477,Dunkerque,Jakarta, France, Indonesia,,,,844,21,S,Yacht,5170
-R478,Algeciras,Kaohsiung, Spain, Taiwan,,,,4107,78,N,Sailboat,5697
-R479,Tanger Med,Lisbon, Morocco, Portugal,,,,8314,22,N,Gas carrier,6224
-R480,Alexandria,Cork, Egypt, Ireland,,,,2444,50,N,High-speed craft,6751
-R481,Port Sudan,Dublin, Sudan, Ireland,,,,572,26,S,Livestock carrier,7278
-R482,Jebel Ali,Bremen, United Arab Emirates, Germany,,,,995,48,N,Project cargo ship,7805
-R483,Chennai (Madras),Barcelona, India, Spain,,,,12271,70,N,Barge,8332
-R484,Singapore,Felixstowe, Singapore, UK,,,,554,59,N,Dredgers,8859
-R485,Melbourne,Hamburg, Australia, Germany,,,,1882,49,S,Tugs,932
-R486,Perth,Le Havre, Australia, France,,,,2098,163,N,Corvette,1165
-R487,Auckland,Rotterdam, New Zealand, Netherlands,,,,2537,165,S,Reefer Vessel,1398
-R488,Incheon,Southampton, South Korea, UK,,,,298,167,E,Frigate,1631
-R489,Yokohama,Bremerhaven, Japan, Germany,,,,341,39,E,Offshore Ships,1864
-R490,Kaohsiung,Zeebrugge, Taiwan, Belgium,,,,385,72,N,Panamax Ship,2097
-R491,Santos,Le Havre, Brazil, France,,,,429,71,S,Bulk carrier,2330
-R492,Progreso,Barcelona, Mexico, Spain,,,,473,79,N,Tank,2563
-R493,Altamira,Genoa, Mexico, Italy,,,,517,81,N,Barge,2796
-R494,Bremerhaven,Felixstowe, Germany, UK,,,,561,10,N,Dredgers,3029
-R495,Cartagena,Antwerp, Colombia, Belgium,,,,7810,21,S,Tugs,3262
-R496,Callao,Rotterdam, Peru, Netherlands,,,,5290,14,N,Corvette,3495
-R497,San Antonio,Busan, Chile, South Korea,,,,5360,14,N,Reefer Vessel,3728
-R498,Buenaventura,Tokyo, Colombia, Japan,,,,4560,12,N,Frigate,3961
-R499,Santos,Shenzhen, Brazil, China,,,,6220,16,S,Offshore Ships,4194
-R500,Buenos Aires,Ningbo, Argentina, China,,,,6050,16,N,Panamax Ship,427
-R501,Rio Grande,Hong Kong, Brazil, China,,,,429,71,E,Bulk carrier,954
-R502,Itaguai,Yokohama, Brazil, Japan,,,,473,79,N,Tank,1481
-R503,Manaus,Shanghai, Brazil, China,,,,517,81,S,Tank,2008
-R504,Santos,Visakhapatnam, Brazil, India,,,,561,10,N,Barge,2535
-R505,Salina Cruz,Mumbai (Bombay), Mexico, India,,,,341,32,N,Dredgers,3062
-R506,Incheon,Jeddah, South Korea, Saudi Arabia,,,,648,54,N,Tugs,3589
-R507,Keelung,Alexandria, Taiwan, Egypt,,,,692,60,S,Corvette,4116
-R508,Yantian,Tanger Med, China, Morocco,,,,736,78,N,Reefer Vessel,4643
-R509,Qingdao,Rotterdam, China, Netherlands,,,,7230,19,N,Frigate,5170
-R510,Ningbo-Zhoushan,Shanghai, China, China,,,,8070,21,S,Offshore Ships,5697
-R511,Tianjin,Tianjin, China, China,,,,8060,21,E,Panamax Ship,6224
-R512,Shanghai,Ningbo-Zhoushan, China, China,,,,6830,18,E,Bulk carrier,6751
-R513,Antwerp,Qingdao, Belgium, China,,,,6770,18,N,Tank,7278
-R514,Southampton,Yantian, United Kingdom, China,,,,8080,21,S,Barge,7805
-R515,Dunkerque,Salina Cruz, France, Mexico,,,,8590,23,N,Dredgers,8332
-R516,Algeciras,Buenaventura, Spain, Colombia,,,,7570,20,N,Tugs,8859
-R517,Gioia Tauro,Callao, Italy, Peru,,,,7860,21,N,Corvette,633
-R518,Piraeus,Buenos Aires, Greece, Argentina,,,,5630,15,S,Reefer Vessel,844
-R519,Jeddah,Santos, Saudi Arabia, Brazil,,,,5460,14,N,Frigate,1055
-R520,Mumbai (Bombay),Algeciras, India, Spain,,,,5920,15,N,Offshore Ships,1266
-R521,Wellington,Felixstowe, New Zealand, United Kingdom,,,,6140,16,N,Panamax Ship,1477
-R522,Durban,Le Havre, South Africa, France,,,,6190,16,S,Bulk carrier,1688
-R523,Lagos,Antwerp, Nigeria, Belgium,,,,6200,16,N,Tank,1899
-R524,Abidjan,Hamburg, Ivory Coast, Germany,,,,8314,22,N,Tank,2110
-R525,Tangier,Incheon, Morocco, South Korea,,,,2444,50,N,Barge,2321
-R526,Alexandria,Los Angeles, Egypt, USA,,,,572,26,N,Dredgers,2532
-R527,Ashdod,Brisbane, Israel, Australia,,,,995,48,S,Tugs,187
-R528,Jeddah,Port Moresby, Saudi Arabia, Papua New Guinea,,,,12271,70,E,Corvette,374
-R529,Dubai,Dalian, United Arab Emirates, China,,,,554,59,E,Reefer Vessel,561
-R530,Mundra,Subic Bay, India, Philippines,,,,1882,49,N,Frigate,748
-R531,Colombo,Port Klang, Sri Lanka, Malaysia,,,,2098,163,S,Offshore Ships,935
-R532,Yangon,Singapore, Myanmar, Singapore,,,,2537,165,N,Panamax Ship,1122
-R533,Da Nang,Los Angeles, Vietnam, USA,,,,298,167,N,Bulk carrier,1309
-R534,Shenzhen,Seattle, China, USA,,,,341,39,N,Tank,1496
-R535,Busan,Long Beach, South Korea, USA,,,,385,72,S,Naval ship,1683
-R536,Tokyo,Oakland, Japan, USA,,,,429,71,N,Livestock carrier,1870
-R537,Osaka,Vladivostok, Japan, Russia,,,,473,79,N,Barge,2057
-R538,Keelung,Kaohsiung, Taiwan, Taiwan,,,,517,81,N,Dredgers,2244
-R539,Manila,Hong Kong, Philippines, China,,,,561,10,S,Tugs,2431
-R540,Ho Chi Minh City,Port Kelang, Vietnam, Malaysia,,,,7810,21,N,Corvette,233
-R541,Belawan,Chennai (Madras), Indonesia, India,,,,5290,14,E,Reefer Vessel,466
-R542,Semarang,Chittagong, Indonesia, Bangladesh,,,,5360,14,E,Frigate,699
-R543,Darwin,Mumbai (Bombay), Australia, India,,,,4560,12,N,Offshore Ships,932
-R544,Cairns,Aqaba, Australia, Jordan,,,,6220,16,S,Panamax Ship,1165
-R545,Noumea,Piraeus, New Caledonia, Greece,,,,6050,16,N,Bulk carrier,1398
-R546,Auckland,Izmir, New Zealand, Turkey,,,,429,71,N,Tank,1631
-R547,Vancouver,Genoa, Canada, Italy,,,,473,79,N,Tank,1864
-R548,Montreal,Dakar, Canada, Senegal,,,,517,81,S,Barge,2097
-R549,Halifax,Tema, Canada, Ghana,,,,561,10,N,Dredgers,2330
-R550,New York,Maputo, USA, Mozambique,,,,341,32,N,Tugs,2563
-R551,Savannah,Auckland, USA, New Zealand,,,,648,54,N,Corvette,2796
-R552,Miami,Salalah, USA, Oman,,,,692,60,S,Reefer Vessel,3029
-R553,Houston,Jebel Ali, USA, United Arab Emirates,,,,736,78,N,Frigate,3262
-R554,New Orleans,Port Sudan, USA, Sudan,,,,7230,19,N,Offshore Ships,3495
-R555,Los Angeles,Alexandria, USA, Egypt,,,,8070,21,S,Panamax Ship,3728
-R556,San Diego,Sines, USA, Portugal,,,,8060,21,E,Bulk carrier,3961
-R557,Seattle,Le Havre, USA, France,,,,6830,18,E,Tank,4194
-R558,Prince Rupert,Halifax, Canada, Canada,,,,6770,18,N,Barge,427
-R559,Everett,Montreal, USA, Canada,,,,8080,21,S,Dredgers,954
-R560,Wilmington,Vancouver, USA, Canada,,,,8590,23,N,Tugs,1481
-R561,Mobile,Los Angeles, USA, USA,,,,7570,20,N,Corvette,2008
-R562,Corpus Christi,Long Beach, USA, USA,,,,7860,21,N,Reefer Vessel,2535
-R563,Baltimore,Oakland, USA, USA,,,,5630,15,S,Frigate,3062
-R564,Miami,Portland, USA, USA,,,,5460,14,N,Offshore Ships,3589
-R565,Houston,Everett, USA, USA,,,,5920,15,N,Panamax Ship,4116
-R566,Callao,Tacoma, Peru, USA,,,,6140,16,N,Bulk carrier,4643
-R567,San Antonio,San Diego, Chile, USA,,,,6190,16,S,Tank,5170
-R568,Buenaventura,Los Angeles, Colombia, USA,,,,6200,16,N,Tank,5697
-R569,Los Angeles,Jacksonville, USA, USA,,,,6200,16,S,Barge,6224
-R570,Long Beach,Charleston, USA, USA,,,,6160,16,N,Dredgers,6751
-R571,San Francisco,Norfolk, USA, USA,,,,5320,14,N,Tugs,7278
-R572,Portland,Savannah, USA, USA,,,,1433,43,N,Corvette,7805
-R573,Tacoma,New Orleans, USA, USA,,,,844,21,S,Reefer Vessel,8332
-R574,Houston,Oakland, USA, USA,,,,4107,78,N,Frigate,8859
-R575,Miami,Los Angeles, USA, USA,,,,8314,22,S,Offshore Ships,3250
-R576,Shanghai,Houston, China, USA,,,,2444,50,N,Panamax Ship,3500
-R577,Hong Kong,Miami, China, USA,,,,572,26,N,Bulk carrier,3750
-R578,Ningbo,Baltimore, China, USA,,,,995,48,N,Offshore Ships,4000
-R579,Busan,Corpus Christi, South Korea, USA,,,,12271,70,S,Heavy Lift Ships,300
-R580,Yokohama,Mobile, Japan, USA,,,,554,59,N,Panamax Ship,600
-R581,Shenzhen,Wilmington, China, USA,,,,1882,49,N,Tanker,900
-R582,Kaohsiung,Everett, Taiwan, USA,,,,2098,163,N,Canoe,1200
-R583,Qingdao,San Pedro, China, USA,,,,2537,165,S,Hovercraft,1500
-R584,Tianjin,Prince Rupert, China, Canada,,,,298,167,N,Submarine,1800
-R585,New York,Fremantle, USA, Australia,,,,341,39,S,Yacht,2100
-R586,Charleston,Brisbane, USA, Australia,,,,385,72,N,Sailboat,2400
-R587,Houston,Adelaide, USA, Australia,,,,429,71,N,Gas carrier,2700
-R588,Norfolk,Fremantle, USA, Australia,,,,473,79,N,High-speed craft,3000
-R589,Miami,Visakhapatnam, USA, India,,,,517,81,S,Livestock carrier,3300
-R590,Baltimore,Mumbai (Bombay), USA, India,,,,561,10,N,Project cargo ship,3600
-R591,Philadelphia,Jeddah, USA, Saudi Arabia,,,,7810,21,S,Barge,3900
-R592,Boston,Salalah, USA, Oman,,,,5290,14,N,Dredgers,200
-R593,Jacksonville,Piraeus, USA, Greece,,,,5360,14,W,Tugs,600
-R594,Busan,Gioia Tauro, South Korea, Italy,,,,4560,12,E,Corvette,1000
-R595,Hong Kong,Valencia, China, Spain,,,,6220,16,N,Reefer Vessel,1400
-R596,Tokyo,Sines, Japan, Portugal,,,,6050,16,W,Frigate,1800
-R597,Yokohama,Dunkerque, Japan, France,,,,429,71,N,Offshore Ships,2200
-R598,Shenzhen,Le Havre, China, France,,,,473,79,W,Panamax Ship,2600
-R599,Ningbo,Antwerp, China, Belgium,,,,517,81,E,Bulk carrier,3000
-R600,Qingdao,Hamburg, China, Germany,,,,561,10,N,Tank,3400
-R601,Tianjin,Rotterdam, China, Netherlands,,,,341,32,W,Barge,3800
-R602,Dalian,Tianjin, China, China,,,,648,54,E,Dredgers,4200
-R603,Antwerp,Qingdao, Belgium, China,,,,692,60,N,Tugs,280
-R604,Hamburg,Ningbo-Zhoushan, Germany, China,,,,736,78,N,Corvette,560
-R605,Rotterdam,Yokohama, Netherlands, Japan,,,,7230,19,S,Reefer Vessel,840
-R606,Le Havre,Bremerhaven, France, Germany,,,,8070,21,N,Frigate,1120
-R607,Felixstowe,Altamira, UK, Mexico,,,,8060,21,S,Offshore Ships,1400
-R608,Bremerhaven,Progreso, Germany, Mexico,,,,6830,18,N,Panamax Ship,1680
-R609,Zeebrugge,Santos, Belgium, Brazil,,,,6770,18,N,Bulk carrier,1960
-R610,Southampton,Kaohsiung, UK, Taiwan,,,,8080,21,W,Tank,2240
-R611,Gothenburg,Yokohama, Sweden, Japan,,,,8590,23,E,Tank,2520
-R612,Aarhus,Incheon, Denmark, South Korea,,,,7570,20,N,Barge,2800
-R613,Hamburg,Melbourne, Germany, Australia,,,,7860,21,W,Dredgers,3080
-R614,Rotterdam,Singapore, Netherlands, Singapore,,,,5630,15,E,Tugs,3360
-R615,Antwerp,Melbourne, Belgium, Australia,,,,5460,14,N,Corvette,3640
-R616,Le Havre,Singapore, France, Singapore,,,,5920,15,W,Reefer Vessel,134
-R617,Genoa,Colombo, Italy, Sri Lanka,,,,6140,16,N,Frigate,268
-R618,Barcelona,Chennai (Madras), Spain, India,,,,6190,16,W,Offshore Ships,402
-R619,Marseille,Jebel Ali, France, United Arab Emirates,,,,6200,16,E,Panamax Ship,536
-R620,Lisbon,Port Sudan, Portugal, Sudan,,,,8080,21,N,Bulk carrier,670
-R621,Valencia,Valencia, Spain, Spain,,,,8590,23,W,Tank,804
-R622,Naples,Tanger Med, Italy, Morocco,,,,7570,20,E,Barge,938
-R623,Jebel Ali,Algeciras, UAE, Spain,,,,7860,21,N,Dredgers,1072
-R624,Doha,Dunkerque, Qatar, France,,,,5630,15,W,Tugs,1206
-R625,Dammam,Liverpool, Saudi Arabia, United Kingdom,,,,5460,14,N,Corvette,1340
-R626,Muscat,Tilbury, Oman, United Kingdom,,,,5920,15,W,Reefer Vessel,1474
-R627,Aden,Southampton, Yemen, United Kingdom,,,,6140,16,E,Frigate,1608
-R628,Manama,Felixstowe, Bahrain, United Kingdom,,,,6190,16,N,Offshore Ships,1742
-R629,Jeddah,Southampton, Saudi Arabia, United Kingdom,,,,6200,16,W,Panamax Ship,1876
-R630,Dubai,Antwerp, UAE, Belgium,,,,6200,16,E,Bulk carrier,2010
-R631,Sharjah,Shanghai, UAE, China,,,,6160,16,N,Tank,2144
-R632,Melbourne,Tianjin, Australia, China,,,,5320,14,W,Tank,2278
-R633,Brisbane,Ningbo-Zhoushan, Australia, China,,,,1433,43,W,Barge,2412
-R634,Fremantle,Qingdao, Australia, China,,,,844,21,E,Dredgers,2546
-R635,Adelaide,Yantian, Australia, China,,,,4107,78,N,Tugs,2680
-R636,Darwin,Keelung, Australia, Taiwan,,,,8314,22,W,Corvette,211
-R637,Hobart,Incheon, Australia, South Korea,,,,2444,50,E,Reefer Vessel,422
-R638,Townsville,Ensenada, Australia, Mexico,,,,572,26,N,Frigate,633
-R639,Newcastle,Yokohama, Australia, Japan,,,,995,48,W,Offshore Ships,844
-R640,Cairns,Valencia, Australia, Spain,,,,12271,70,E,Panamax Ship,1055
-R641,Hamburg,Hamburg, Germany, Germany,,,,554,59,N,Bulk carrier,1266
-R642,Rotterdam,Rotterdam, Netherlands, Netherlands,,,,1882,49,W,Tank,1477
-R643,Felixstowe,Antwerp, UK, Belgium,,,,2098,163,E,Naval ship,1688
-R644,Bremerhaven,Bremerhaven, Germany, Germany,,,,2537,165,N,Livestock carrier,1899
-R645,Southampton,Altamira, UK, Mexico,,,,298,167,W,Barge,2110
-R646,Copenhagen,Progreso, Denmark, Mexico,,,,341,39,N,Dredgers,2321
-R647,Helsinki,Santos, Finland, Brazil,,,,385,72,W,Tugs,2532
-R648,Tallinn,Kaohsiung, Estonia, Taiwan,,,,429,71,E,Offshore Ships,187
-R649,Stockholm,Hong Kong, Sweden, China,,,,473,79,N,Heavy Lift Ships,374
-R650,Gdynia,Busan, Poland, South Korea,,,,517,81,W,Panamax Ship,561
-R651,Los Angeles,Yokohama, USA, Japan,,,,561,10,E,Tanker,748
-R652,Houston,Brisbane, USA, Australia,,,,7810,21,N,Canoe,935
-R653,Miami,Long Beach, USA, USA,,,,5290,14,,Hovercraft,1122
-R654,New Orleans,Shanghai, USA, China,,,,5360,14,,Submarine,1309
-R655,New York,Singapore, USA, Singapore,,,,4560,12,W,Yacht,1496
-R656,Savannah,Jakarta, USA, Indonesia,,,,6220,16,E,Sailboat,1683
-R657,Mobile,Chittagong, USA, Bangladesh,,,,6050,16,N,Gas carrier,1870
-R658,Port Everglades,Colombo, USA, Sri Lanka,,,,429,71,E,High-speed craft,2057
-R659,San Juan,Singapore, Puerto Rico, Singapore,,,,473,79,E,Livestock carrier,2244
-R660,Norfolk,Jeddah, USA, Saudi Arabia,,,,517,81,N,Project cargo ship,2431
-R661,San Diego,Jebel Ali, USA, United Arab Emirates,,,,561,10,E,Barge,233
-R662,Los Angeles,Alexandria, USA, Egypt,,,,5630,15,E,Dredgers,466
-R663,Seattle,Barcelona, USA, Spain,,,,5460,14,N,Tugs,699
-R664,Portland,Hamburg, USA, Germany,,,,5920,15,E,Corvette,932
-R665,New York,Singapore, USA, Singapore,,,,6140,16,E,Reefer Vessel,1165
-R666,San Francisco,New York, USA, USA,,,,6190,16,N,Frigate,1398
-R667,Boston,Algeciras, USA, Spain,,,,6200,16,E,Offshore Ships,1631
-R668,Miami,Rotterdam, USA, Netherlands,,,,6160,16,E,Panamax Ship,1864
-R669,Charleston,Piraeus, USA, Greece,,,,5320,14,N,Bulk carrier,2097
-R670,Baltimore,Ningbo-Zhoushan, USA, China,,,,1433,43,E,Tank,2330
-R671,Savannah,Algeciras, USA, Spain,,,,844,21,W,Barge,2563
-R672,Jacksonville,Genoa, USA, Italy,,,,4107,78,E,Dredgers,2796
-R673,Norfolk,Los Angeles, USA, USA,,,,8314,22,N,Tugs,3029
-R674,Mobile,Yokohama, USA, Japan,,,,2444,50,N,Corvette,3262
-R675,Port Everglades,Haiphong, USA, Vietnam,,,,572,26,E,Reefer Vessel,3495
-R676,San Juan,Shenzhen, Puerto Rico, China,,,,995,48,E,Frigate,3728
-R677,Houston,Los Angeles, USA, USA,,,,12271,70,N,Offshore Ships,3961
-R678,New Orleans,Colombo, USA, Sri Lanka,,,,554,59,E,Panamax Ship,4194
-R679,Oakland,Singapore, USA, Singapore,,,,1882,49,E,Bulk carrier,427
-R680,Tacoma,Algeciras, USA, Spain,,,,2098,163,N,Tank,954
-R681,Vancouver,Kaohsiung, Canada, Taiwan,,,,2537,165,E,Tank,1481
-R682,Seattle,Tanjung Pelepas, USA, Malaysia,,,,298,167,E,Barge,2008
-R683,Los Angeles,Tokyo, USA, Japan,,,,341,39,N,Dredgers,2535
-R684,Long Beach,New York, USA, USA,,,,385,72,E,Tugs,3062
-R685,San Francisco,Shenzhen, USA, China,,,,429,71,W,Corvette,3589
-R686,San Diego,Hamburg, USA, Germany,,,,473,79,E,Reefer Vessel,4116
-R687,Portland,Long Beach, USA, USA,,,,517,81,N,Frigate,4643
-R688,Houston,Rotterdam, USA, Netherlands,,,,561,10,N,Offshore Ships,5170
-R689,New York,Los Angeles, USA, USA,,,,7810,21,E,Panamax Ship,5697
-R690,Boston,Wilmington, USA, USA,,,,5290,14,E,Bulk carrier,6224
-R691,Miami,Everett, USA, USA,,,,5360,14,N,Tank,6751
-R692,Charleston,San Pedro, USA, USA,,,,4560,12,E,Barge,7278
-R693,Savannah,Prince Rupert, USA, Canada,,,,6220,16,E,Dredgers,7805
-R694,Baltimore,Wellington, USA, New Zealand,,,,6050,16,N,Tugs,8332
-R695,Norfolk,Perth, USA, Australia,,,,517,81,E,Corvette,8859
-R696,Mobile,Adelaide, USA, Australia,,,,561,10,E,Reefer Vessel,9386
-R697,Port Everglades,Fremantle, USA, Australia,,,,7810,21,N,Frigate,9913
-R698,San Juan,Chittagong, Puerto Rico, Bangladesh,,,,5290,14,E,Offshore Ships,10440
-R699,Houston,Visakhapatnam, USA, India,,,,5360,14,W,Panamax Ship,10967
-R700,New Orleans,Mumbai (Bombay), USA, India,,,,4560,12,E,Bulk carrier,11494
-R701,Oakland,Jebel Ali, USA, United Arab Emirates,,,,6220,16,N,Tank,12021
-R702,Tacoma,Port Sudan, USA, Sudan,,,,6050,16,N,Tank,12548
-R703,Vancouver,Alexandria, Canada, Egypt,,,,429,71,E,Barge,13075
-R704,Los Angeles,Piraeus, USA, Greece,,,,473,79,E,Dredgers,13602
-R705,Long Beach,Gioia Tauro, USA, Italy,,,,517,81,N,Tugs,14129
-R706,San Francisco,Algeciras, USA, Spain,,,,561,10,E,Corvette,14656
-R707,San Diego,Valencia, USA, Spain,,,,341,32,E,Reefer Vessel,15183
-R708,Portland,Sines, USA, Portugal,,,,648,54,N,Frigate,15710
-R709,Seattle,Dunkerque, USA, France,,,,692,60,E,Offshore Ships,16237
-R710,Los Angeles,Le Havre, USA, France,,,,736,78,N,Panamax Ship,16764
-R711,Long Beach,Bremerhaven, USA, Germany,,,,7230,19,E,Bulk carrier,17291
-R712,San Francisco,Hamburg, USA, Belgium,,,,8070,21,W,Tank,17818
-R713,New York,Hamburg, USA, Germany,,,,8060,21,E,Naval ship,18345
-R714,Boston,Rotterdam, USA, Netherlands,,,,6830,18,N,Livestock carrier,18872
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
+Port of Valencia,",,1433,43,N,Corvette,758,133,59
+R010,Fremantle,Gioia Tauro, Australia, Italy,,,,844,21,S,Reefer Vessel,3500,137,14
+R011,Adelaide,Piraeus, Australia, Greece,,,,4107,78,N,Frigate,1531,156,38
+R012,Perth,Alexandria, Australia, Egypt,,,,8314,22,E,Offshore Ships,2215,153,25
+R013,Wellington,Port Sudan, New Zealand, Sudan,,,,2444,50,N,Heavy Lift Ships,1424,154,39
+R014,Prince Rupert,Jebel Ali, Canada, United Arab Emirates,,,,572,26,S,Panamax Ship,2750,150,21
+R015,San Pedro,Mumbai (Bombay), USA, India,,,,995,48,E,Tanker,2525,132,18
+R016,Everett,Visakhapatnam, USA, India,,,,12271,70,E,Canoe,1219,169,50
+R017,Wilmington,Chittagong, USA, Bangladesh,,,,554,59,N,Hovercraft,1662,151,34
+R018,Mobile,Fremantle, USA, Australia,,,,1882,49,S,Submarine,1209,154,48
+R019,Corpus Christi,Adelaide, USA, Australia,,,,2098,163,N,Yacht,2833,123,17
+R020,Baltimore,Perth, USA, Australia,,,,2537,165,E,Sailboat,3143,142,17
+R021,Miami,Wellington, USA, New Zealand,,,,298,167,N,Gas carrier,3481,136,14
+R022,Houston,Prince Rupert, USA, Canada,,,,341,39,S,High-speed craft,2181,147,25
+R023,Callao,San Pedro, Peru, USA,,,,385,72,E,Passenger ship,692,139,74
+R024,San Antonio,Everett, Chile, USA,,,,429,71,E,Roll-on/roll-off,2522,164,24
+R025,Buenaventura,Wilmington, Colombia, USA,,,,473,79,N,Naval ship,2248,153,25
+R026,Shanghai,Los Angeles, China, USA,,,,517,81,S,Livestock carrier,1349,142,39
+R027,Singapore,Rotterdam, Singapore, Netherlands,,,,561,10,N,Bulk carrier,2884,138,18
+R028,Busan,Long Beach, South Korea, USA,,,,341,32,N,Tank,785,141,65
+R029,Rotterdam,Hamburg, Netherlands, Germany,,,,648,54,S,Container Shipo,3126,147,17
+R030,Yokohama,Shenzhen, Japan, China,,,,692,60,E,Reefer ship,701,152,76
+R031,Ningbo-Zhoushan,New York, China, USA,,,,736,78,E,Project cargo ship,2351,144,23
+R032,Qingdao,Tokyo, China, Japan,,,,7230,19,N,Barge,2443,140,21
+R033,Tianjin,Tanjung Pelepas, China, Malaysia,,,,8070,21,S,Dredgers,743,134,61
+R034,Hong Kong,Kaohsiung, China, Taiwan,,,,8060,21,N,Tugs,2467,136,19
+R035,Jebel Ali,Algeciras, United Arab Emirates, Spain,,,,6830,18,N,Corvette,2374,141,21
+R036,Dubai,Singapore, United Arab Emirates, Singapore,,,,6770,18,N,Reefer Vessel,2724,126,17
+R037,Port Kelang,Colombo, Malaysia, Sri Lanka,,,,8080,21,S,Frigate,3062,130,15
+R038,Tanjung Pelepas,Los Angeles, Malaysia, USA,,,,8590,23,N,Offshore Ships,2954,140,18
+R039,Jakarta,Shenzhen, Indonesia, China,,,,7570,20,N,Heavy Lift Ships,1968,147,29
+R040,Bangkok,Haiphong, Thailand, Vietnam,,,,7860,21,N,Panamax Ship,2785,149,19
+R041,Manila,Yokohama, Philippines, Japan,,,,5630,15,S,Tanker,1266,156,46
+R042,Kaohsiung,Los Angeles, Taiwan, USA,,,,5460,14,N,Canoe,1547,157,39
+R043,Valencia,Genoa, Spain, Italy,,,,5920,15,N,Hovercraft,1534,144,35
+R044,Barcelona,Algeciras, Spain, Spain,,,,6140,16,S,Submarine,2129,117,20
+R045,Santos,Ningbo-Zhoushan, Brazil, China,,,,6190,16,E,Yacht,602,161,98
+R046,Gioia Tauro,Piraeus, Italy, Greece,,,,6200,16,E,Sailboat,562,158,100
+R047,Felixstowe,Rotterdam, United Kingdom, Netherlands,,,,6160,16,N,Gas carrier,1484,137,34
+R048,Southampton,Algeciras, United Kingdom, Spain,,,,5320,14,S,High-speed craft,2622,143,20
+R049,Bremerhaven,New York, Germany, USA,,,,1433,43,N,Tank,3072,141,16
+R050,Le Havre,Singapore, France, Singapore,,,,844,21,N,Container Shipo,884,147,59
+R051,Antwerp,Hamburg, Belgium, Germany,,,,4107,78,N,Reefer ship,2169,164,28
+R052,Genoa,Barcelona, Italy, Spain,,,,8314,22,S,Reefer ship,2710,135,18
+R053,Piraeus,Alexandria, Greece, Egypt,,,,2444,50,N,Project cargo ship,2149,150,25
+R054,Salalah,Jebel Ali, Oman, United Arab Emirates,,,,572,26,N,Barge,3058,144,17
+R055,Dammam,Jeddah, Saudi Arabia, Saudi Arabia,,,,995,48,N,Dredgers,3191,157,19
+R056,Mumbai (Bombay),Singapore, India, Singapore,,,,12271,70,S,Tugs,2940,154,20
+R057,Chennai (Madras),Colombo, India, Sri Lanka,,,,554,59,N,Corvette,2424,171,26
+R058,Colombo,Chittagong, Sri Lanka, Bangladesh,,,,1882,49,N,Reefer Vessel,2190,117,20
+R059,Kelang,Jakarta, Malaysia, Indonesia,,,,2098,163,S,Frigate,1911,139,27
+R060,Brisbane,Singapore, Australia, Singapore,,,,2537,165,E,Offshore Ships,2931,155,19
+R061,Melbourne,Shanghai, Australia, China,,,,298,167,E,Panamax Ship,2125,170,28
+R062,Sydney,Long Beach, Australia, USA,,,,341,39,N,Bulk carrier,1310,161,41
+R063,Auckland,Brisbane, New Zealand, Australia,,,,385,72,S,Tank,1385,139,36
+R064,Vancouver,Yokohama, Canada, Japan,,,,429,71,N,Container Shipo,2408,133,21
+R065,Seattle,Busan, USA, South Korea,,,,473,79,N,Reefer ship,650,129,76
+R066,Long Beach,Hong Kong, USA, China,,,,517,81,N,Project cargo ship,3352,132,14
+R067,Oakland,Kaohsiung, USA, Taiwan,,,,561,10,S,Barge,2717,145,20
+R068,Miami,Santos, USA, Brazil,,,,7810,21,N,Dredgers,822,128,56
+R069,New Orleans,Progreso, USA, Mexico,,,,5290,14,N,Tugs,937,135,55
+R070,Houston,Altamira, USA, Mexico,,,,5360,14,N,Corvette,2310,157,27
+R071,New York,Bremerhaven, USA, Germany,,,,4560,12,S,Reefer Vessel,1512,121,28
+R072,Savannah,Antwerp, USA, Belgium,,,,6220,16,N,Frigate,2342,136,21
+R073,Norfolk,Rotterdam, USA, Netherlands,,,,6050,16,N,Offshore Ships,1865,129,24
+R074,Charleston,Hamburg, USA, Germany,,,,2537,165,N,Heavy Lift Ships,2709,122,16
+R075,Jacksonville,Valencia, USA, Spain,,,,298,167,S,Panamax Ship,1821,139,30
+R076,Los Angeles,Yokohama, USA, Japan,,,,341,39,E,Tanker,2699,147,20
+R077,San Diego,Ensenada, USA, Mexico,,,,385,72,E,Canoe,2017,152,26
+R078,Seattle,Incheon, USA, South Korea,,,,429,71,N,Hovercraft,2679,130,18
+R079,Tacoma,Keelung, USA, Taiwan,,,,473,79,S,Submarine,3208,130,15
+R080,Portland,Yantian, USA, China,,,,517,81,N,Yacht,2422,160,23
+R081,Oakland,Qingdao, USA, China,,,,561,10,N,Sailboat,659,126,71
+R082,Long Beach,Ningbo-Zhoushan, USA, China,,,,341,32,N,Gas carrier,1883,144,29
+R083,Los Angeles,Tianjin, USA, China,,,,648,54,S,High-speed craft,801,139,65
+R084,Vancouver,Shanghai, Canada, China,,,,692,60,N,High-speed craft,2844,154,19
+R085,Montreal,Antwerp, Canada, Belgium,,,,736,78,N,Bulk carrier,510,146,98
+R086,Halifax,Southampton, Canada, United Kingdom,,,,298,167,N,Tank,2420,132,21
+R087,Rotterdam,Felixstowe, Netherlands, United Kingdom,,,,341,39,S,Container Shipo,567,134,88
+R088,Hamburg,Southampton, Germany, United Kingdom,,,,385,72,N,Reefer ship,1796,158,32
+R089,Antwerp,Tilbury, Belgium, United Kingdom,,,,429,71,N,Project cargo ship,2756,125,16
+R090,Bremerhaven,Liverpool, Germany, United Kingdom,,,,473,79,S,Barge,2077,125,22
+R091,Le Havre,Dunkerque, France, France,,,,517,81,E,Dredgers,657,131,77
+R092,Sines,Algeciras, Portugal, Spain,,,,561,10,E,Tugs,2793,157,20
+R093,Valencia,Tanger Med, Spain, Morocco,,,,341,32,N,Corvette,3436,137,14
+R094,Gioia Tauro,Valencia, Italy, Spain,,,,648,54,S,Reefer Vessel,1721,124,27
+R095,Jeddah,Port Sudan, Saudi Arabia, Sudan,,,,692,60,N,Frigate,1617,137,32
+R096,Mumbai (Bombay),Jebel Ali, India, United Arab Emirates,,,,736,78,N,Offshore Ships,969,140,55
+R097,Visakhapatnam,Chennai (Madras), India, India,,,,995,48,N,Heavy Lift Ships,3019,129,16
+R098,Chittagong,Colombo, Bangladesh, Sri Lanka,,,,12271,70,S,Panamax Ship,2209,147,24
+R099,Fremantle,Singapore, Australia, Singapore,,,,554,59,N,Tanker,718,156,80
+R100,Adelaide,Melbourne, Australia, Australia,,,,1882,49,N,Canoe,559,138,91
+R101,Perth,Singapore, Australia, Singapore,,,,2098,163,N,Hovercraft,2556,130,18
+R102,Wellington,Melbourne, New Zealand, Australia,,,,2537,165,S,Submarine,1514,131,33
+R103,Prince Rupert,Incheon, Canada, South Korea,,,,298,167,N,Yacht,750,127,59
+R104,San Pedro,Yokohama, USA, Japan,,,,341,39,N,Sailboat,2979,157,19
+R105,Everett,Kaohsiung, USA, Taiwan,,,,385,72,S,Gas carrier,3144,136,16
+R106,Wilmington,Santos, USA, Brazil,,,,429,71,N,High-speed craft,693,136,69
+R107,Mobile,Progreso, USA, Mexico,,,,473,79,N,Bulk carrier,2421,138,20
+R108,Corpus Christi,Altamira, USA, Mexico,,,,517,81,N,Tank,3465,136,14
+R109,Baltimore,Bremerhaven, USA, Germany,,,,561,10,S,Container Shipo,1463,120,30
+R110,Tacoma,Yokohama, USA, Japan,,,,341,32,N,Reefer ship,1196,132,39
+R111,Everett,Ningbo-Zhoushan, USA, China,,,,648,54,N,Project cargo ship,1175,145,47
+R112,Seattle,Qingdao, USA, China,,,,692,60,S,Barge,1569,135,32
+R113,Portland,Tianjin, USA, China,,,,736,78,E,Dredgers,1114,123,42
+R114,Montreal,Rotterdam, Canada, Netherlands,,,,298,167,E,Tugs,1502,140,35
+R115,Halifax,Hamburg, Canada, Germany,,,,341,39,N,Corvette,1741,138,31
+R116,Felixstowe,Antwerp, United Kingdom, Belgium,,,,385,72,S,Reefer Vessel,2629,140,20
+R117,Southampton,Le Havre, United Kingdom, France,,,,429,71,N,Frigate,2876,161,20
+R118,Tilbury,Dunkerque, United Kingdom, France,,,,473,79,N,Offshore Ships,1553,116,26
+R119,Liverpool,Sines, United Kingdom, Portugal,,,,517,81,N,Heavy Lift Ships,596,176,98
+R120,Dunkerque,Valencia, France, Spain,,,,561,10,S,Panamax Ship,766,143,68
+R121,Algeciras,Gioia Tauro, Spain, Italy,,,,341,32,N,Tanker,1435,148,38
+R122,Tanger Med,Piraeus, Morocco, Greece,,,,8060,21,N,Canoe,2037,123,22
+R123,Alexandria,Salalah, Egypt, Oman,,,,6830,18,N,Hovercraft,733,145,71
+R124,Port Sudan,Jeddah, Sudan, Saudi Arabia,,,,6770,18,S,Submarine,504,135,91
+R125,Jebel Ali,Mumbai (Bombay), United Arab Emirates, India,,,,8080,21,N,Yacht,716,134,69
+R126,Chennai (Madras),Visakhapatnam, India, India,,,,8590,23,N,Sailboat,2751,160,22
+R127,Singapore,Fremantle, Singapore, Australia,,,,7570,20,N,Gas carrier,1631,136,30
+R128,Melbourne,Adelaide, Australia, Australia,,,,7860,21,N,High-speed craft,1756,137,27
+R129,Perth,Brisbane, Australia, Australia,,,,5630,15,S,Yacht,2147,169,28
+R130,Auckland,Fremantle, New Zealand, Australia,,,,5460,14,N,Sailboat,964,150,57
+R131,Incheon,Prince Rupert, South Korea, Canada,,,,5920,15,S,Gas carrier,2713,173,24
+R132,Yokohama,San Pedro, Japan, USA,,,,6140,16,N,High-speed craft,3176,159,18
+R133,Kaohsiung,Everett, Taiwan, USA,,,,6190,16,N,Passenger ship,3396,142,14
+R134,Santos,Wilmington, Brazil, USA,,,,6200,16,N,Roll-on/roll-off,3272,152,18
+R135,Progreso,Mobile, Mexico, USA,,,,6160,16,S,Naval ship,912,145,58
+R136,Altamira,Corpus Christi, Mexico, USA,,,,5320,14,N,Livestock carrier,1490,164,42
+R137,Bremerhaven,Baltimore, Germany, USA,,,,995,48,N,Bulk carrier,2044,131,24
+R138,Cartagena,Miami, Colombia, USA,,,,12271,70,S,Tank,2855,127,15
+R139,Callao,Houston, Peru, USA,,,,554,59,E,Container Shipo,1081,136,46
+R140,San Antonio,Los Angeles, Chile, USA,,,,1882,49,E,Reefer ship,1827,137,29
+R141,Buenaventura,Oakland, Colombia, USA,,,,2098,163,N,Project cargo ship,994,150,54
+R142,Santos,New Orleans, Brazil, USA,,,,2537,165,S,Barge,1032,137,47
+R143,Buenos Aires,Savannah, Argentina, USA,,,,298,167,N,Dredgers,1685,145,32
+R144,Rio Grande,Norfolk, Brazil, USA,,,,341,39,N,Tugs,1486,133,31
+R145,Itaguai,Charleston, Brazil, USA,,,,385,72,N,Corvette,3399,147,17
+R146,Manaus,Jacksonville, Brazil, USA,,,,429,71,S,Reefer Vessel,2338,139,22
+R147,Santos,Los Angeles, Brazil, USA,,,,473,79,N,Frigate,3387,118,12
+R148,Salina Cruz,San Diego, Mexico, USA,,,,517,81,N,Offshore Ships,2020,157,27
+R149,Incheon,Tacoma, South Korea, USA,,,,561,10,N,Heavy Lift Ships,2831,148,20
+R150,Keelung,Everett, Taiwan, USA,,,,341,32,S,Panamax Ship,3028,146,17
+R151,Yantian,Portland, China, USA,,,,648,54,N,Tanker,2735,127,16
+R152,Qingdao,Oakland, China, USA,,,,692,60,N,Canoe,2444,147,23
+R153,Ningbo-Zhoushan,Long Beach, China, USA,,,,736,78,S,Hovercraft,1056,170,59
+R154,Tianjin,Los Angeles, China, USA,,,,298,167,E,Submarine,1181,133,37
+R155,Shanghai,Vancouver, China, Canada,,,,341,39,E,Yacht,3325,144,16
+R156,Antwerp,Montreal, Belgium, Canada,,,,385,72,N,Sailboat,2821,143,19
+R157,Southampton,Halifax, United Kingdom, Canada,,,,429,71,S,Gas carrier,561,143,92
+R158,Dunkerque,Le Havre, France, France,,,,473,79,N,High-speed craft,3215,143,16
+R159,Algeciras,Sines, Spain, Portugal,,,,517,81,N,Frigate,2124,152,25
+R160,Gioia Tauro,Alexandria, Italy, Egypt,,,,561,10,N,Offshore Ships,3037,142,16
+R161,Piraeus,Port Sudan, Greece, Sudan,,,,341,32,S,Bulk carrier,3453,143,15
+R162,Jeddah,Jebel Ali, Saudi Arabia, United Arab Emirates,,,,5360,14,N,Tank,836,113,53
+R163,Mumbai (Bombay),Salalah, India, Oman,,,,4560,12,N,Container Shipo,1060,154,51
+R164,Wellington,Auckland, New Zealand, New Zealand,,,,6220,16,N,Reefer ship,3354,130,15
+R165,Durban,Maputo, South Africa, Mozambique,,,,6050,16,S,Project cargo ship,2959,164,23
+R166,Lagos,Tema, Nigeria, Ghana,,,,6190,16,N,Barge,2744,158,21
+R167,Abidjan,Dakar, Ivory Coast, Senegal,,,,5320,14,N,Dredgers,2192,151,25
+R168,Tangier,Genoa, Morocco, Italy,,,,6190,16,S,Tugs,1565,144,36
+R169,Alexandria,Izmir, Egypt, Turkey,,,,4660,12,N,Corvette,2115,140,23
+R170,Ashdod,Piraeus, Israel, Greece,,,,8050,22,N,Reefer Vessel,2806,154,20
+R171,Jeddah,Aqaba, Saudi Arabia, Jordan,,,,8040,21,S,Frigate,3343,145,16
+R172,Dubai,Mumbai (Bombay), United Arab Emirates, India,,,,7450,20,E,Offshore Ships,1881,163,32
+R173,Mundra,Chittagong, India, Bangladesh,,,,8560,23,E,Heavy Lift Ships,1146,137,41
+R174,Colombo,Chennai (Madras), Sri Lanka, India,,,,7230,19,N,Panamax Ship,1775,116,24
+R175,Yangon,Port Kelang, Myanmar, Malaysia,,,,8070,21,S,Tanker,2329,146,23
+R176,Da Nang,Hong Kong, Vietnam, China,,,,8060,21,N,Canoe,1500,139,35
+R177,Shenzhen,Kaohsiung, China, Taiwan,,,,6830,18,N,Hovercraft,3021,135,16
+R178,Busan,Vladivostok, South Korea, Russia,,,,6770,18,N,Submarine,1776,162,33
+R179,Tokyo,Oakland, Japan, USA,,,,8080,21,S,Yacht,1062,132,45
+R180,Osaka,Long Beach, Japan, USA,,,,8590,23,N,Sailboat,1065,144,50
+R181,Keelung,Seattle, Taiwan, USA,,,,7570,20,N,Gas carrier,2981,135,16
+R182,Manila,Los Angeles, Philippines, USA,,,,7860,21,N,High-speed craft,1107,137,46
+R183,Ho Chi Minh City,Singapore, Vietnam, Singapore,,,,5630,15,S,Offshore Ships,1829,151,30
+R184,Belawan,Port Klang, Indonesia, Malaysia,,,,5460,14,N,Sailboat,1516,138,34
+R185,Semarang,Subic Bay, Indonesia, Philippines,,,,5920,15,S,Gas carrier,1092,137,47
+R186,Darwin,Dalian, Australia, China,,,,6140,16,N,High-speed craft,1164,145,45
+R187,Cairns,Port Moresby, Australia, Papua New Guinea,,,,6190,16,N,Passenger ship,2907,161,20
+R188,Noumea,Brisbane, New Caledonia, Australia,,,,6200,16,S,Roll-on/roll-off,2314,136,22
+R189,Auckland,Los Angeles, New Zealand, USA,,,,6160,16,N,Naval ship,749,140,67
+R190,Vancouver,Incheon, Canada, South Korea,,,,5320,14,N,Livestock carrier,2711,139,19
+R191,Montreal,Hamburg, Canada, Germany,,,,1433,43,N,Barge,2824,161,21
+R192,Halifax,Antwerp, Canada, Belgium,,,,844,21,S,Dredgers,910,130,52
+R193,New York,Le Havre, USA, France,,,,4107,78,E,Tugs,2267,145,23
+R194,Savannah,Felixstowe, USA, United Kingdom,,,,8314,22,E,Corvette,2081,172,30
+R195,Miami,Algeciras, USA, Spain,,,,2444,50,N,Reefer Vessel,3172,169,20
+R196,Houston,Santos, USA, Brazil,,,,572,26,S,Frigate,600,146,94
+R197,New Orleans,Buenos Aires, USA, Argentina,,,,995,48,N,Offshore Ships,1660,151,32
+R198,Los Angeles,Callao, USA, Peru,,,,12271,70,N,Panamax Ship,2200,146,25
+R199,San Diego,Buenaventura, USA, Colombia,,,,554,59,N,Bulk carrier,1384,145,36
+R200,Seattle,Salina Cruz, USA, Mexico,,,,1882,49,S,Tank,3148,165,19
+R201,Prince Rupert,Yantian, Canada, China,,,,2098,163,N,Tank,3059,134,16
+R202,Everett,Qingdao, USA, China,,,,2537,165,N,Barge,2528,144,21
+R203,Wilmington,Ningbo-Zhoushan, USA, China,,,,298,167,N,Dredgers,3230,124,14
+R204,Mobile,Tianjin, USA, China,,,,341,39,S,Tugs,2541,143,20
+R205,Corpus Christi,Shanghai, USA, China,,,,385,72,N,Corvette,2608,132,18
+R206,Baltimore,Rotterdam, USA, Netherlands,,,,429,71,N,Reefer Vessel,1315,126,32
+R207,Miami,Tanger Med, USA, Morocco,,,,473,79,S,Frigate,1429,149,37
+R208,Houston,Alexandria, USA, Egypt,,,,517,81,N,Offshore Ships,668,165,91
+R209,Callao,Jeddah, Peru, Saudi Arabia,,,,561,10,N,Panamax Ship,2628,152,22
+R210,San Antonio,Mumbai (Bombay), Chile, India,,,,7810,21,S,Bulk carrier,1748,130,27
+R211,Buenaventura,Visakhapatnam, Colombia, India,,,,5290,14,E,Tank,1578,141,33
+R212,Los Angeles,Shanghai, USA, China,,,,5360,14,E,Tugs,2993,129,17
+R213,Long Beach,Yokohama, USA, Japan,,,,4560,12,N,Corvette,2881,150,19
+R214,San Francisco,Hong Kong, USA, China,,,,6220,16,S,Reefer Vessel,1101,128,39
+R215,Portland,Ningbo, USA, China,,,,6050,16,N,Frigate,868,168,70
+R216,Tacoma,Shenzhen, USA, China,,,,6190,16,N,Offshore Ships,2862,146,19
+R217,Houston,Tokyo, USA, Japan,,,,5320,14,N,Heavy Lift Ships,1337,143,40
+R218,Miami,Busan, USA, South Korea,,,,6190,16,S,Panamax Ship,1710,140,30
+R219,Shanghai,Rotterdam, China, Netherlands,,,,4660,12,N,Tanker,1853,140,27
+R220,Hong Kong,Antwerp, China, Belgium,,,,8050,22,N,Canoe,1356,142,39
+R221,Ningbo,Felixstowe, China, UK,,,,8040,21,N,Hovercraft,2445,142,21
+R222,Busan,Genoa, South Korea, Italy,,,,7450,20,S,Submarine,3498,150,16
+R223,Yokohama,Barcelona, Japan, Spain,,,,8560,23,N,Yacht,3408,143,15
+R224,Shenzhen,Le Havre, China, France,,,,7230,19,N,Sailboat,3089,154,18
+R225,Kaohsiung,Zeebrugge, Taiwan, Belgium,,,,8070,21,N,Gas carrier,3493,123,12
+R226,Qingdao,Bremerhaven, China, Germany,,,,8060,21,N,High-speed craft,2264,159,24
+R227,Tianjin,Southampton, China, UK,,,,6830,18,N,Bulk carrier,3377,167,18
+R228,New York,Rotterdam, USA, Netherlands,,,,6770,18,S,Tank,2854,133,17
+R229,Charleston,Le Havre, USA, France,,,,8080,21,N,Container Shipo,2937,150,19
+R230,Houston,Hamburg, USA, Germany,,,,8590,23,N,Reefer ship,1884,132,26
+R231,Norfolk,Felixstowe, USA, UK,,,,7570,20,S,Project cargo ship,2871,149,19
+R232,Miami,Barcelona, USA, Spain,,,,7860,21,E,Barge,2614,133,20
+R233,Baltimore,Bremen, USA, Germany,,,,5630,15,E,Dredgers,507,133,98
+R234,Philadelphia,Dublin, USA, Ireland,,,,5460,14,N,Tugs,2400,126,19
+R235,Boston,Cork, USA, Ireland,,,,5920,15,S,Corvette,2802,148,20
+R236,Jacksonville,Lisbon, USA, Portugal,,,,6140,16,N,Reefer Vessel,2376,151,23
+R237,Busan,Kaohsiung, South Korea, Taiwan,,,,6190,16,N,Frigate,3221,149,17
+R238,Hong Kong,Jakarta, China, Indonesia,,,,6200,16,N,Offshore Ships,2258,162,26
+R239,Tokyo,Ho Chi Minh City, Japan, Vietnam,,,,6160,16,S,Heavy Lift Ships,3345,154,18
+R240,Yokohama,Manila, Japan, Philippines,,,,5320,14,N,Panamax Ship,1515,128,30
+R241,Shenzhen,Bangkok, China, Thailand,,,,6190,16,N,Tanker,3446,160,16
+R242,Ningbo,Klang, China, Malaysia,,,,5320,14,N,Canoe,772,146,70
+R243,Qingdao,Colombo, China, Sri Lanka,,,,6190,16,S,Hovercraft,1649,131,31
+R244,Tianjin,Penang, China, Malaysia,,,,4660,12,N,Submarine,2068,154,28
+R245,Dalian,Laem Chabang, China, Thailand,,,,8050,22,N,Yacht,2796,129,17
+R246,Antwerp,Genoa, Belgium, Italy,,,,8040,21,S,Sailboat,2493,148,22
+R247,Hamburg,Piraeus, Germany, Greece,,,,7450,20,N,Gas carrier,2532,121,18
+R248,Rotterdam,Valencia, Netherlands, Spain,,,,8560,23,N,High-speed craft,2837,152,19
+R249,Le Havre,Barcelona, France, Spain,,,,7230,19,N,Livestock carrier,3262,136,15
+R250,Felixstowe,Naples, UK, Italy,,,,8070,21,S,Project cargo ship,2114,150,26
+R251,Bremerhaven,Marseille, Germany, France,,,,8060,21,N,Barge,1474,171,42
+R252,Zeebrugge,Lisbon, Belgium, Portugal,,,,6830,18,N,Dredgers,3398,148,15
+R253,Southampton,Izmir, UK, Turkey,,,,6770,18,S,Tugs,2702,150,20
+R254,Gothenburg,Athens, Sweden, Greece,,,,8080,21,E,Corvette,802,149,65
+R255,Aarhus,Haifa, Denmark, Israel,,,,8590,23,E,Reefer Vessel,1346,149,40
+R256,Hamburg,Durban, Germany, South Africa,,,,7570,20,N,Frigate,1483,143,35
+R257,Rotterdam,Lagos, Netherlands, Nigeria,,,,7860,21,S,Offshore Ships,1167,136,44
+R258,Antwerp,Cape Town, Belgium, South Africa,,,,5630,15,N,Panamax Ship,3441,145,16
+R259,Le Havre,Abidjan, France, Ivory Coast,,,,5460,14,N,Bulk carrier,3017,148,18
+R260,Genoa,Mombasa, Italy, Kenya,,,,5920,15,N,Tank,678,153,78
+R261,Barcelona,Dakar, Spain, Senegal,,,,6140,16,S,Barge,1545,136,33
+R262,Marseille,Casablanca, France, Morocco,,,,6190,16,N,Dredgers,3369,152,16
+R263,Lisbon,Luanda, Portugal, Angola,,,,6200,16,N,Tugs,1319,152,42
+R264,Valencia,Alexandria, Spain, Egypt,,,,6160,16,N,Corvette,1258,126,38
+R265,Naples,Tema, Italy, Ghana,,,,5320,14,S,Reefer Vessel,1334,142,39
+R266,Jebel Ali,Mumbai, UAE, India,,,,995,48,N,Frigate,634,150,90
+R267,Doha,Chennai, Qatar, India,,,,12271,70,S,Offshore Ships,1132,135,45
+R268,Dammam,Shanghai, Saudi Arabia, China,,,,554,59,N,Panamax Ship,1556,139,33
+R269,Muscat,Colombo, Oman, Sri Lanka,,,,1882,49,N,Bulk carrier,2530,134,19
+R270,Aden,Bangkok, Yemen, Thailand,,,,2098,163,N,Tank,3101,147,17
+R271,Manama,Penang, Bahrain, Malaysia,,,,2537,165,N,Tank,3358,135,15
+R272,Jeddah,Jakarta, Saudi Arabia, Indonesia,,,,298,167,S,Barge,1738,136,28
+R273,Dubai,Ho Chi Minh City, UAE, Vietnam,,,,341,39,N,Dredgers,2251,142,24
+R274,Sharjah,Kaohsiung, UAE, Taiwan,,,,385,72,N,Tugs,2372,129,21
+R275,Melbourne,Hong Kong, Australia, China,,,,429,71,N,Corvette,3466,139,15
+R276,Brisbane,Tokyo, Australia, Japan,,,,473,79,N,Reefer Vessel,3185,155,18
+R277,Fremantle,Shanghai, Australia, China,,,,517,81,S,Frigate,1416,117,31
+R278,Adelaide,Klang, Australia, Malaysia,,,,561,10,N,Offshore Ships,2123,139,24
+R279,Darwin,Jakarta, Australia, Indonesia,,,,341,32,N,Panamax Ship,2198,151,25
+R280,Hobart,Busan, Australia, South Korea,,,,648,54,S,Bulk carrier,3170,135,16
+R281,Townsville,Manila, Australia, Philippines,,,,692,60,E,Tank,1824,149,29
+R282,Newcastle,Bangkok, Australia, Thailand,,,,736,78,E,Barge,1798,152,30
+R283,Cairns,Ho Chi Minh City, Australia, Vietnam,,,,298,167,N,Dredgers,1708,167,34
+R284,Hamburg,Antwerp, Germany, Belgium,,,,341,39,S,Tugs,2470,152,22
+R285,Rotterdam,Le Havre, Netherlands, France,,,,385,72,N,Corvette,988,133,45
+R286,Felixstowe,Gothenburg, UK, Sweden,,,,429,71,N,Reefer Vessel,2320,156,24
+R287,Bremerhaven,Zeebrugge, Germany, Belgium,,,,473,79,N,Frigate,3251,143,16
+R288,Southampton,Rotterdam, UK, Netherlands,,,,517,81,S,Offshore Ships,1619,139,31
+R289,Copenhagen,Oslo, Denmark, Norway,,,,561,10,N,Panamax Ship,2402,153,24
+R290,Helsinki,St. Petersburg, Finland, Russia,,,,341,32,N,Bulk carrier,830,145,62
+R291,Tallinn,Riga, Estonia, Latvia,,,,8060,21,N,Tank,626,130,72
+R292,Stockholm,Helsinki, Sweden, Finland,,,,6830,18,S,Tank,2477,120,18
+R293,Gdynia,Klaipeda, Poland, Lithuania,,,,6770,18,N,Barge,1963,149,28
+R294,Los Angeles,Manzanillo, USA, Mexico,,,,8080,21,N,Dredgers,1102,135,42
+R295,Houston,Veracruz, USA, Mexico,,,,8590,23,S,Tugs,1688,139,28
+R296,Miami,Cartagena, USA, Colombia,,,,7570,20,E,Corvette,1745,138,30
+R297,New Orleans,Santos, USA, Brazil,,,,7860,21,E,Reefer Vessel,753,136,70
+R298,New York,Callao, USA, Peru,,,,5630,15,N,Frigate,2553,153,23
+R299,Savannah,Buenos Aires, USA, Argentina,,,,5460,14,S,Offshore Ships,3105,142,16
+R300,Mobile,Guayaquil, USA, Ecuador,,,,5920,15,N,Panamax Ship,2818,128,17
+R301,Port Everglades,Limon, USA, Costa Rica,,,,6140,16,N,Bulk carrier,1811,147,30
+R302,San Juan,Colon, Puerto Rico, Panama,,,,6190,16,N,Tank,873,139,58
+R303,Norfolk,Rio de Janeiro, USA, Brazil,,,,6200,16,S,Naval ship,1387,103,27
+R304,San Diego,Tokyo, USA, Japan,,,,6160,16,N,Livestock carrier,1076,140,47
+R305,Los Angeles,Busan, USA, South Korea,,,,5320,14,N,Barge,675,123,66
+R306,Seattle,Shanghai, USA, China,,,,995,48,N,Dredgers,2431,158,23
+R307,Portland,Tokyo, USA, Japan,,,,12271,70,S,Tugs,588,129,85
+R308,New York,Hong Kong, USA, China,0,,,554,59,N,Corvette,2817,151,18
+R309,San Francisco,Yokohama, USA, Japan,0,,,1882,49,N,Reefer Vessel,2840,138,18
+R310,Boston,Shanghai, USA, China,1,Panama Canal,,2098,163,N,Frigate,2486,156,22
+R311,Miami,Ningbo, USA, China,3,"Panama Canal, Singapore",,2537,165,N,Offshore Ships,956,130,47
+R312,Charleston,Busan, USA, South Korea,1,Panama Canal,,298,167,S,Panamax Ship,1248,158,47
+R313,Baltimore,Kaohsiung, USA, Taiwan,0,,,341,39,N,Bulk carrier,1874,138,26
+R314,Savannah,Shenzhen, USA, China,0,,,385,72,N,Tank,2554,139,20
+R315,Jacksonville,Hong Kong, USA, China,0,,,429,71,S,Tank,2510,132,20
+R316,Norfolk,Yokohama, USA, Japan,0,,,473,79,E,Barge,2655,131,19
+R317,Mobile,Busan, USA, South Korea,1,Panama Canal,,517,81,E,Dredgers,1410,168,45
+R318,Port Everglades,Shanghai, USA, China,2,"Panama Canal, Singapore",,561,10,N,Tugs,809,143,64
+R319,San Juan,Kaohsiung, Puerto Rico, Taiwan,0,,,341,32,S,Corvette,2660,130,18
+R320,Houston,Shenzhen, USA, China,3,"Panama Canal, Singapore",,648,54,N,Reefer Vessel,2588,133,20
+R321,New Orleans,Hong Kong, USA, China,2,"Panama Canal, Singapore",,692,60,N,Frigate,764,141,69
+R322,Oakland,Busan, USA, South Korea,2,"Panama Canal, Singapore",,736,78,N,Offshore Ships,689,160,81
+R323,Tacoma,Shanghai, USA, China,2,"Panama Canal, Singapore",,298,167,S,Panamax Ship,550,141,97
+R324,Vancouver,Busan, Canada, South Korea,2,"Panama Canal, Singapore",,341,39,N,Bulk carrier,2963,140,16
+R325,Seattle,Shenzhen, USA, China,3,"Panama Canal, Singapore",,385,72,N,Tank,3015,150,18
+R326,Los Angeles,Ningbo, USA, China,2,"Panama Canal, Singapore",,429,71,N,Barge,3097,139,17
+R327,Long Beach,Kaohsiung, USA, Taiwan,0,,,473,79,S,Dredgers,1051,127,45
+R328,San Francisco,Busan, USA, South Korea,2,"Panama Canal, Singapore",,517,81,N,Tugs,856,132,56
+R329,San Diego,Shanghai, USA, China,0,,,561,10,S,Corvette,3339,149,16
+R330,Portland,Yokohama, USA, Japan,0,,,341,32,E,Reefer Vessel,1503,152,37
+R331,Houston,Hong Kong, USA, China,2,"Panama Canal, Singapore",,8050,22,E,Frigate,2494,138,20
+R332,New York,Kaohsiung, USA, Taiwan,2,"Panama Canal, Singapore",,8040,21,N,Offshore Ships,3458,151,16
+R333,Boston,Busan, USA, South Korea,1,Panama Canal,,7450,20,S,Panamax Ship,555,151,98
+R334,Miami,Shanghai, USA, China,0,,,8560,23,N,Bulk carrier,2764,144,20
+R335,Charleston,Ningbo, USA, China,1,Panama Canal,,7230,19,N,Tank,2007,148,25
+R336,Savannah,Kaohsiung, USA, Taiwan,0,,,8070,21,N,Tank,1303,142,37
+R337,Baltimore,Shenzhen, USA, China,1,Panama Canal,,8060,21,S,Barge,2150,142,24
+R338,Norfolk,Shanghai, USA, China,3,"Panama Canal, Singapore",,6830,18,N,Dredgers,3203,137,17
+R339,Mobile,Hong Kong, USA, China,0,,,6770,18,N,Tugs,1648,124,30
+R340,Port Everglades,Busan, USA, South Korea,3,"Panama Canal, Singapore",,8080,21,N,Corvette,652,138,81
+R341,San Juan,Ningbo, Puerto Rico, China,2,"Panama Canal, Singapore",,8590,23,S,Reefer Vessel,2305,128,21
+R342,Houston,Kaohsiung, USA, Taiwan,0,,,7570,20,N,Frigate,2609,158,22
+R343,New Orleans,Shenzhen, USA, China,1,Panama Canal,,7860,21,W,Offshore Ships,1822,143,29
+R344,Oakland,Shanghai, USA, China,1,Panama Canal,,5630,15,W,Panamax Ship,1131,118,38
+R345,Tacoma,Ningbo, USA, China,0,,,5460,14,N,Bulk carrier,1097,133,42
+R346,Vancouver,Shenzhen, Canada, China,2,"Panama Canal, Singapore",,5920,15,S,Tank,3120,138,16
+R347,Los Angeles,Shenzhen, USA, China,1,Panama Canal,,6140,16,E,Roll-on/roll-off,1142,140,45
+R348,Long Beach,Ningbo, USA, China,0,,,6190,16,E,Naval ship,649,164,87
+R349,San Francisco,Kaohsiung, USA, Taiwan,0,,,6200,16,N,Livestock carrier,1433,147,39
+R350,San Diego,Busan, USA, South Korea,2,"Panama Canal, Singapore",,6160,16,S,Canoe,3362,129,14
+R351,Portland,Shanghai, USA, China,0,,,5320,14,N,Hovercraft,1493,138,32
+R352,Seattle,Yokohama, USA, Japan,0,,,4350,11,N,Submarine,962,160,60
+R353,Los Angeles,Hong Kong, USA, China,3,"Panama Canal, Singapore",,6670,18,N,Yacht,1526,169,39
+R354,Long Beach,Busan, USA, South Korea,2,"Panama Canal, Singapore",,6030,16,S,Sailboat,2222,138,22
+R355,San Francisco,Shanghai, USA, China,3,"Panama Canal, Singapore",,5700,15,N,Gas carrier,1425,140,36
+R356,New York,Busan, USA, South Korea,1,Panama Canal,,6820,18,N,High-speed craft,1938,146,27
+R357,Boston,Hong Kong, USA, China,0,,,8030,21,N,Offshore Ships,2293,159,25
+R358,Tanger Med,Hong Kong, Morocco, China,,,,7230,19,S,Offshore Ships,509,144,98
+R359,Gioia Tauro,Busan, Italy, South Korea,,,,8070,21,N,Heavy Lift Ships,726,148,76
+R360,Piraeus,Shanghai, Greece, China,,,,8060,21,N,Panamax Ship,2478,131,19
+R361,Alexandria,Busan, Egypt, South Korea,,,,6830,18,N,Tanker,521,137,97
+R362,Port Sudan,Hong Kong, Sudan, China,,,,6770,18,S,Canoe,2737,118,15
+R363,Jebel Ali,Yokohama, United Arab Emirates, Japan,,,,8080,21,N,Hovercraft,1592,130,30
+R364,Mumbai (Bombay),Shanghai, India, China,,,,8590,23,N,Submarine,2167,139,23
+R365,Visakhapatnam,Busan, India, South Korea,,,,7570,20,N,Yacht,1577,157,37
+R366,Chittagong,Kaohsiung, Bangladesh, Taiwan,,,,7860,21,N,Sailboat,1898,153,29
+R367,Fremantle,Ningbo, Australia, China,,,,5630,15,S,Gas carrier,587,149,92
+R368,Adelaide,Shenzhen, Australia, China,,,,5460,14,N,High-speed craft,2369,130,20
+R369,Perth,Shenzhen, Australia, China,,,,5920,15,N,Livestock carrier,3202,139,16
+R370,Wellington,Ningbo, New Zealand, China,,,,6140,16,S,Project cargo ship,2949,124,15
+R371,Prince Rupert,Shanghai, Canada, China,,,,6190,16,N,Barge,1241,138,40
+R372,San Pedro,Shenzhen, USA, China,,,,6200,16,N,Dredgers,1527,147,34
+R373,Everett,Kaohsiung, USA, Taiwan,,,,6160,16,N,Tugs,2391,146,23
+R374,Wilmington,Ningbo, USA, China,,,,5320,14,S,Corvette,1155,140,46
+R375,Mobile,Busan, USA, South Korea,,,,1433,43,N,Reefer Vessel,736,146,72
+R376,Corpus Christi,Hong Kong, USA, China,,,,844,21,N,Frigate,2223,133,22
+R377,Baltimore,Shanghai, USA, China,,,,4107,78,S,Offshore Ships,3098,143,17
+R378,Miami,Shenzhen, USA, China,,,,8314,22,E,Panamax Ship,519,117,80
+R379,Houston,Kaohsiung, USA, Taiwan,,,,2444,50,E,Bulk carrier,3440,123,14
+R380,Callao,Ningbo, Peru, China,,,,572,26,N,Tank,931,130,55
+R381,San Antonio,Shanghai, Chile, China,,,,995,48,S,Barge,1608,150,35
+R382,Buenaventura,Busan, Colombia, South Korea,,,,12271,70,N,Dredgers,1876,128,25
+R383,Shanghai,Kaohsiung, China, Taiwan,,,,554,59,N,Tugs,869,148,63
+R384,Singapore,Hong Kong, Singapore, China,,,,1882,49,N,Corvette,1492,149,37
+R385,Busan,Yokohama, South Korea, Japan,,,,2098,163,S,Reefer Vessel,3305,149,17
+R386,Rotterdam,Shanghai, Netherlands, China,,,,2537,165,N,Frigate,855,125,53
+R387,Yokohama,Busan, Japan, South Korea,,,,298,167,N,Offshore Ships,1570,137,33
+R388,Ningbo-Zhoushan,Kaohsiung, China, Taiwan,,,,341,39,N,Panamax Ship,2596,143,21
+R389,Qingdao,Ningbo, China, China,,,,385,72,S,Bulk carrier,1799,148,31
+R390,Tianjin,Shenzhen, China, China,,,,429,71,N,Tank,2005,158,30
+R391,Hong Kong,Busan, China, South Korea,,,,473,79,S,Tank,680,156,86
+R392,Jebel Ali,Shanghai, United Arab Emirates, China,,,,517,81,E,Barge,1838,170,32
+R393,Dubai,Busan, United Arab Emirates, South Korea,,,,561,10,E,Dredgers,1722,148,33
+R394,Port Kelang,Hong Kong, Malaysia, China,,,,7810,21,N,Tugs,1149,147,47
+R395,Tanjung Pelepas,Shenzhen, Malaysia, China,,,,5290,14,S,Corvette,3380,137,15
+R396,Jakarta,Kaohsiung, Indonesia, Taiwan,,,,5360,14,N,Reefer Vessel,3286,142,15
+R397,Bangkok,Shanghai, Thailand, China,,,,4560,12,N,Frigate,2458,153,24
+R398,Manila,Busan, Philippines, South Korea,,,,6220,16,N,Offshore Ships,1403,154,39
+R399,Kaohsiung,Yokohama, Taiwan, Japan,,,,6050,16,S,Panamax Ship,1123,134,44
+R400,Valencia,Hong Kong, Spain, China,,,,7230,19,N,Bulk carrier,1174,144,44
+R401,Barcelona,Shenzhen, Spain, China,,,,8070,21,N,Tank,1440,146,35
+R402,Santos,Kaohsiung, Brazil, Taiwan,,,,8060,21,N,Barge,2611,120,17
+R403,Gioia Tauro,Busan, Italy, South Korea,,,,6830,18,S,Dredgers,3043,140,17
+R404,Felixstowe,Ningbo, United Kingdom, China,,,,6770,18,N,Tugs,1044,154,53
+R405,Southampton,Shanghai, United Kingdom, China,,,,8080,21,S,Corvette,1457,138,36
+R406,Bremerhaven,Yokohama, Germany, Japan,,,,8590,23,N,Reefer Vessel,1852,154,29
+R407,Le Havre,Hong Kong, France, China,,,,7570,20,N,Frigate,751,138,70
+R408,Antwerp,Tokyo, Belgium, Japan,,,,7860,21,N,Offshore Ships,2349,137,21
+R409,Genoa,Shanghai, Italy, China,,,,5630,15,S,Panamax Ship,2232,123,21
+R410,Piraeus,Busan, Greece, South Korea,,,,5460,14,N,Bulk carrier,1868,136,26
+R411,Salalah,Tokyo, Oman, Japan,,,,5920,15,S,Tank,557,148,100
+R412,Dammam,Rio de Janeiro, Saudi Arabia, Brazil,,,,6140,16,E,Tank,2371,142,23
+R413,Mumbai (Bombay),Colon, India, Panama,,,,6190,16,E,Barge,1477,141,35
+R414,Chennai (Madras),Limon, India, Costa Rica,,,,6200,16,N,Dredgers,1638,130,28
+R415,Colombo,Guayaquil, Sri Lanka, Ecuador,,,,6160,16,S,Tugs,1772,129,25
+R416,Kelang,Buenos Aires, Malaysia, Argentina,,,,5320,14,N,Corvette,1723,152,33
+R417,Brisbane,Callao, Australia, Peru,,,,1433,43,N,Reefer Vessel,2513,158,23
+R418,Melbourne,Santos, Australia, Brazil,,,,844,21,N,Frigate,2118,160,28
+R419,Sydney,Cartagena, Australia, Colombia,,,,4107,78,S,Offshore Ships,900,122,47
+R420,Auckland,Veracruz, New Zealand, Mexico,,,,8314,22,N,Panamax Ship,848,154,64
+R421,Vancouver,Manzanillo, Canada, Mexico,,,,2444,50,N,Bulk carrier,2146,152,26
+R422,Seattle,Klaipeda, USA, Lithuania,,,,572,26,N,Tank,2640,144,20
+R423,Long Beach,Helsinki, USA, Finland,,,,995,48,S,Naval ship,2853,151,20
+R424,Oakland,Riga, USA, Latvia,,,,12271,70,N,Livestock carrier,1345,150,43
+R425,Miami,St. Petersburg, USA, Russia,,,,554,59,N,Barge,1382,166,46
+R426,New Orleans,Oslo, USA, Norway,,,,1882,49,N,Dredgers,1371,144,38
+R427,Houston,Rotterdam, USA, Netherlands,,,,2098,163,N,Tugs,1086,143,49
+R428,New York,Zeebrugge, USA, Belgium,,,,2537,165,S,Corvette,2498,160,24
+R429,Savannah,Gothenburg, USA, Sweden,,,,298,167,N,Reefer Vessel,1381,140,36
+R430,Norfolk,Le Havre, USA, France,,,,341,39,S,Frigate,752,130,62
+R431,Charleston,Antwerp, USA, Belgium,,,,385,72,E,Offshore Ships,917,156,63
+R432,Jacksonville,Ho Chi Minh City, USA, Vietnam,,,,429,71,E,Panamax Ship,2433,134,21
+R433,Los Angeles,Bangkok, USA, Thailand,,,,473,79,N,Bulk carrier,2003,143,27
+R434,San Diego,Manila, USA, Philippines,,,,517,81,S,Tank,2716,141,18
+R435,Seattle,Busan, USA, South Korea,,,,561,10,N,Tank,679,138,80
+R436,Tacoma,Jakarta, USA, Indonesia,,,,7810,21,N,Barge,2078,150,27
+R437,Portland,Klang, USA, Malaysia,,,,5290,14,N,Dredgers,1697,133,28
+R438,Oakland,Shanghai, USA, China,,,,5360,14,S,Tugs,3033,146,17
+R439,Long Beach,Tokyo, USA, Japan,,,,4560,12,N,Corvette,1261,136,40
+R440,Los Angeles,Hong Kong, USA, China,,,,6220,16,N,Reefer Vessel,3022,138,17
+R441,Vancouver,Kaohsiung, Canada, Taiwan,,,,6050,16,N,Frigate,1236,154,46
+R442,Montreal,Ho Chi Minh City, Canada, Vietnam,,,,517,81,S,Offshore Ships,1036,155,57
+R443,Halifax,Jakarta, Canada, Indonesia,,,,561,10,N,Panamax Ship,1901,136,27
+R444,Rotterdam,Penang, Netherlands, Malaysia,,,,7810,21,N,Bulk carrier,1760,143,31
+R445,Hamburg,Bangkok, Germany, Thailand,,,,5290,14,S,Tank,505,158,98
+R446,Antwerp,Colombo, Belgium, Sri Lanka,,,,5360,14,N,Barge,3468,133,14
+R447,Bremerhaven,Shanghai, Germany, China,,,,4560,12,N,Dredgers,1594,135,31
+R448,Le Havre,Chennai, France, India,,,,6220,16,N,Tugs,860,123,51
+R449,Sines,Mumbai, Portugal, India,,,,6050,16,S,Corvette,3205,138,16
+R450,Valencia,Tema, Spain, Ghana,,,,429,71,N,Reefer Vessel,2211,137,23
+R451,Gioia Tauro,Alexandria, Italy, Egypt,,,,473,79,S,Frigate,807,156,67
+R452,Jeddah,Luanda, Saudi Arabia, Angola,,,,517,81,E,Offshore Ships,1020,149,54
+R453,Mumbai (Bombay),Casablanca, India, Morocco,,,,561,10,E,Panamax Ship,1771,162,32
+R454,Visakhapatnam,Dakar, India, Senegal,,,,341,32,N,Bulk carrier,1871,131,25
+R455,Chittagong,Mombasa, Bangladesh, Kenya,,,,648,54,S,Tank,1626,157,35
+R456,Fremantle,Abidjan, Australia, Ivory Coast,,,,692,60,N,Tank,2194,145,23
+R457,Adelaide,Cape Town, Australia, South Africa,,,,736,78,N,Barge,3413,133,14
+R458,Perth,Lagos, Australia, Nigeria,,,,7230,19,N,Dredgers,2018,136,24
+R459,Wellington,Durban, New Zealand, South Africa,,,,8070,21,S,Tugs,1922,123,24
+R460,Prince Rupert,Haifa, Canada, Israel,,,,8060,21,N,Corvette,2984,156,20
+R461,San Pedro,Athens, USA, Greece,,,,6830,18,N,Reefer Vessel,2910,141,18
+R462,Everett,Izmir, USA, Turkey,,,,6770,18,N,Frigate,2742,142,20
+R463,Wilmington,Lisbon, USA, Portugal,,,,8080,21,S,Offshore Ships,3077,131,15
+R464,Mobile,Marseille, USA, France,,,,8590,23,N,Panamax Ship,811,153,67
+R465,Corpus Christi,Naples, USA, Italy,,,,7570,20,N,Bulk carrier,3153,139,16
+R466,Baltimore,Barcelona, USA, Spain,,,,7860,21,N,Tank,2331,145,23
+R467,Tacoma,Valencia, USA, Spain,,,,5630,15,S,Roll-on/roll-off,2133,140,25
+R468,Everett,Piraeus, USA, Greece,,,,5460,14,N,Naval ship,1890,135,26
+R469,Seattle,Genoa, USA, Italy,,,,5920,15,N,Livestock carrier,651,136,77
+R470,Portland,Laem Chabang, USA, Thailand,,,,6140,16,N,Offshore Ships,1129,138,45
+R471,Montreal,Penang, Canada, Malaysia,,,,6190,16,S,Heavy Lift Ships,2160,158,29
+R472,Halifax,Colombo, Canada, Sri Lanka,,,,6200,16,N,Panamax Ship,1240,138,43
+R473,Felixstowe,Klang, United Kingdom, Malaysia,,,,6200,16,S,Tanker,1434,139,35
+R474,Southampton,Bangkok, United Kingdom, Thailand,,,,6160,16,E,Canoe,1218,153,46
+R475,Tilbury,Manila, United Kingdom, Philippines,,,,5320,14,E,Hovercraft,1761,117,26
+R476,Liverpool,Ho Chi Minh City, United Kingdom, Vietnam,,,,1433,43,N,Submarine,2555,139,20
+R477,Dunkerque,Jakarta, France, Indonesia,,,,844,21,S,Yacht,2760,149,21
+R478,Algeciras,Kaohsiung, Spain, Taiwan,,,,4107,78,N,Sailboat,1080,149,50
+R479,Tanger Med,Lisbon, Morocco, Portugal,,,,8314,22,N,Gas carrier,1546,159,36
+R480,Alexandria,Cork, Egypt, Ireland,,,,2444,50,N,High-speed craft,1665,126,25
+R481,Port Sudan,Dublin, Sudan, Ireland,,,,572,26,S,Livestock carrier,2026,139,25
+R482,Jebel Ali,Bremen, United Arab Emirates, Germany,,,,995,48,N,Project cargo ship,823,127,54
+R483,Chennai (Madras),Barcelona, India, Spain,,,,12271,70,N,Barge,1461,152,38
+R484,Singapore,Felixstowe, Singapore, UK,,,,554,59,N,Dredgers,2812,134,18
+R485,Melbourne,Hamburg, Australia, Germany,,,,1882,49,S,Tugs,1576,133,30
+R486,Perth,Le Havre, Australia, France,,,,2098,163,N,Corvette,3119,134,16
+R487,Auckland,Rotterdam, New Zealand, Netherlands,,,,2537,165,S,Reefer Vessel,2393,145,22
+R488,Incheon,Southampton, South Korea, UK,,,,298,167,E,Frigate,2277,150,24
+R489,Yokohama,Bremerhaven, Japan, Germany,,,,341,39,E,Offshore Ships,2497,138,20
+R490,Kaohsiung,Zeebrugge, Taiwan, Belgium,,,,385,72,N,Panamax Ship,1098,133,43
+R491,Santos,Le Havre, Brazil, France,,,,429,71,S,Bulk carrier,2274,139,23
+R492,Progreso,Barcelona, Mexico, Spain,,,,473,79,N,Tank,3317,151,16
+R493,Altamira,Genoa, Mexico, Italy,,,,517,81,N,Barge,2912,142,19
+R494,Bremerhaven,Felixstowe, Germany, UK,,,,561,10,N,Dredgers,2336,152,24
+R495,Cartagena,Antwerp, Colombia, Belgium,,,,7810,21,S,Tugs,1582,139,32
+R496,Callao,Rotterdam, Peru, Netherlands,,,,5290,14,N,Corvette,800,136,65
+R497,San Antonio,Busan, Chile, South Korea,,,,5360,14,N,Reefer Vessel,2260,156,26
+R498,Buenaventura,Tokyo, Colombia, Japan,,,,4560,12,N,Frigate,1324,163,46
+R499,Santos,Shenzhen, Brazil, China,,,,6220,16,S,Offshore Ships,1933,147,27
+R500,Buenos Aires,Ningbo, Argentina, China,,,,6050,16,N,Panamax Ship,872,153,62
+R501,Rio Grande,Hong Kong, Brazil, China,,,,429,71,E,Bulk carrier,2227,150,25
+R502,Itaguai,Yokohama, Brazil, Japan,,,,473,79,N,Tank,3115,157,19
+R503,Manaus,Shanghai, Brazil, China,,,,517,81,S,Tank,2394,146,23
+R504,Santos,Visakhapatnam, Brazil, India,,,,561,10,N,Barge,2669,138,20
+R505,Salina Cruz,Mumbai (Bombay), Mexico, India,,,,341,32,N,Dredgers,3266,134,15
+R506,Incheon,Jeddah, South Korea, Saudi Arabia,,,,648,54,N,Tugs,2659,173,23
+R507,Keelung,Alexandria, Taiwan, Egypt,,,,692,60,S,Corvette,1419,159,42
+R508,Yantian,Tanger Med, China, Morocco,,,,736,78,N,Reefer Vessel,2958,148,18
+R509,Qingdao,Rotterdam, China, Netherlands,,,,7230,19,N,Frigate,2039,132,24
+R510,Ningbo-Zhoushan,Shanghai, China, China,,,,8070,21,S,Offshore Ships,3260,133,15
+R511,Tianjin,Tianjin, China, China,,,,8060,21,E,Panamax Ship,3239,141,15
+R512,Shanghai,Ningbo-Zhoushan, China, China,,,,6830,18,E,Bulk carrier,3393,168,18
+R513,Antwerp,Qingdao, Belgium, China,,,,6770,18,N,Tank,3216,135,16
+R514,Southampton,Yantian, United Kingdom, China,,,,8080,21,S,Barge,1636,146,35
+R515,Dunkerque,Salina Cruz, France, Mexico,,,,8590,23,N,Dredgers,1948,115,22
+R516,Algeciras,Buenaventura, Spain, Colombia,,,,7570,20,N,Tugs,502,138,100
+R517,Gioia Tauro,Callao, Italy, Peru,,,,7860,21,N,Corvette,3263,150,17
+R518,Piraeus,Buenos Aires, Greece, Argentina,,,,5630,15,S,Reefer Vessel,1770,127,27
+R519,Jeddah,Santos, Saudi Arabia, Brazil,,,,5460,14,N,Frigate,3454,131,14
+R520,Mumbai (Bombay),Algeciras, India, Spain,,,,5920,15,N,Offshore Ships,1139,159,53
+R521,Wellington,Felixstowe, New Zealand, United Kingdom,,,,6140,16,N,Panamax Ship,3156,138,16
+R522,Durban,Le Havre, South Africa, France,,,,6190,16,S,Bulk carrier,3224,141,15
+R523,Lagos,Antwerp, Nigeria, Belgium,,,,6200,16,N,Tank,1034,148,51
+R524,Abidjan,Hamburg, Ivory Coast, Germany,,,,8314,22,N,Tank,2827,156,21
+R525,Tangier,Incheon, Morocco, South Korea,,,,2444,50,N,Barge,2165,137,23
+R526,Alexandria,Los Angeles, Egypt, USA,,,,572,26,N,Dredgers,833,142,61
+R527,Ashdod,Brisbane, Israel, Australia,,,,995,48,S,Tugs,655,164,91
+R528,Jeddah,Port Moresby, Saudi Arabia, Papua New Guinea,,,,12271,70,E,Corvette,698,156,83
+R529,Dubai,Dalian, United Arab Emirates, China,,,,554,59,E,Reefer Vessel,2363,153,23
+R530,Mundra,Subic Bay, India, Philippines,,,,1882,49,N,Frigate,2654,138,19
+R531,Colombo,Port Klang, Sri Lanka, Malaysia,,,,2098,163,S,Offshore Ships,1444,116,30
+R532,Yangon,Singapore, Myanmar, Singapore,,,,2537,165,N,Panamax Ship,2145,150,26
+R533,Da Nang,Los Angeles, Vietnam, USA,,,,298,167,N,Bulk carrier,2208,143,25
+R534,Shenzhen,Seattle, China, USA,,,,341,39,N,Tank,1788,153,32
+R535,Busan,Long Beach, South Korea, USA,,,,385,72,S,Naval ship,1860,138,28
+R536,Tokyo,Oakland, Japan, USA,,,,429,71,N,Livestock carrier,841,127,54
+R537,Osaka,Vladivostok, Japan, Russia,,,,473,79,N,Barge,1431,124,31
+R538,Keelung,Kaohsiung, Taiwan, Taiwan,,,,517,81,N,Dredgers,1825,152,31
+R539,Manila,Hong Kong, Philippines, China,,,,561,10,S,Tugs,654,134,78
+R540,Ho Chi Minh City,Port Kelang, Vietnam, Malaysia,,,,7810,21,N,Corvette,1979,123,22
+R541,Belawan,Chennai (Madras), Indonesia, India,,,,5290,14,E,Reefer Vessel,1070,131,46
+R542,Semarang,Chittagong, Indonesia, Bangladesh,,,,5360,14,E,Frigate,2980,149,19
+R543,Darwin,Mumbai (Bombay), Australia, India,,,,4560,12,N,Offshore Ships,902,123,50
+R544,Cairns,Aqaba, Australia, Jordan,,,,6220,16,S,Panamax Ship,3452,106,11
+R545,Noumea,Piraeus, New Caledonia, Greece,,,,6050,16,N,Bulk carrier,3179,133,15
+R546,Auckland,Izmir, New Zealand, Turkey,,,,429,71,N,Tank,810,129,61
+R547,Vancouver,Genoa, Canada, Italy,,,,473,79,N,Tank,3240,132,15
+R548,Montreal,Dakar, Canada, Senegal,,,,517,81,S,Barge,1552,144,34
+R549,Halifax,Tema, Canada, Ghana,,,,561,10,N,Dredgers,1246,161,45
+R550,New York,Maputo, USA, Mozambique,,,,341,32,N,Tugs,840,130,58
+R551,Savannah,Auckland, USA, New Zealand,,,,648,54,N,Corvette,1600,155,35
+R552,Miami,Salalah, USA, Oman,,,,692,60,S,Reefer Vessel,2099,162,29
+R553,Houston,Jebel Ali, USA, United Arab Emirates,,,,736,78,N,Frigate,2337,156,25
+R554,New Orleans,Port Sudan, USA, Sudan,,,,7230,19,N,Offshore Ships,2918,148,18
+R555,Los Angeles,Alexandria, USA, Egypt,,,,8070,21,S,Panamax Ship,1966,153,29
+R556,San Diego,Sines, USA, Portugal,,,,8060,21,E,Bulk carrier,3287,144,16
+R557,Seattle,Le Havre, USA, France,,,,6830,18,E,Tank,2022,140,24
+R558,Prince Rupert,Halifax, Canada, Canada,,,,6770,18,N,Barge,2741,154,21
+R559,Everett,Montreal, USA, Canada,,,,8080,21,S,Dredgers,1428,147,39
+R560,Wilmington,Vancouver, USA, Canada,,,,8590,23,N,Tugs,2245,145,25
+R561,Mobile,Los Angeles, USA, USA,,,,7570,20,N,Corvette,3193,165,19
+R562,Corpus Christi,Long Beach, USA, USA,,,,7860,21,N,Reefer Vessel,674,149,80
+R563,Baltimore,Oakland, USA, USA,,,,5630,15,S,Frigate,1532,162,38
+R564,Miami,Portland, USA, USA,,,,5460,14,N,Offshore Ships,1709,143,30
+R565,Houston,Everett, USA, USA,,,,5920,15,N,Panamax Ship,1172,149,46
+R566,Callao,Tacoma, Peru, USA,,,,6140,16,N,Bulk carrier,1987,125,23
+R567,San Antonio,San Diego, Chile, USA,,,,6190,16,S,Tank,1702,153,31
+R568,Buenaventura,Los Angeles, Colombia, USA,,,,6200,16,N,Tank,861,164,70
+R569,Los Angeles,Jacksonville, USA, USA,,,,6200,16,S,Barge,1004,125,44
+R570,Long Beach,Charleston, USA, USA,,,,6160,16,N,Dredgers,3257,114,13
+R571,San Francisco,Norfolk, USA, USA,,,,5320,14,N,Tugs,941,156,58
+R572,Portland,Savannah, USA, USA,,,,1433,43,N,Corvette,980,131,49
+R573,Tacoma,New Orleans, USA, USA,,,,844,21,S,Reefer Vessel,2763,126,17
+R574,Houston,Oakland, USA, USA,,,,4107,78,N,Frigate,1700,133,27
+R575,Miami,Los Angeles, USA, USA,,,,8314,22,S,Offshore Ships,2396,133,21
+R576,Shanghai,Houston, China, USA,,,,2444,50,N,Panamax Ship,3018,118,14
+R577,Hong Kong,Miami, China, USA,,,,572,26,N,Bulk carrier,1520,162,38
+R578,Ningbo,Baltimore, China, USA,,,,995,48,N,Offshore Ships,2886,132,17
+R579,Busan,Corpus Christi, South Korea, USA,,,,12271,70,S,Heavy Lift Ships,3056,150,18
+R580,Yokohama,Mobile, Japan, USA,,,,554,59,N,Panamax Ship,2100,147,27
+R581,Shenzhen,Wilmington, China, USA,,,,1882,49,N,Tanker,3360,162,17
+R582,Kaohsiung,Everett, Taiwan, USA,,,,2098,163,N,Canoe,1079,146,49
+R583,Qingdao,San Pedro, China, USA,,,,2537,165,S,Hovercraft,2105,145,26
+R584,Tianjin,Prince Rupert, China, Canada,,,,298,167,N,Submarine,3417,148,16
+R585,New York,Fremantle, USA, Australia,,,,341,39,S,Yacht,2620,151,22
+R586,Charleston,Brisbane, USA, Australia,,,,385,72,N,Sailboat,1133,136,44
+R587,Houston,Adelaide, USA, Australia,,,,429,71,N,Gas carrier,632,142,83
+R588,Norfolk,Fremantle, USA, Australia,,,,473,79,N,High-speed craft,2955,147,18
+R589,Miami,Visakhapatnam, USA, India,,,,517,81,S,Livestock carrier,2303,168,27
+R590,Baltimore,Mumbai (Bombay), USA, India,,,,561,10,N,Project cargo ship,3445,146,17
+R591,Philadelphia,Jeddah, USA, Saudi Arabia,,,,7810,21,S,Barge,3386,124,13
+R592,Boston,Salalah, USA, Oman,,,,5290,14,N,Dredgers,564,134,87
+R593,Jacksonville,Piraeus, USA, Greece,,,,5360,14,W,Tugs,1111,131,44
+R594,Busan,Gioia Tauro, South Korea, Italy,,,,4560,12,E,Corvette,2625,160,22
+R595,Hong Kong,Valencia, China, Spain,,,,6220,16,N,Reefer Vessel,1598,129,27
+R596,Tokyo,Sines, Japan, Portugal,,,,6050,16,W,Frigate,1537,135,32
+R597,Yokohama,Dunkerque, Japan, France,,,,429,71,N,Offshore Ships,2901,135,16
+R598,Shenzhen,Le Havre, China, France,,,,473,79,W,Panamax Ship,1886,153,30
+R599,Ningbo,Antwerp, China, Belgium,,,,517,81,E,Bulk carrier,1396,128,34
+R600,Qingdao,Hamburg, China, Germany,,,,561,10,N,Tank,3181,153,18
+R601,Tianjin,Rotterdam, China, Netherlands,,,,341,32,W,Barge,517,136,97
+R602,Dalian,Tianjin, China, China,,,,648,54,E,Dredgers,2083,142,26
+R603,Antwerp,Qingdao, Belgium, China,,,,692,60,N,Tugs,2047,163,29
+R604,Hamburg,Ningbo-Zhoushan, Germany, China,,,,736,78,N,Corvette,1687,123,25
+R605,Rotterdam,Yokohama, Netherlands, Japan,,,,7230,19,S,Reefer Vessel,511,170,98
+R606,Le Havre,Bremerhaven, France, Germany,,,,8070,21,N,Frigate,3198,132,15
+R607,Felixstowe,Altamira, UK, Mexico,,,,8060,21,S,Offshore Ships,946,138,52
+R608,Bremerhaven,Progreso, Germany, Mexico,,,,6830,18,N,Panamax Ship,2358,136,22
+R609,Zeebrugge,Santos, Belgium, Brazil,,,,6770,18,N,Bulk carrier,2475,150,23
+R610,Southampton,Kaohsiung, UK, Taiwan,,,,8080,21,W,Tank,2326,160,26
+R611,Gothenburg,Yokohama, Sweden, Japan,,,,8590,23,E,Tank,2487,134,19
+R612,Aarhus,Incheon, Denmark, South Korea,,,,7570,20,N,Barge,2930,138,17
+R613,Hamburg,Melbourne, Germany, Australia,,,,7860,21,W,Dredgers,3197,142,17
+R614,Rotterdam,Singapore, Netherlands, Singapore,,,,5630,15,E,Tugs,3174,148,17
+R615,Antwerp,Melbourne, Belgium, Australia,,,,5460,14,N,Corvette,3023,150,19
+R616,Le Havre,Singapore, France, Singapore,,,,5920,15,W,Reefer Vessel,3246,148,17
+R617,Genoa,Colombo, Italy, Sri Lanka,,,,6140,16,N,Frigate,996,161,62
+R618,Barcelona,Chennai (Madras), Spain, India,,,,6190,16,W,Offshore Ships,2219,146,24
+R619,Marseille,Jebel Ali, France, United Arab Emirates,,,,6200,16,E,Panamax Ship,1835,179,34
+R620,Lisbon,Port Sudan, Portugal, Sudan,,,,8080,21,N,Bulk carrier,1344,140,37
+R621,Valencia,Valencia, Spain, Spain,,,,8590,23,W,Tank,2562,123,18
+R622,Naples,Tanger Med, Italy, Morocco,,,,7570,20,E,Barge,1342,169,47
+R623,Jebel Ali,Algeciras, UAE, Spain,,,,7860,21,N,Dredgers,702,160,76
+R624,Doha,Dunkerque, Qatar, France,,,,5630,15,W,Tugs,2589,142,20
+R625,Dammam,Liverpool, Saudi Arabia, United Kingdom,,,,5460,14,N,Corvette,3389,129,14
+R626,Muscat,Tilbury, Oman, United Kingdom,,,,5920,15,W,Reefer Vessel,2747,128,17
+R627,Aden,Southampton, Yemen, United Kingdom,,,,6140,16,E,Frigate,2217,122,20
+R628,Manama,Felixstowe, Bahrain, United Kingdom,,,,6190,16,N,Offshore Ships,533,152,98
+R629,Jeddah,Southampton, Saudi Arabia, United Kingdom,,,,6200,16,W,Panamax Ship,2638,148,20
+R630,Dubai,Antwerp, UAE, Belgium,,,,6200,16,E,Bulk carrier,815,145,62
+R631,Sharjah,Shanghai, UAE, China,,,,6160,16,N,Tank,2309,134,21
+R632,Melbourne,Tianjin, Australia, China,,,,5320,14,W,Tank,612,133,80
+R633,Brisbane,Ningbo-Zhoushan, Australia, China,,,,1433,43,W,Barge,2378,142,22
+R634,Fremantle,Qingdao, Australia, China,,,,844,21,E,Dredgers,1298,147,40
+R635,Adelaide,Yantian, Australia, China,,,,4107,78,N,Tugs,1583,153,35
+R636,Darwin,Keelung, Australia, Taiwan,,,,8314,22,W,Corvette,3068,140,16
+R637,Hobart,Incheon, Australia, South Korea,,,,2444,50,E,Reefer Vessel,3057,149,18
+R638,Townsville,Ensenada, Australia, Mexico,,,,572,26,N,Frigate,722,142,67
+R639,Newcastle,Yokohama, Australia, Japan,,,,995,48,W,Offshore Ships,1417,151,42
+R640,Cairns,Valencia, Australia, Spain,,,,12271,70,E,Panamax Ship,2347,148,24
+R641,Hamburg,Hamburg, Germany, Germany,,,,554,59,N,Bulk carrier,1628,141,32
+R642,Rotterdam,Rotterdam, Netherlands, Netherlands,,,,1882,49,W,Tank,565,129,81
+R643,Felixstowe,Antwerp, UK, Belgium,,,,2098,163,E,Naval ship,3195,152,16
+R644,Bremerhaven,Bremerhaven, Germany, Germany,,,,2537,165,N,Livestock carrier,2718,144,20
+R645,Southampton,Altamira, UK, Mexico,,,,298,167,W,Barge,2468,145,21
+R646,Copenhagen,Progreso, Denmark, Mexico,,,,341,39,N,Dredgers,1932,165,32
+R647,Helsinki,Santos, Finland, Brazil,,,,385,72,W,Tugs,2304,161,25
+R648,Tallinn,Kaohsiung, Estonia, Taiwan,,,,429,71,E,Offshore Ships,2706,141,20
+R649,Stockholm,Hong Kong, Sweden, China,,,,473,79,N,Heavy Lift Ships,2948,128,16
+R650,Gdynia,Busan, Poland, South Korea,,,,517,81,W,Panamax Ship,1073,150,48
+R651,Los Angeles,Yokohama, USA, Japan,,,,561,10,E,Tanker,1426,132,33
+R652,Houston,Brisbane, USA, Australia,,,,7810,21,N,Canoe,2775,153,20
+R653,Miami,Long Beach, USA, USA,,,,5290,14,,Hovercraft,2545,143,21
+R654,New Orleans,Shanghai, USA, China,,,,5360,14,,Submarine,875,142,59
+R655,New York,Singapore, USA, Singapore,,,,4560,12,W,Yacht,2805,137,18
+R656,Savannah,Jakarta, USA, Indonesia,,,,6220,16,E,Sailboat,2970,135,17
+R657,Mobile,Chittagong, USA, Bangladesh,,,,6050,16,N,Gas carrier,1192,121,38
+R658,Port Everglades,Colombo, USA, Sri Lanka,,,,429,71,E,High-speed craft,1491,151,36
+R659,San Juan,Singapore, Puerto Rico, Singapore,,,,473,79,E,Livestock carrier,1247,142,42
+R660,Norfolk,Jeddah, USA, Saudi Arabia,,,,517,81,N,Project cargo ship,1069,150,48
+R661,San Diego,Jebel Ali, USA, United Arab Emirates,,,,561,10,E,Barge,971,146,54
+R662,Los Angeles,Alexandria, USA, Egypt,,,,5630,15,E,Dredgers,2063,147,27
+R663,Seattle,Barcelona, USA, Spain,,,,5460,14,N,Tugs,646,167,91
+R664,Portland,Hamburg, USA, Germany,,,,5920,15,E,Corvette,977,133,53
+R665,New York,Singapore, USA, Singapore,,,,6140,16,E,Reefer Vessel,934,144,55
+R666,San Francisco,New York, USA, USA,,,,6190,16,N,Frigate,2203,172,30
+R667,Boston,Algeciras, USA, Spain,,,,6200,16,E,Offshore Ships,2270,128,20
+R668,Miami,Rotterdam, USA, Netherlands,,,,6160,16,E,Panamax Ship,523,138,98
+R669,Charleston,Piraeus, USA, Greece,,,,5320,14,N,Bulk carrier,2973,152,19
+R670,Baltimore,Ningbo-Zhoushan, USA, China,,,,1433,43,E,Tank,3063,147,17
+R671,Savannah,Algeciras, USA, Spain,,,,844,21,W,Barge,1124,123,41
+R672,Jacksonville,Genoa, USA, Italy,,,,4107,78,E,Dredgers,728,125,64
+R673,Norfolk,Los Angeles, USA, USA,,,,8314,22,N,Tugs,2755,137,18
+R674,Mobile,Yokohama, USA, Japan,,,,2444,50,N,Corvette,737,125,60
+R675,Port Everglades,Haiphong, USA, Vietnam,,,,572,26,E,Reefer Vessel,3237,136,14
+R676,San Juan,Shenzhen, Puerto Rico, China,,,,995,48,E,Frigate,581,156,91
+R677,Houston,Los Angeles, USA, USA,,,,12271,70,N,Offshore Ships,3357,153,17
+R678,New Orleans,Colombo, USA, Sri Lanka,,,,554,59,E,Panamax Ship,2957,137,18
+R679,Oakland,Singapore, USA, Singapore,,,,1882,49,E,Bulk carrier,1093,137,45
+R680,Tacoma,Algeciras, USA, Spain,,,,2098,163,N,Tank,1422,133,35
+R681,Vancouver,Kaohsiung, Canada, Taiwan,,,,2537,165,E,Tank,1013,159,58
+R682,Seattle,Tanjung Pelepas, USA, Malaysia,,,,298,167,E,Barge,1318,166,45
+R683,Los Angeles,Tokyo, USA, Japan,,,,341,39,N,Dredgers,1601,146,33
+R684,Long Beach,New York, USA, USA,,,,385,72,E,Tugs,3009,155,19
+R685,San Francisco,Shenzhen, USA, China,,,,429,71,W,Corvette,1162,132,42
+R686,San Diego,Hamburg, USA, Germany,,,,473,79,E,Reefer Vessel,2919,151,19
+R687,Portland,Long Beach, USA, USA,,,,517,81,N,Frigate,894,155,60
+R688,Houston,Rotterdam, USA, Netherlands,,,,561,10,N,Offshore Ships,3087,141,18
+R689,New York,Los Angeles, USA, USA,,,,7810,21,E,Panamax Ship,3173,132,16
+R690,Boston,Wilmington, USA, USA,,,,5290,14,E,Bulk carrier,2909,146,19
+R691,Miami,Everett, USA, USA,,,,5360,14,N,Tank,1323,132,36
+R692,Charleston,San Pedro, USA, USA,,,,4560,12,E,Barge,1011,141,51
+R693,Savannah,Prince Rupert, USA, Canada,,,,6220,16,E,Dredgers,2286,145,24
+R694,Baltimore,Wellington, USA, New Zealand,,,,6050,16,N,Tugs,2765,152,20
+R695,Norfolk,Perth, USA, Australia,,,,517,81,E,Corvette,3005,133,17
+R696,Mobile,Adelaide, USA, Australia,,,,561,10,E,Reefer Vessel,2102,139,24
+R697,Port Everglades,Fremantle, USA, Australia,,,,7810,21,N,Frigate,1103,139,45
+R698,San Juan,Chittagong, Puerto Rico, Bangladesh,,,,5290,14,E,Offshore Ships,2056,172,34
+R699,Houston,Visakhapatnam, USA, India,,,,5360,14,W,Panamax Ship,2965,147,18
+R700,New Orleans,Mumbai (Bombay), USA, India,,,,4560,12,E,Bulk carrier,1877,126,25

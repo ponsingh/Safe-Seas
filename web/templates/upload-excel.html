@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <title>Upload an Excel file</title>
+</head>
+<body>
+    <h1>Upload an Excel file</h1>
+    <form id="excel-form">
+        <input type="file" id="excel-file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <div id="output">
+        <!-- Data from the Excel file will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById('excel-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData();
+            formData.append('file', document.getElementById('excel-file').files[0]);
+
+            fetch('/import_excel', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display imported data in the UI
+                var output = document.getElementById('output');
+                output.innerHTML = '';
+
+                if (data.error) {
+                    output.innerHTML = '<p>Error: ' + data.error + '</p>';
+                } else {
+                    var table = document.createElement('table');
+                    table.border = '1';
+
+                    // Add table headers
+                    var headers = document.createElement('tr');
+                    data.columns.forEach(column => {
+                        var th = document.createElement('th');
+                        th.textContent = column;
+                        headers.appendChild(th);
+                    });
+                    table.appendChild(headers);
+
+                    // Add table rows
+                    data.rows.forEach(row => {
+                        var tr = document.createElement('tr');
+                        row.forEach(cell => {
+                            var td = document.createElement('td');
+                            td.textContent = cell;
+                            tr.appendChild(td);
+                        });
+                        table.appendChild(tr);
+                    });
+
+                    output.appendChild(table);
+                }
+            })
+            .catch(error => console.error('Error importing Excel file:', error));
+        });
+    </script>
+</body>
+</html>
