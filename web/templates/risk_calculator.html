@@ -5,8 +5,9 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 
-<h1>Risk Calculator</h1>
-
+<div>
+<h1 class="page-heading">Risk Calculator</h1>
+</div>
 <!-- Section for importing Excel file and calculating risk score -->
 <div id="input-section">
     <form id="excel-form" enctype="multipart/form-data">
@@ -85,26 +86,73 @@
         },
     ];
 
-    // Function to render the Leaflet map with routes
-    function renderMap(routes) {
-        // Leaflet map initialization (replace with your preferred map setup)
-        try
-        {
-         var map = L.map('map').setView([51.505, -0.09], 2);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-        // Loop through routes and add polylines to the map
-        routes.forEach(route => {
-            L.polyline(route.coordinates, { color: 'blue' }).addTo(map);
-        });
+    const cities = [
+    { name: 'London', coordinates: [51.505, -0.09] },
+    { name: 'Paris', coordinates: [48.8566, 2.3522] },
+    { name: 'New York', coordinates: [40.7128, -74.0060] },
+    { name: 'Los Angeles', coordinates: [34.0522, -118.2437] },
+    { name: 'Tokyo', coordinates: [35.6895, 139.6917] },
+    { name: 'Sydney', coordinates: [-33.8688, 151.2093] },
+    { name: 'Cairo', coordinates: [30.0444, 31.2357] },
+    { name: 'Rio de Janeiro', coordinates: [-22.9068, -43.1729] },
+    { name: 'Moscow', coordinates: [55.7558, 37.6173] },
+    { name: 'Mumbai', coordinates: [19.0760, 72.8777] }
+];
+
+
+function generateRoutes(cities) {
+    let routes = [];
+    for (let i = 0; i < cities.length; i++) {
+        for (let j = i + 1; j < cities.length; j++) {
+            routes.push({
+                coordinates: [cities[i].coordinates, cities[j].coordinates],
+                color: 'blue',  // Default color for routes
+                startCity: cities[i].name,
+                endCity: cities[j].name
+            });
         }
-        catch (e)
-        {
-            console.log(e);
-            alert('Error importing Excel file:', e)
-        }
-        
     }
+    return routes;
+}
+
+var map;
+function renderMap(routes) {
+    try {
+        // Check if a map instance already exists
+        if (map !== undefined) {
+            // Remove the existing map instance
+            map.remove();
+        }
+
+        // Initialize the map
+        map = L.map('map').setView([20, 0], 2);  // Default view is set to be more inclusive of the world map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Loop through routes and add polylines and markers to the map
+        routes.forEach(route => {
+            // Add polyline for the route
+            L.polyline(route.coordinates, { color: route.color || 'blue' }).addTo(map);
+
+            // Add markers for the start and end points
+            var startPoint = route.coordinates[0];
+            var endPoint = route.coordinates[route.coordinates.length - 1];
+
+            L.marker(startPoint).addTo(map)
+                .bindPopup(route.startCity || 'Start City')
+                .openPopup();
+
+            L.marker(endPoint).addTo(map)
+                .bindPopup(route.endCity || 'End City')
+                .openPopup();
+        });
+    } catch (e) {
+        console.error(e);
+        alert('Error rendering map: ' + e.message);
+    }
+}
 
     function renderMapWcolor(routes) {
         // Leaflet map initialization (replace with your preferred map setup)
@@ -127,7 +175,9 @@
     }
 
     // Initial map rendering
-    renderMap(mockRoutes);
+    // Generate routes from the list of cities
+    const routes = generateRoutes(cities);
+    renderMap(routes);
 
     // Event listener for Excel file import form submission
     document.getElementById('excel-form').addEventListener('submit', function (e) {
@@ -143,7 +193,7 @@
         .then(data => {
             // Display imported data in the UI
             populateTables(data.routes, data.incidents);
-            renderMapWcolor(data.routes);
+            renderMap(data.routes);
         })
         .catch(error => alert('Error importing Excel file:', error));
     });

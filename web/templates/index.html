@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Welcome to the Shipping Route Risk Analysis</h1>
-
-<h2>Routes</h2>
+<div>
+    <h1 class="page-heading">Safe Seas</h1>
+</div>
 
 <table>
     <thead>
@@ -22,6 +22,7 @@
     </thead>
     <tbody>
         {% for route in routes %}
+        {% set incident_percentage = (route['total_incidents_count'] / route['No Of Travels']) * 100 %}
         <tr>
             <td>{{ route['Route ID'] }}</td>
             <td>{{ route['Origin Port'] }}</td>
@@ -30,8 +31,29 @@
             <td>{{ route['Travel Direction'] }}</td>
             <td>{{ route['Vessel Type'] }}</td>
             <td>{{ route['No Of Travels'] }}</td>
-            <td>{{ route['total_incidents_count'] }}</td>
-            <td>{{ route['risk_score'] }}</td>
+            <td class="
+                {% if incident_percentage > 50 %}
+                    high-incidents
+                {% elif incident_percentage > 15 %}
+                    medium-incidents
+                {% else %}
+                    low-incidents
+                {% endif %}
+            ">
+                {{ route['total_incidents_count'] }}
+            </td>
+            <td class="
+                    {% if route['risk_score'] > 50 %}
+                        high-risk
+                    {% elif route['risk_score'] > 20 %}
+                        medium-risk
+                    {% else %}
+                        low-risk
+                    {% endif %}
+                ">
+                    {{ route['risk_score'] }}
+                
+            </td>
             <td>
                 <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
             </td>
