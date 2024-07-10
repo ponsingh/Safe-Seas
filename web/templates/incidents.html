@@ -69,10 +69,10 @@
         <tbody>
             {% for incident in incidents %}
             <tr>
-                <td>{{ incident['IncidentId'] }}</td>
-                <td>{{ incident['IncidentType'] }}</td>
+                <td>{{ incident['Incident_Id'] }}</td>
+                <td>{{ incident['Incident_Type'] }}</td>
                 <td>{{ incident['Description'] }}</td>
-                <td>{{ incident['IncidentDate'] }}</td>
+                <td>{{ incident['Incident_Date'] }}</td>
                 <td>
                     <div class="progress">
                         <div class="progress-bar {% if incident['Severity'] == 'High' %}high{% elif incident['Severity'] == 'Medium' %}medium{% else %}low{% endif %}">

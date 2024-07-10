@@ -28,10 +28,12 @@
         <table id="routes-table">
             <thead>
                 <tr>
-                    <th>Route ID</th>
-                    <th>Load Port</th>
-                    <th>Discharge Port</th>
-                    <th>Coordinates</th>
+                    <th>Route Id</th>
+                    <th>Origin Port</th>
+                    <th>Destination Port</th>
+                    <th>No Of Stops</th>
+                    <th>Stops Names</th>
+                    <th>Stops Points</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,10 +45,12 @@
         <table id="incidents-table">
             <thead>
                 <tr>
-                    <th>Incident ID</th>
-                    <th>Route ID</th>
+                    <th>Incident Id</th>
+                    <th>Route Id</th>
+                    <th>Incident Type</th>
+                    <th>Severity</th>
+                    <th>Incident Date</th>
                     <th>Description</th>
-                    <th>Risk Score</th>
                 </tr>
             </thead>
             <tbody>
@@ -111,6 +115,7 @@ function generateRoutes(cities) {
                 startCity: cities[i].name,
                 endCity: cities[j].name
             });
+            break;
         }
     }
     return routes;
@@ -171,7 +176,7 @@ function renderMap(routes) {
             console.log(e);
             alert('Error importing Excel file:', e)
         }
-        
+
     }
 
     // Initial map rendering
@@ -184,7 +189,7 @@ function renderMap(routes) {
         e.preventDefault();
         var formData = new FormData();
         formData.append('excel_file', document.getElementById('excel-file').files[0]);
-        
+
         fetch('/import_excel', {
             method: 'POST',
             body: formData
@@ -205,10 +210,12 @@ function renderMap(routes) {
         routesTableBody.innerHTML = ''; // Clear existing rows
         routes.forEach(route => {
             const row = routesTableBody.insertRow();
-            row.insertCell(0).textContent = route.route_id;
-            row.insertCell(1).textContent = route.load_port;
-            row.insertCell(2).textContent = route.discharge_port;
-            row.insertCell(3).textContent = route.discharge_port;
+            row.insertCell(0).textContent = route.Route_Id;
+            row.insertCell(1).textContent = route.Origin_Port;
+            row.insertCell(2).textContent = route.Destination_Port;
+            row.insertCell(3).textContent = route.No_Of_Stops;
+            row.insertCell(4).textContent = route.Stops_Names;
+            row.insertCell(5).textContent = route.Stop_Points;
         });
 
         // Populate incidents table
@@ -216,10 +223,12 @@ function renderMap(routes) {
         incidentsTableBody.innerHTML = ''; // Clear existing rows
         incidents.forEach(incident => {
             const row = incidentsTableBody.insertRow();
-            row.insertCell(0).textContent = incident.incident_id;
-            row.insertCell(1).textContent = incident.route_id;
-            row.insertCell(2).textContent = incident.description;
-            row.insertCell(3).textContent = incident.risk_score;
+            row.insertCell(0).textContent = incident.Incident_Id;
+            row.insertCell(1).textContent = incident.Route_Id;
+            row.insertCell(2).textContent = incident.Incident_Type;
+            row.insertCell(3).textContent = incident.Severity;
+            row.insertCell(4).textContent = incident.Incident_Date;
+            row.insertCell(5).textContent = incident.Description;
         });
     }
 
@@ -231,7 +240,7 @@ function renderMap(routes) {
         .then(response => response.json())
         .then(data => {
             // Display calculated risk score in the UI
-            document.getElementById('risk-score-value').textContent = 'Calculated Risk Score: ' + data.risk_score;
+            document.getElementById('risk-score-value').textContent = 'Calculated Risk Score: ' + data.Risk_Score;
         })
         .catch(error => console.error('Error calculating risk score:', error));
     });

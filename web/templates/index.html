@@ -8,7 +8,7 @@
 <table>
     <thead>
         <tr>
-            <th>Route ID</th>
+            <th>Route Id</th>
             <th>Origin Port</th>
             <th>Destination Port</th>
             <th>Distance</th>
@@ -22,15 +22,15 @@
     </thead>
     <tbody>
         {% for route in routes %}
-        {% set incident_percentage = (route['total_incidents_count'] / route['No Of Travels']) * 100 %}
+        {% set incident_percentage = (route['Total_Incidents_Count'] / route['No_Of_Travels']) * 100 %}
         <tr>
-            <td>{{ route['Route ID'] }}</td>
-            <td>{{ route['Origin Port'] }}</td>
-            <td>{{ route['Destination Port'] }}</td>
+            <td>{{ route['Route_Id'] }}</td>
+            <td>{{ route['Origin_Port'] }}</td>
+            <td>{{ route['Destination_Port'] }}</td>
             <td>{{ route['Distance'] }}</td>
-            <td>{{ route['Travel Direction'] }}</td>
-            <td>{{ route['Vessel Type'] }}</td>
-            <td>{{ route['No Of Travels'] }}</td>
+            <td>{{ route['Travel_Direction'] }}</td>
+            <td>{{ route['Vessel_Type'] }}</td>
+            <td>{{ route['No_Of_Travels'] }}</td>
             <td class="
                 {% if incident_percentage > 50 %}
                     high-incidents
@@ -40,22 +40,22 @@
                     low-incidents
                 {% endif %}
             ">
-                {{ route['total_incidents_count'] }}
+                {{ route['Total_Incidents_Count'] }}
             </td>
             <td class="
-                    {% if route['risk_score'] > 50 %}
+                    {% if route['Risk_Score'] > 50 %}
                         high-risk
-                    {% elif route['risk_score'] > 20 %}
+                    {% elif route['Risk_Score'] > 20 %}
                         medium-risk
                     {% else %}
                         low-risk
                     {% endif %}
                 ">
-                    {{ route['risk_score'] }}
+                    {{ route['Risk_Score'] }}
                 
             </td>
             <td>
-                <button onclick="showIncidents('{{ route['Route ID'] }}')">Incident</button>
+                <button onclick="showIncidents('{{ route['Route_Id'] }}')">Incident</button>
             </td>
         </tr>
         {% endfor %}

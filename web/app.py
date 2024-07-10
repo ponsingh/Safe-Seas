@@ -31,7 +31,7 @@ def index():
 @app.route('/incidents/<route_id>')
 def incidents(route_id):
     try:
-        route_incidents = incidents_df[incidents_df['RouteID'] == str(route_id)]
+        route_incidents = incidents_df[incidents_df['Route_Id'] == str(route_id)]
         incidents = route_incidents.to_dict(orient='records')
         return render_template('incidents.html', incidents=incidents)
     except e:
@@ -105,15 +105,15 @@ def calculate_risk_score():
         # Example: Read from a CSV file or database
         # Here, we're using static data for demonstration
         
-        return jsonify({'risk_score': 65})
+        return jsonify({'Risk_Score': 65})
 
         routes_data = [
             {"route_id": 1, "load_port": "London", "discharge_port": "New York", "coordinates": [[51.5, -0.1], [40.7, -74.0]]},
             {"route_id": 2, "load_port": "Tokyo", "discharge_port": "San Francisco", "coordinates": [[35.6, 139.7], [37.8, -122.4]]}
         ]
         incidents_data = [
-            {"incident_id": 1, "route_id": 1, "description": "Storm", "risk_score": 70},
-            {"incident_id": 2, "route_id": 2, "description": "Piracy", "risk_score": 90}
+            {"incident_id": 1, "route_id": 1, "description": "Storm", "Risk_Score": 70},
+            {"incident_id": 2, "route_id": 2, "description": "Piracy", "Risk_Score": 90}
         ]
 
         # Convert data to DataFrame if needed
@@ -125,8 +125,8 @@ def calculate_risk_score():
         combined_df = pd.merge(routes_df, incidents_df, on='route_id')
 
         # Extract features for prediction (this depends on your model's requirements)
-        # For simplicity, we are just using risk_score from incidents in this example
-        X = combined_df[['risk_score']]  # Replace with actual feature columns used in your model
+        # For simplicity, we are just using Risk_Score from incidents in this example
+        X = combined_df[['Risk_Score']]  # Replace with actual feature columns used in your model
 
         # Predict risk score using the model
         predicted_risk_scores =45 #model.predict(X)
@@ -134,7 +134,7 @@ def calculate_risk_score():
         # Example of how you might calculate a summary risk score
         summary_risk_score = np.mean(predicted_risk_scores)
 
-        return jsonify({'risk_score': summary_risk_score})
+        return jsonify({'Risk_Score': summary_risk_score})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
