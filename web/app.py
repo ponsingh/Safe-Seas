@@ -1,15 +1,24 @@
 from flask import Flask, render_template,request, jsonify,g
 import os
 import pandas as pd
+import pickle
 
 #Constructor
 app = Flask(__name__)
+
+
+
+global routes_data, incidents_data
 
 # Define the routes and their respective handlers
 
 # Load the data
 # Debug: Print the current working directory
 print("Current working directory:", os.getcwd())
+
+# Load the model
+with open('risk_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 # Load the data
 try:
@@ -76,13 +85,14 @@ def import_excel():
                 incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
                 
                 # Convert DataFrames to dictionaries
-                g.routes_data = routes_df.to_dict(orient='records')
-                g.incidents_data = incidents_df.to_dict(orient='records')
+                global routes_data, incidents_data
+                routes_data = routes_df.to_dict(orient='records')
+                incidents_data = incidents_df.to_dict(orient='records')
                 
                 print("Import file process completed...")
 
                 # Return JSON response with routes and incidents data
-                return jsonify({'routes': g.routes_data, 'incidents': g.incidents_data})
+                return jsonify({'routes': routes_data, 'incidents': incidents_data})
             
             except Exception as e:
                 return jsonify({'error': f'Error processing Excel file: {str(e)}'}), 500
@@ -100,44 +110,53 @@ def allowed_file(filename):
 @app.route('/calculate_risk_score', methods=['POST'])
 def calculate_risk_score():
     try:
+        global routes_data, incidents_data
+        c=len(routes_data)
         print("Calculating risk score...")
         # Load your data from a source or import it dynamically if needed
         # Example: Read from a CSV file or database
-        # Here, we're using static data for demonstration
+        # Here, we're using static data for demonstration         
+         # Convert data into DataFrame
+        # Create a DataFrame with new data points to predict
+        new_data = pd.DataFrame({
+    'Distance': [500, 850, 200],
+    'Average_Transit_Days': [13, 25, 12],
+    'No_Of_Travels': [18000, 2008, 3330],
+    'Total_Incidents_Count': [600, 150, 300],
+    'high_incidents': [400, 10, 45],
+    'high_last5Month_incidents': [50, 0, 5],
+    'medium_incidents': [50, 100, 100],
+    'medium_last5Month_incidents': [0, 2, 50],
+    'low_incidents': [50, 28, 100],
+    'low_last5Month_incidents': [50, 10, 0]
+        })
+    
+            # Make prediction
+        prediction = model.predict(new_data)
         
-        return {'Risk_Score': 100}
+        risk_value=prediction[0]
+        if risk_value>100:
+            risk_value=100
+        
+        if risk_value<7:
+            risk_value=7
+        
+        #return {'Risk_Score': risk_value}
 
-        routes_data = [
-            {"route_id": 1, "load_port": "London", "discharge_port": "New York", "coordinates": [[51.5, -0.1], [40.7, -74.0]]},
-            {"route_id": 2, "load_port": "Tokyo", "discharge_port": "San Francisco", "coordinates": [[35.6, 139.7], [37.8, -122.4]]}
-        ]
-        incidents_data = [
-            {"incident_id": 1, "route_id": 1, "description": "Storm", "Risk_Score": 70},
-            {"incident_id": 2, "route_id": 2, "description": "Piracy", "Risk_Score": 90}
-        ]
-
-        # Convert data to DataFrame if needed
-        routes_df = pd.DataFrame(routes_data)
-        incidents_df = pd.DataFrame(incidents_data)
-
-        # Feature Engineering: Combine routes and incidents data if needed
-        # Example: Join on route_id and create features for the model
-        combined_df = pd.merge(routes_df, incidents_df, on='route_id')
-
-        # Extract features for prediction (this depends on your model's requirements)
-        # For simplicity, we are just using Risk_Score from incidents in this example
-        X = combined_df[['Risk_Score']]  # Replace with actual feature columns used in your model
-
-        # Predict risk score using the model
-        predicted_risk_scores =45 #model.predict(X)
-
-        # Example of how you might calculate a summary risk score
-        summary_risk_score = np.mean(predicted_risk_scores)
-
-        return jsonify({'Risk_Score': summary_risk_score})
+        route_color="blue"
+        if risk_value>60:
+            route_color="red"
+        elif risk_value>20:
+            route_color="yellow"
+        else:
+            route_color="green"
+    
+        return jsonify({'Risk_Score': risk_value,
+                        "route_color":route_color})
 
     except Exception as e:
-        return {'Risk_Score': 20}
+        return jsonify({'Risk_Score': 0,
+                        "route_color":"blue"})
 
 
 # Run the application

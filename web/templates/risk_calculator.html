@@ -161,6 +161,7 @@ function generateRoutes(cities) {
 }
 
 var map;
+var global_routes;
 function renderMap(routes) {
     try {
         // Check if a map instance already exists
@@ -219,7 +220,7 @@ function renderMap(routes) {
             // Display imported data in the UI
             populateTables(data.routes, data.incidents);
         const result = convertDataToDictionary(data.routes[0].Stops_Names, data.routes[0].Stop_Points);
-        const routes = generateRoutes(result);
+         const routes = generateRoutes(result);
         renderMap(routes);
         })
         .catch(error => alert('Error importing Excel file:', error));
@@ -299,7 +300,6 @@ function renderMap(routes) {
 
         progressCircleFill.style.strokeDashoffset = circumference;
         label.textContent = `0%`;
-
         // Animate the progress circle gradually
         const animateProgress = () => {
             let currentOffset = parseFloat(progressCircleFill.style.strokeDashoffset);
