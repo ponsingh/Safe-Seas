@@ -159,26 +159,7 @@ function renderMap(routes) {
     }
 }
 
-    function renderMapWcolor(routes) {
-        // Leaflet map initialization (replace with your preferred map setup)
-        try
-        {
-        var map = L.map('map').setView([51.505, -0.09], 2);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-        // Loop through routes and add polylines to the map
-        routes.forEach(route => {
-            L.polyline(route.coordinates, { color: 'green' }).addTo(map);
-        });
-        }
-        catch (e)
-        {
-            console.log(e);
-            alert('Error importing Excel file:', e)
-        }
-
-    }
-
+    
     // Initial map rendering
     // Generate routes from the list of cities
     const routes = generateRoutes(cities);
@@ -198,10 +179,37 @@ function renderMap(routes) {
         .then(data => {
             // Display imported data in the UI
             populateTables(data.routes, data.incidents);
-            renderMap(data.routes);
+        const result = convertDataToDictionary(data.routes[0].Stops_Names, data.routes[0].Stop_Points);
+        const routes = generateRoutes(result);
+        renderMap(routes);
         })
         .catch(error => alert('Error importing Excel file:', error));
     });
+
+
+    function convertDataToDictionary(cityString,coordinateString) {
+    // Remove any leading/trailing square brackets and whitespace from the coordinates
+    let cleanedCoordinatesString = coordinateString.trim().replace(/^\[|\]$/g, '');
+
+    // Split the coordinates string by "],[" to get each coordinate pair
+    let coordinatePairs = cleanedCoordinatesString.split(/\],\s*\[/);
+
+    // Convert each coordinate pair string into an array of numbers
+    let coordinatesArray = coordinatePairs.map(pair => 
+        pair.replace(/\[|\]/g, '').split(',').map(Number)
+    );
+
+    // Split the cities string by commas
+    let citiesArray = cityString.split(',').map(city => city.trim());
+
+    // Combine the cities and coordinates into the desired format
+    let result = citiesArray.map((city, index) => ({
+        name: city,
+        coordinates: coordinatesArray[index]
+    }));
+
+    return result;
+}
 
     // Function to populate tables with imported data
     function populateTables(routes, incidents) {

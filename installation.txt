@@ -1,3 +1,11 @@
 pip install openpyxl
 
 pip install xlrd
+
+pip install numpy
+
+pip install pandas
+
+pip install flask
+
+pip install matplotlib.pyplot
