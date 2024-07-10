@@ -15,11 +15,50 @@
         <button type="submit">Import Excel</button>
     </form>
     <button id="calculate-risk-score" type="button">Calculate Risk Score</button>
+    <svg class="progress-circle" viewBox="0 0 150 150">
+        <!-- Background circle -->
+        <circle class="progress-circle-bg" cx="75" cy="75" r="65"></circle>
+        
+        <!-- Filled circle -->
+        <circle class="progress-circle-fill" cx="75" cy="75" r="65"></circle>
+        
+        <!-- Label -->
+        <text class="progress-circle-label" x="75" y="75">0%</text>
+      </svg>
     <h2 id="risk-score-value"></h2>
 </div>
 
 <hr>
+<style>
+ 
 
+    .progress-circle {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      display: none; /* Hide initially */
+    }
+    .progress-circle-bg {
+      fill: none;
+      stroke: #e6e6e6;
+      stroke-width: 10;
+    }
+    .progress-circle-fill {
+      fill: none;
+      stroke: #007bff;
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 0, 100;
+      transition: stroke-dasharray 1s ease; /* Adjust animation speed here */
+    }
+    .progress-circle-label {
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #007bff;
+    }
+  </style>
 <!-- Section divided into two columns -->
 <div style="display: flex;">
     <!-- First column: Display imported data in tables -->
@@ -241,18 +280,73 @@ function renderMap(routes) {
     }
 
     // Event listener for Calculate Risk Score button
-    document.getElementById('calculate-risk-score').addEventListener('click', function () {
-        fetch('/calculate_risk_score', {
-            method: 'POST'
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Display calculated risk score in the UI
-            document.getElementById('risk-score-value').textContent = 'Calculated Risk Score: ' + data.Risk_Score;
-        })
-        .catch(error => console.error('Error calculating risk score:', error));
-    });
+    document.getElementById('calculate-risk-score').addEventListener('click', function() {
+    fetch('/calculate_risk_score', { method: 'POST' })
+      .then(response => response.json())
+      .then(data => {
+        const progressCircle = document.querySelector('.progress-circle');
+        const progressCircleFill = document.querySelector('.progress-circle-fill');
+        const label = document.querySelector('.progress-circle-label');
+        const percentage = data.Risk_Score;
+        const circumference = 2 * Math.PI * 65;
+        const progressOffset = circumference - (percentage / 100) * circumference;
+        
+        // Show the progress circle
+        progressCircle.style.display = 'block';
+        
+        // Animate the progress circle
+        progressCircleFill.style.strokeDasharray = `${circumference}, ${circumference}`;
 
+        progressCircleFill.style.strokeDashoffset = circumference;
+        label.textContent = `0%`;
+
+        // Animate the progress circle gradually
+        const animateProgress = () => {
+            let currentOffset = parseFloat(progressCircleFill.style.strokeDashoffset);
+          const interval = setInterval(() => {
+            currentOffset -= 1;
+            progressCircleFill.style.strokeDashoffset = currentOffset;
+            label.textContent = `${Math.round((circumference - currentOffset) / circumference * 100)}%`;
+
+            if (currentOffset <= progressOffset) {
+              clearInterval(interval);
+            }
+          }, 10); // Adjust animation speed here (smaller number = faster animation)
+        };
+
+        animateProgress();
+      })
+      .catch(error => console.error('Error:', error));
+  });
+
+
+// Set the progress percentage dynamically
+const progressCircle = document.querySelector('.progress-circle-fill');
+  const label = document.querySelector('.progress-circle-label');
+  const percentage = 60; // Replace with your actual percentage
+  const circumference = 2 * Math.PI * 65;
+  const progressOffset = circumference - (percentage / 100) * circumference;
+  
+  // Animate the progress circle
+  progressCircle.style.strokeDasharray = `${circumference}, ${circumference}`;
+  progressCircle.style.strokeDashoffset = circumference;
+  label.textContent = `0%`;
+
+  // Animate the progress circle gradually
+  const animateProgress = () => {
+    let currentOffset = parseFloat(progressCircle.style.strokeDashoffset);
+    const interval = setInterval(() => {
+      currentOffset -= 1;
+      progressCircle.style.strokeDashoffset = currentOffset;
+      label.textContent = `${Math.round((circumference - currentOffset) / circumference * 100)}%`;
+
+      if (currentOffset <= progressOffset) {
+        clearInterval(interval);
+      }
+    }, 10); // Adjust animation speed here (smaller number = faster animation)
+  };
+
+  animateProgress();
 </script>
 
 {% endblock %}
