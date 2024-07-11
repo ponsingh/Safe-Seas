@@ -121,7 +121,7 @@ def calculate_risk_score():
         new_data = pd.DataFrame({
     'Distance': [500, 850, 200],
     'Average_Transit_Days': [13, 25, 12],
-    'No_Of_Travels': [18000, 2008, 3330],
+    'No_Of_Travels': [9000, 2008, 3330],
     'Total_Incidents_Count': [600, 150, 300],
     'high_incidents': [400, 10, 45],
     'high_last5Month_incidents': [50, 0, 5],

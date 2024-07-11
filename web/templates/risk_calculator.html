@@ -14,6 +14,8 @@
         <input type="file" id="excel-file" name="excel_file" accept=".xlsx, .xls">
         <button type="submit">Import Excel</button>
     </form>
+    <div class="horizontal-container">
+
     <button id="calculate-risk-score" type="button">Calculate Risk Score</button>
     <svg class="progress-circle" viewBox="0 0 150 150">
         <!-- Background circle -->
@@ -25,12 +27,24 @@
         <!-- Label -->
         <text class="progress-circle-label" x="75" y="75">0%</text>
       </svg>
+
+    </div>
+    
     <h2 id="risk-score-value"></h2>
 </div>
 
 <hr>
 <style>
  
+    .horizontal-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .horizontal-container button,
+    .horizontal-container svg {
+        margin-right: 10px; /* Optional: space between elements */
+    }
 
     .progress-circle {
       width: 150px;
@@ -150,7 +164,7 @@ function generateRoutes(cities) {
         for (let j = i + 1; j < cities.length; j++) {
             routes.push({
                 coordinates: [cities[i].coordinates, cities[j].coordinates],
-                color: 'blue',  // Default color for routes
+                //color: 'blue',  // Default color for routes
                 startCity: cities[i].name,
                 endCity: cities[j].name
             });
@@ -162,7 +176,7 @@ function generateRoutes(cities) {
 
 var map;
 var global_routes;
-function renderMap(routes) {
+function renderMap(routes,route_color="gray") {
     try {
         // Check if a map instance already exists
         if (map !== undefined) {
@@ -179,7 +193,7 @@ function renderMap(routes) {
         // Loop through routes and add polylines and markers to the map
         routes.forEach(route => {
             // Add polyline for the route
-            L.polyline(route.coordinates, { color: route.color || 'blue' }).addTo(map);
+            L.polyline(route.coordinates, { color: route_color }).addTo(map);
 
             // Add markers for the start and end points
             var startPoint = route.coordinates[0];
@@ -201,7 +215,7 @@ function renderMap(routes) {
 
     
     // Initial map rendering
-    // Generate routes from the list of cities
+    // Generate routes from the list of mock cities
     const routes = generateRoutes(cities);
     renderMap(routes);
 
@@ -220,7 +234,8 @@ function renderMap(routes) {
             // Display imported data in the UI
             populateTables(data.routes, data.incidents);
         const result = convertDataToDictionary(data.routes[0].Stops_Names, data.routes[0].Stop_Points);
-         const routes = generateRoutes(result);
+         var routes = generateRoutes(result);
+         global_routes=routes
         renderMap(routes);
         })
         .catch(error => alert('Error importing Excel file:', error));
@@ -292,6 +307,13 @@ function renderMap(routes) {
         const circumference = 2 * Math.PI * 65;
         const progressOffset = circumference - (percentage / 100) * circumference;
         
+        if (global_routes !== null && global_routes !== undefined) {
+
+            renderMap(global_routes,data.route_color);
+        } else {
+            console.log("global_routes is either null or undefined");
+        }
+
         // Show the progress circle
         progressCircle.style.display = 'block';
         
