@@ -2,7 +2,12 @@
 
 {% block content %}
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- Leaflet.MovingMarker JavaScript -->
+<script src="{{ url_for('static', filename='js/MovingMarker.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 
 <div>
