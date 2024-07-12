@@ -200,17 +200,25 @@ function renderMap(routes,route_color="gray") {
             // Add polyline for the route
             L.polyline(route.coordinates, { color: route_color }).addTo(map);
 
+            var movingMarker = L.Marker.movingMarker(
+                    route.coordinates,
+                    4500,                   
+                    { loop: true,
+                      icon: L.icon({ iconUrl: 'static/Shipp.png', iconSize: [42, 42] })} 
+                    ,).addTo(map);
+            movingMarker.start();
+            
             // Add markers for the start and end points
-            var startPoint = route.coordinates[0];
-            var endPoint = route.coordinates[route.coordinates.length - 1];
+            //var startPoint = route.coordinates[0];
+            //var endPoint = route.coordinates[route.coordinates.length - 1];
 
-            L.marker(startPoint).addTo(map)
-                .bindPopup(route.startCity || 'Start City')
-                .openPopup();
+            //L.marker(startPoint).addTo(map)
+               // .bindPopup(route.startCity || 'Start City')
+               // .openPopup();
 
-            L.marker(endPoint).addTo(map)
-                .bindPopup(route.endCity || 'End City')
-                .openPopup();
+           // L.marker(endPoint).addTo(map)
+                //.bindPopup(route.endCity || 'End City')
+               // .openPopup();
         });
     } catch (e) {
         console.error(e);
