@@ -77,6 +77,16 @@
       dominant-baseline: middle;
       fill: #007bff;
     }
+
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    .blink {
+        animation: blink 1s infinite;
+    }
   </style>
 <!-- Section divided into two columns -->
 <div style="display: flex;">
@@ -219,7 +229,30 @@ function renderMap(routes,route_color="gray") {
         routes.forEach(route => {
             // Add polyline for the route
             L.polyline(route.coordinates, { color: route_color }).addTo(map);
-            allRouteCoordinates = allRouteCoordinates.concat(route.coordinates);           
+            allRouteCoordinates = allRouteCoordinates.concat(route.coordinates);  
+            
+
+            var startPoint = route.coordinates[0];
+            var endPoint = route.coordinates[route.coordinates.length - 1];
+
+            var s_circle = L.circleMarker(startPoint, {
+                radius: 2, // Adjust the size of the circle
+                color: '#3388ff', // Adjust the color of the circle
+                fillColor: '#3388ff', // Adjust the fill color of the circle
+                fillOpacity: 1, // Adjust the opacity of the fill color
+                className: 'blink' // Apply the blink CSS class
+            }).addTo(map).bindPopup(route.startCity ||'Start City').openPopup();
+
+            var e_circle = L.circleMarker(endPoint, {
+                radius: 2, // Adjust the size of the circle
+                color: '#3388ff', // Adjust the color of the circle
+                fillColor: '#3388ff', // Adjust the fill color of the circle
+                fillOpacity: 1, // Adjust the opacity of the fill color
+                className: 'blink' // Apply the blink CSS class
+            }).addTo(map).bindPopup(route.endCity ||'End City').openPopup();
+
+
+            
         });
 
         // Create a single moving marker for all route polylines
