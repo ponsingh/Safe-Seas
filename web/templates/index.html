@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
+<div class="header-container">
     <h1 class="page-heading">Safe Seas</h1>
 </div>
-
+<div>
+    <div><h2>Available Routes : {{ routes|length }}</h2></div>
+    <div id="pagination" class="horizontal-container">
+        <button onclick="prevPage()"> Prev </button>
+        <span id="pageNumber"></span>
+        <button onclick="nextPage()"> Next </button>
+    </div>
+</div>
+<div>
+    <p></p>
+</div>
 <table>
     <thead>
         <tr>
@@ -12,7 +22,6 @@
             <th>Origin Port</th>
             <th>Destination Port</th>
             <th>Distance</th>
-            <th>Direction</th>
             <th>Vessel Type</th>
             <th>No of Travels</th>
             <th>No of Incidents</th>
@@ -20,8 +29,8 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
-        {% for route in routes %}
+    <tbody id="tableBody">
+        <!-- {% for route in routes %}
         {% set incident_percentage = (route['Total_Incidents_Count'] / route['No_Of_Travels']) * 100 %}
         <tr>
             <td>{{ route['Route_Id'] }}</td>
@@ -58,7 +67,7 @@
                 <button onclick="showIncidents('{{ route['Route_Id'] }}')">Incident</button>
             </td>
         </tr>
-        {% endfor %}
+        {% endfor %} -->
     </tbody>
 </table>
 
@@ -70,6 +79,57 @@
 </div>
 
 <script>
+
+const routes = {{ routes | tojson }};
+const rowsPerPage = 20;
+let currentPage = 1;
+
+    function nextPage() {
+        if ((currentPage * rowsPerPage) < routes.length) {
+            currentPage++;
+            renderTable(currentPage);
+        }
+    }
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderTable(currentPage);
+        }
+    }
+
+    function renderTable(page) {
+        const tableBody = document.getElementById('tableBody');
+        tableBody.innerHTML = '';
+
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const paginatedRoutes = routes.slice(start, end);
+
+        paginatedRoutes.forEach(route => {
+            const incidentPercentage = (route.Total_Incidents_Count / route.No_Of_Travels) * 100;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${route.Route_Id}</td>
+                <td>${route.Origin_Port}</td>
+                <td>${route.Destination_Port}</td>
+                <td>${route.Distance}</td>
+                <td>${route.Vessel_Type}</td>
+                <td>${route.No_Of_Travels}</td>
+                <td class="${incidentPercentage > 50 ? 'high-incidents' : incidentPercentage > 15 ? 'medium-incidents' : 'low-incidents'}">
+                    ${route.Total_Incidents_Count}
+                </td>
+                <td class="${route.Risk_Score > 50 ? 'high-risk' : route.Risk_Score > 20 ? 'medium-risk' : 'low-risk'}">
+                    ${route.Risk_Score}
+                </td>
+                <td><button onclick="showIncidents('${route.Route_Id}')">Incident</button></td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        document.getElementById('pageNumber').innerText = `Page ${page}`;
+    }
+    
     function showIncidents(routeId) {
         fetch(`/incidents/${routeId}`) 
             .then(response => response.text())
@@ -84,10 +144,32 @@
         document.getElementById('incident-details').style.display = 'none';
         document.getElementById('incident-content').innerHTML = ''; // Clear content
     }
+    document.addEventListener('DOMContentLoaded', () => {
+        renderTable(currentPage);
+    });
+    
 </script>
 
 <style>
     /* Basic modal styling */
+    .header-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .page-heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em; /* Slightly larger size */
+    font-weight: 700; /* Bold */
+    color: #030303;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+    .horizontal-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+
+    
     .modal {
         display: none; 
         position: fixed; 
@@ -121,6 +203,12 @@
         text-decoration: none;
         cursor: pointer;
     }
+    #pageNumber {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
 </style>
 
 {% endblock %}
