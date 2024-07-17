@@ -5,7 +5,7 @@
 
 
 <!-- Leaflet JavaScript -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
 <!-- Leaflet.MovingMarker JavaScript -->
 <script src="{{ url_for('static', filename='js/MovingMarker.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
@@ -101,7 +101,7 @@
                     <th>Destination Port</th>
                     <th>No Of Stops</th>
                     <th>Stops Names</th>
-                    <th>Stops Points</th>
+                    <th>No Of Travels</th>
                 </tr>
             </thead>
             <tbody>
@@ -258,7 +258,7 @@ function renderMap(routes,route_color="gray") {
         // Create a single moving marker for all route polylines
         var movingMarker = L.Marker.movingMarker(
         allRouteCoordinates,
-        4500 * routes.length, // Adjust the duration according to the number of routes
+        450 * routes.length, // Adjust the duration according to the number of routes
         { 
         loop: true,
         icon: L.icon({ iconUrl: 'static/Shipp.png', iconSize: [42, 42] })
@@ -338,7 +338,7 @@ function renderMap(routes,route_color="gray") {
             row.insertCell(2).textContent = route.Destination_Port;
             row.insertCell(3).textContent = route.No_Of_Stops;
             row.insertCell(4).textContent = route.Stops_Names;
-            row.insertCell(5).textContent = route.Stop_Points;
+            row.insertCell(5).textContent = route.No_Of_Travels;
         });
 
         // Populate incidents table
