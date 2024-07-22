@@ -3,6 +3,8 @@ import os
 import pandas as pd
 import pickle
 from datetime import datetime, timedelta
+import requests
+import re
 
 #Constructor
 app = Flask(__name__)
@@ -90,10 +92,47 @@ def import_excel():
                 print("Import file process started 4...")
                 incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
                 
-                # Convert DataFrames to dictionaries
+                df_getroutes= pd.DataFrame(incidents_df)
+                 # Load the Excel file
+                df_Setroutes = pd.DataFrame(routes_df)
+                get_string = str( df_Setroutes.iloc[0]['Stop_Points'])
+                coordinates = re.findall(r"\[([\d.]+)\s*,\s*([\d.]+)\]", get_string)
+                latitude_longitude_pairs = [(float(lat), float(lon)) for lat, lon in coordinates]
+ 
+                params=[]
+                # Print the coordinate pairs
+                print(coordinates)
                 global routes_data, incidents_data
+                url = "https://api.open-meteo.com/v1/forecast"
+                for i,(lat, lon) in enumerate(latitude_longitude_pairs):
+                    print("Longitude: {lon}")    
+                    params = {
+                        'latitude': lat,                                     
+                        'longitude': lon,
+                        'current': "pressure_msl",
+                        'daily': ["uv_index_max", "precipitation_sum", "rain_sum", "showers_sum", "snowfall_sum", "precipitation_probability_max", "wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant", "shortwave_radiation_sum"],
+                        'forecast_days': 16   
+                    }  
+                                  
+                    responses = requests.get(url, params=params)
+                    data = responses.json()
+                    df = pd.DataFrame(data['daily'])
+
+                    # Add columns to the DataFrame
+                    df['Incident_Id'] = range(len(df_getroutes) + 1, len(df_getroutes) + len(df) + 1)
+                    df['Route_Id'] = df_getroutes.iloc[1]['Route_Id']
+                    df['Incident_Type'] = df.apply(determine_incident_type, axis=1)
+                    df['Severity'] = df.apply(determine_severity, axis=1)
+                    df['Incident_Date'] = df['time']
+                    df['Description'] = df.apply(generate_description, axis=1)
+
+                    # Create the new DataFrame
+                    new_df = df[['Incident_Id', 'Route_Id', 'Incident_Type','Severity', 'Incident_Date', 'Description']]
+                    df_getroutes = pd.concat([df_getroutes, new_df], ignore_index=True) 
+                
+                # Convert DataFrames to dictionaries
                 routes_data = routes_df.to_dict(orient='records')
-                incidents_data = incidents_df.to_dict(orient='records')
+                incidents_data = df_getroutes.to_dict(orient='records')
                 
                 print("Import file process completed...")
 
@@ -112,6 +151,52 @@ def import_excel():
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+# Function definitions
+def determine_severity(row):
+    if row['precipitation_sum'] > 50 or row['wind_gusts_10m_max'] > 40 or row['precipitation_probability_max'] > 90:
+        return 'High'
+    elif row['precipitation_sum'] > 20 or row['wind_gusts_10m_max'] > 30 or row['precipitation_probability_max'] > 70:
+        return 'Medium'
+    else:
+        return 'Low'
+
+def generate_description(row):
+    description = []
+    if row['precipitation_sum'] > 20:
+        description.append('Heavy precipitation')
+    if row['rain_sum'] > 10:
+        description.append('Significant rainfall')
+    if row['showers_sum'] > 10:
+        description.append('Frequent showers')
+    if row['precipitation_probability_max'] > 80:
+        description.append('High probability of precipitation')
+    if row['wind_speed_10m_max'] > 15:
+        description.append('Strong winds')
+    if row['wind_gusts_10m_max'] > 30:
+        description.append('Strong wind gusts')
+    if row['shortwave_radiation_sum'] > 10:
+        description.append('High solar radiation')
+    if row['uv_index_max'] > 5:
+        description.append('High UV index')
+    return ', '.join(description) if description else 'Normal weather conditions'
+
+def determine_incident_type(row):
+    incident_types = []
+    if row['precipitation_sum'] > 50:
+        incident_types.append('Heavy Rainfall')
+    elif row['precipitation_sum'] > 20:
+        incident_types.append('Moderate Rainfall')
+    if row['wind_gusts_10m_max'] > 40:
+        incident_types.append('Severe Winds')
+    elif row['wind_gusts_10m_max'] > 30:
+        incident_types.append('Strong Winds')
+    if row['uv_index_max'] > 5:
+        incident_types.append('High UV')
+    if row['shortwave_radiation_sum'] > 10:
+        incident_types.append('High Solar Radiation')
+    return ', '.join(incident_types) if incident_types else 'No Significant Incident'
 
 # Function to get the date 5 months ago
 def date_n_months_ago(current_date, n):
