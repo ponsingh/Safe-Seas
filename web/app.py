@@ -91,53 +91,15 @@ def import_excel():
                 routes_df = pd.read_excel(excel_file, sheet_name='Routes')
                 print("Import file process started 4...")
                 incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
-                
-                df_getroutes= pd.DataFrame(incidents_df)
-                 # Load the Excel file
-                df_Setroutes = pd.DataFrame(routes_df)
-                get_string = str( df_Setroutes.iloc[0]['Stop_Points'])
-                coordinates = re.findall(r"\[([\d.]+)\s*,\s*([\d.]+)\]", get_string)
-                latitude_longitude_pairs = [(float(lat), float(lon)) for lat, lon in coordinates]
- 
-                params=[]
-                # Print the coordinate pairs
-                print(coordinates)
-                global routes_data, incidents_data
-                url = "https://api.open-meteo.com/v1/forecast"
-                for i,(lat, lon) in enumerate(latitude_longitude_pairs):
-                    print("Longitude: {lon}")    
-                    params = {
-                        'latitude': lat,                                     
-                        'longitude': lon,
-                        'current': "pressure_msl",
-                        'daily': ["uv_index_max", "precipitation_sum", "rain_sum", "showers_sum", "snowfall_sum", "precipitation_probability_max", "wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant", "shortwave_radiation_sum"],
-                        'forecast_days': 16   
-                    }  
-                                  
-                    responses = requests.get(url, params=params)
-                    data = responses.json()
-                    df = pd.DataFrame(data['daily'])
-
-                    # Add columns to the DataFrame
-                    df['Incident_Id'] = range(len(df_getroutes) + 1, len(df_getroutes) + len(df) + 1)
-                    df['Route_Id'] = df_getroutes.iloc[1]['Route_Id']
-                    df['Incident_Type'] = df.apply(determine_incident_type, axis=1)
-                    df['Severity'] = df.apply(determine_severity, axis=1)
-                    df['Incident_Date'] = df['time']
-                    df['Description'] = df.apply(generate_description, axis=1)
-
-                    # Create the new DataFrame
-                    new_df = df[['Incident_Id', 'Route_Id', 'Incident_Type','Severity', 'Incident_Date', 'Description']]
-                    df_getroutes = pd.concat([df_getroutes, new_df], ignore_index=True) 
-                
+                updated_incidents_df = process_futures_weather_incidents(incidents_df, routes_df)
                 # Convert DataFrames to dictionaries
                 routes_data = routes_df.to_dict(orient='records')
-                incidents_data = df_getroutes.to_dict(orient='records')
+                updated_incidents_df_data = updated_incidents_df.to_dict(orient='records')
                 
                 print("Import file process completed...")
 
                 # Return JSON response with routes and incidents data
-                return jsonify({'routes': routes_data, 'incidents': incidents_data})
+                return jsonify({'routes': routes_data, 'incidents': updated_incidents_df_data})
             
             except Exception as e:
                 return jsonify({'error': f'Error processing Excel file: {str(e)}'}), 500
@@ -147,11 +109,46 @@ def import_excel():
     
     except Exception as e:
         return jsonify({'error': f'Error uploading file: {str(e)}'}), 500
-
+    
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+def process_futures_weather_incidents(incidents_df, routes_df):
+    try:
+        get_string = str(routes_df.iloc[0]['Stop_Points'])
+        coordinates = re.findall(r"\[([\d.]+)\s*,\s*([\d.]+)\]", get_string)
+        latitude_longitude_pairs = [(float(lat), float(lon)) for lat, lon in coordinates]
+        
+        url = "https://api.open-meteo.com/v1/forecast"
+        for lat, lon in latitude_longitude_pairs:
+            params = {
+                'latitude': lat,
+                'longitude': lon,
+                'current': "pressure_msl",
+                'daily': ["uv_index_max", "precipitation_sum", "rain_sum", "showers_sum", "snowfall_sum", "precipitation_probability_max", "wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant", "shortwave_radiation_sum"],
+                'forecast_days': 16
+            }
+            
+            response = requests.get(url, params=params)
+            data = response.json()
+            df = pd.DataFrame(data['daily'])
+            
+            df['Incident_Id'] = range(len(incidents_df) + 1, len(incidents_df) + len(df) + 1)
+            df['Route_Id'] = routes_df.iloc[0]['Route_Id']
+            df['Incident_Type'] = df.apply(determine_incident_type, axis=1)
+            df['Severity'] = df.apply(determine_severity, axis=1)
+            df['Incident_Date'] = df['time']
+            df['Description'] = df.apply(generate_description, axis=1)
+            
+            new_df = df[['Incident_Id', 'Route_Id', 'Incident_Type', 'Severity', 'Incident_Date', 'Description']]
+            incidents_df = pd.concat([incidents_df, new_df], ignore_index=True)
+        
+        return incidents_df
+    
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return incidents_df
 
 # Function definitions
 def determine_severity(row):
