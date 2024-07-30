@@ -68,7 +68,7 @@ def import_excel():
             return jsonify({'error': 'No file part in the request'}), 400
         
         excel_file = request.files['excel_file']
-        
+        is_fetch_future= request.form.get('checkbox_state')
         # Check if no file is selected
         if excel_file.filename == '':
             return jsonify({'error': 'No file selected for uploading'}), 400
@@ -88,18 +88,25 @@ def import_excel():
                     return jsonify({'error': f"'Routes' sheet not found. Available sheets: {sheet_names}"}), 400
 
                 print("Import file process started 3...")
+                global routes_data, incidents_data
                 routes_df = pd.read_excel(excel_file, sheet_name='Routes')
                 print("Import file process started 4...")
                 incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
-                updated_incidents_df = process_futures_weather_incidents(incidents_df, routes_df)
+                if is_fetch_future == "true":
+                    updated_incidents_df = process_futures_weather_incidents(incidents_df, routes_df)
+                else:
+                    updated_incidents_df=incidents_df
+
+                routes_data=routes_df
+                incidents_data=updated_incidents_df
                 # Convert DataFrames to dictionaries
-                routes_data = routes_df.to_dict(orient='records')
+                updated_routes_data_dic = routes_df.to_dict(orient='records')
                 updated_incidents_df_data = updated_incidents_df.to_dict(orient='records')
                 
                 print("Import file process completed...")
 
                 # Return JSON response with routes and incidents data
-                return jsonify({'routes': routes_data, 'incidents': updated_incidents_df_data})
+                return jsonify({'routes': updated_routes_data_dic, 'incidents': updated_incidents_df_data})
             
             except Exception as e:
                 return jsonify({'error': f'Error processing Excel file: {str(e)}'}), 500
@@ -138,7 +145,8 @@ def process_futures_weather_incidents(incidents_df, routes_df):
             df['Route_Id'] = routes_df.iloc[0]['Route_Id']
             df['Incident_Type'] = df.apply(determine_incident_type, axis=1)
             df['Severity'] = df.apply(determine_severity, axis=1)
-            df['Incident_Date'] = df['time']
+            #df['Incident_Date'] = df['time']
+            df['Incident_Date'] = pd.to_datetime(df['time'])
             df['Description'] = df.apply(generate_description, axis=1)
             
             new_df = df[['Incident_Id', 'Route_Id', 'Incident_Type', 'Severity', 'Incident_Date', 'Description']]
