@@ -1021,3 +1021,55 @@ R0997,New Orleans,Santos, USA, Brazil,,,,7860,21,E,Reefer Vessel,5604,145,6,20,1
 R0998,New York,Callao, USA, Peru,,,,5630,15,N,Frigate,5914,146,8,9,128,0,0,0,0,1,0,89
 R0999,Savannah,Buenos Aires, USA, Argentina,,,,5460,14,S,Offshore Ships,4088,131,6,18,104,0,0,0,0,3,0,90
 R1000,Mobile,Guayaquil, USA, Ecuador,,,,5920,15,N,Panamax Ship,4677,128,2,23,98,0,0,0,0,5,0,88
+R1001,Le Havre,Barcelona, France, Spain,,,,7230,19,N,Livestock carrier,40880,131,6,104,18,0,0,0,0,3,0,15
+R1002,Felixstowe,Naples, UK, Italy,,,,8070,21,S,Project cargo ship,46770,128,2,98,23,0,0,0,0,5,0,14
+R1003,Bremerhaven,Marseille, Germany, France,,,,8060,21,N,Barge,50000,132,5,6,116,2,0,0,3,0,0,12
+R1004,Zeebrugge,Lisbon, Belgium, Portugal,,,,6830,18,N,Dredgers,45000,122,10,18,90,3,0,0,1,0,0,13
+R1005,Southampton,Izmir, UK, Turkey,,,,6770,18,S,Tugs,55000,125,6,15,92,2,1,1,1,1,6,15
+R1006,Gothenburg,Athens, Sweden, Greece,,,,8080,21,E,Corvette,60000,111,2,17,86,5,0,0,1,0,0,9
+R1007,Aarhus,Haifa, Denmark, Israel,,,,8590,23,E,Reefer Vessel,50000,131,6,7,113,2,0,0,3,0,0,15
+R1008,Hamburg,Durban, Germany, South Africa,,,,7570,20,N,Frigate,54000,149,10,18,117,3,0,0,1,0,0,15
+R1009,Rotterdam,Lagos, Netherlands, Nigeria,,,,7860,21,S,Offshore Ships,40880,128,9,25,88,5,0,0,1,0,0,14
+R1010,Antwerp,Cape Town, Belgium, South Africa,,,,5630,15,N,Panamax Ship,46770,102,4,19,74,4,0,0,1,0,0,12
+R1011,Le Havre,Abidjan, France, Ivory Coast,,,,5460,14,N,Bulk carrier,50000,110,6,14,85,0,5,0,0,0,0,13
+R1012,Genoa,Mombasa, Italy, Kenya,,,,5920,15,N,Tank,60000,119,9,6,99,2,0,0,1,2,0,15
+R1013,Barcelona,Dakar, Spain, Senegal,,,,6140,16,S,Barge,50000,104,7,19,78,0,0,0,0,0,0,9
+R1014,Marseille,Casablanca, France, Morocco,,,,6190,16,N,Dredgers,54000,128,2,24,96,4,0,0,1,1,0,15
+R1015,Lisbon,Luanda, Portugal, Angola,,,,6200,16,N,Tugs,46770,116,6,2,99,6,0,0,0,3,0,12
+R1016,Valencia,Alexandria, Spain, Egypt,,,,6160,16,N,Corvette,50000,132,1,18,108,0,0,0,0,5,0,15
+R1017,Naples,Tema, Italy, Ghana,,,,5320,14,S,Reefer Vessel,60000,113,2,6,96,6,0,0,0,3,0,12
+R1018,Jebel Ali,Mumbai, UAE, India,,,,995,48,N,Frigate,46770,131,3,11,113,3,0,0,0,1,0,16
+R1019,Doha,Chennai, Qatar, India,,,,12271,70,S,Offshore Ships,50000,110,3,4,90,5,0,0,5,3,0,10
+R1020,Dammam,Shanghai, Saudi Arabia, China,,,,554,59,N,Panamax Ship,50000,101,1,2,84,0,0,0,9,5,0,15
+R1021,Muscat,Colombo, Oman, Sri Lanka,,,,1882,49,N,Bulk carrier,54000,133,3,17,106,0,0,0,4,3,0,12
+R1022,Aden,Bangkok, Yemen, Thailand,,,,2098,163,N,Tank,46770,134,10,1,119,0,0,0,0,4,0,15
+R1023,Manama,Penang, Bahrain, Malaysia,,,,2537,165,N,Tank,50000,125,6,7,106,1,0,0,3,2,0,12
+R1024,Jeddah,Jakarta, Saudi Arabia, Indonesia,,,,298,167,S,Barge,60000,147,9,1,129,2,0,0,1,5,0,16
+R1025,Dubai,Ho Chi Minh City, UAE, Vietnam,,,,341,39,N,Dredgers,46770,138,10,20,101,0,0,0,2,5,0,10
+R1026,Sharjah,Kaohsiung, UAE, Taiwan,,,,385,72,N,Tugs,40880,144,4,8,129,0,0,0,0,3,0,15
+R1027,Melbourne,Hong Kong, Australia, China,,,,429,71,N,Corvette,46770,140,4,15,120,0,0,0,0,1,0,12
+R1028,Brisbane,Tokyo, Australia, Japan,,,,473,79,N,Reefer Vessel,50000,132,3,24,102,0,0,0,0,3,0,16
+R1029,Fremantle,Shanghai, Australia, China,,,,517,81,S,Frigate,45000,112,3,6,98,0,0,0,0,5,0,10
+R1030,Adelaide,Klang, Australia, Malaysia,,,,561,10,N,Offshore Ships,55000,116,7,12,94,0,0,0,3,0,0,16
+R1031,Darwin,Jakarta, Australia, Indonesia,,,,341,32,N,Panamax Ship,60000,143,10,21,112,0,0,0,0,0,0,10
+R1032,Hobart,Busan, Australia, South Korea,,,,648,54,S,Bulk carrier,50000,150,3,24,123,0,0,0,0,0,0,15
+R1033,Townsville,Manila, Australia, Philippines,,,,692,60,E,Tank,54000,101,6,15,80,0,0,0,0,0,0,12
+R1034,Newcastle,Bangkok, Australia, Thailand,,,,736,78,E,Barge,40880,130,9,9,112,0,0,0,0,0,0,15
+R1035,Cairns,Ho Chi Minh City, Australia, Vietnam,,,,298,167,N,Dredgers,46770,134,1,11,120,0,0,0,0,2,0,12
+R1036,Hamburg,Antwerp, Germany, Belgium,,,,341,39,S,Tugs,50000,127,9,10,108,0,0,0,0,0,0,16
+R1037,Rotterdam,Le Havre, Netherlands, France,,,,385,72,N,Corvette,45000,118,3,2,112,0,0,0,0,1,0,10
+R1038,Felixstowe,Gothenburg, UK, Sweden,,,,429,71,N,Reefer Vessel,55000,116,9,9,95,0,0,0,0,3,0,15
+R1039,Bremerhaven,Zeebrugge, Germany, Belgium,,,,473,79,N,Frigate,60000,137,7,4,121,0,0,0,0,5,0,12
+R1040,Southampton,Rotterdam, UK, Netherlands,,,,517,81,S,Offshore Ships,50000,105,4,24,74,0,0,0,0,3,0,16
+R1041,Copenhagen,Oslo, Denmark, Norway,,,,561,10,N,Panamax Ship,54000,127,1,10,115,0,0,0,0,1,0,12
+R1042,Helsinki,St. Petersburg, Finland, Russia,,,,341,32,N,Bulk carrier,40880,118,3,2,110,0,0,0,0,3,0,16
+R1043,Tallinn,Riga, Estonia, Latvia,,,,8060,21,N,Tank,50000,122,8,22,87,0,0,0,0,5,0,10
+R1044,Stockholm,Helsinki, Sweden, Finland,,,,6830,18,S,Tank,54000,128,2,13,110,0,0,0,0,3,0,15
+R1045,Gdynia,Klaipeda, Poland, Lithuania,,,,6770,18,N,Barge,40880,113,8,19,86,0,0,0,0,0,0,12
+R1046,Los Angeles,Manzanillo, USA, Mexico,,,,8080,21,N,Dredgers,46770,112,4,15,93,0,0,0,0,0,0,16
+R1047,Houston,Veracruz, USA, Mexico,,,,8590,23,S,Tugs,50000,122,9,16,97,0,0,0,0,0,0,10
+R1048,Miami,Cartagena, USA, Colombia,,,,7570,20,E,Corvette,60000,143,10,21,110,0,0,0,0,2,0,15
+R1049,New Orleans,Santos, USA, Brazil,,,,7860,21,E,Reefer Vessel,50000,145,6,20,119,0,0,0,0,0,0,12
+R1050,New York,Callao, USA, Peru,,,,5630,15,N,Frigate,54000,146,8,9,128,0,0,0,0,1,0,16
+R1051,Savannah,Buenos Aires, USA, Argentina,,,,5460,14,S,Offshore Ships,54000,131,6,18,104,0,0,0,0,3,0,10
+R1052,Mobile,Guayaquil, USA, Ecuador,,,,5920,15,N,Panamax Ship,40880,128,2,23,98,0,0,0,0,5,0,12

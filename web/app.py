@@ -289,8 +289,7 @@ def calculate_risk_score():
          # Convert data into DataFrame
         # Create a DataFrame with new data points to predict
 
-        columns_to_keep = ['Distance', 
-                           'Average_Transit_Days', 
+        columns_to_keep = [
                            'No_Of_Travels',
                            'Total_Incidents_Count',
                            'High',
@@ -319,13 +318,13 @@ def calculate_risk_score():
     
             # Make prediction
         prediction = model_rf.predict(new_data)
-        
+        print("predicted sucessfully")
         risk_value=prediction[0]
         if risk_value>100:
             risk_value=100
         
-        if risk_value<7:
-            risk_value=7
+        if risk_value<0:
+            risk_value=3
         
         #return {'Risk_Score': risk_value}
 

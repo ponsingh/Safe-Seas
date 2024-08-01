@@ -9,7 +9,18 @@ pip install pandas
 pip install flask
 
 pip install matplotlib.pyplot
--------------------------
+
 pip install sklearn
 
 pip install scikit-learn
+
+pip install requests
+
+#not needed
+pip install graphviz
+
+
+pip install --upgrade virtualenv
+python -m venv myenv
+source myenv/bin/activate  # Unix/Mac
+myenv\Scripts\activate
