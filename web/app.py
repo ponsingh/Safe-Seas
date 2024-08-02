@@ -151,6 +151,7 @@ def process_futures_weather_incidents(incidents_df, routes_df):
             
             new_df = df[['Incident_Id', 'Route_Id', 'Incident_Type', 'Severity', 'Incident_Date', 'Description']]
             incidents_df = pd.concat([incidents_df, new_df], ignore_index=True)
+            break
         
         return incidents_df
     
@@ -160,9 +161,9 @@ def process_futures_weather_incidents(incidents_df, routes_df):
 
 # Function definitions
 def determine_severity(row):
-    if row['precipitation_sum'] > 50 or row['wind_gusts_10m_max'] > 40 or row['precipitation_probability_max'] > 90:
+    if row['precipitation_sum'] > 60 or row['wind_gusts_10m_max'] > 50 or row['precipitation_probability_max'] >= 100:
         return 'High'
-    elif row['precipitation_sum'] > 20 or row['wind_gusts_10m_max'] > 30 or row['precipitation_probability_max'] > 70:
+    elif row['precipitation_sum'] > 30 or row['wind_gusts_10m_max'] > 20 or row['precipitation_probability_max'] > 80:
         return 'Medium'
     else:
         return 'Low'
