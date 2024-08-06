@@ -1073,3 +1073,32 @@ R1049,New Orleans,Santos, USA, Brazil,,,,7860,21,E,Reefer Vessel,50000,145,6,20,
 R1050,New York,Callao, USA, Peru,,,,5630,15,N,Frigate,54000,146,8,9,128,0,0,0,0,1,0,16
 R1051,Savannah,Buenos Aires, USA, Argentina,,,,5460,14,S,Offshore Ships,54000,131,6,18,104,0,0,0,0,3,0,10
 R1052,Mobile,Guayaquil, USA, Ecuador,,,,5920,15,N,Panamax Ship,40880,128,2,23,98,0,0,0,0,5,0,12
+R1053,Hong Kong,Jakarta, China, Indonesia,,,,6200,16,N,Offshore Ships,4935,10,0,0,0,0,0,0,10,0,0,3
+R1054,Tokyo,Ho Chi Minh City, Japan, Vietnam,,,,6160,16,S,Heavy Lift Ships,5626,15,0,0,0,0,0,0,15,0,0,4
+R1055,Yokohama,Manila, Japan, Philippines,,,,5320,14,N,Panamax Ship,5926,10,0,0,0,0,0,0,10,0,0,4
+R1056,Shenzhen,Bangkok, China, Thailand,,,,6190,16,N,Tanker,5583,16,0,0,0,0,0,0,16,0,0,6
+R1057,Ningbo,Klang, China, Malaysia,,,,5320,14,N,Canoe,4679,7,0,0,0,0,0,0,7,0,0,4
+R1058,Qingdao,Colombo, China, Sri Lanka,,,,6190,16,S,Hovercraft,4387,10,0,0,0,0,0,0,10,0,0,6
+R1059,Tianjin,Penang, China, Malaysia,,,,4660,12,N,Submarine,5891,25,0,0,0,0,0,0,25,0,0,8
+R1060,Dalian,Laem Chabang, China, Thailand,,,,8050,22,N,Yacht,4845,17,0,0,0,0,0,0,17,0,0,4
+R1061,Antwerp,Genoa, Belgium, Italy,,,,8040,21,S,Sailboat,5761,10,0,0,0,0,0,0,10,0,0,5
+R1062,Hamburg,Piraeus, Germany, Greece,,,,7450,20,N,Gas carrier,5604,10,0,0,0,0,0,0,10,0,0,7
+R1063,Rotterdam,Valencia, Netherlands, Spain,,,,8560,23,N,High-speed craft,5914,16,0,0,0,0,0,0,16,0,0,3
+R1064,Le Havre,Barcelona, France, Spain,,,,7230,19,N,Livestock carrier,4088,7,0,0,0,0,0,0,7,0,0,2
+R1065,Felixstowe,Naples, UK, Italy,,,,8070,21,S,Project cargo ship,4677,10,0,0,0,0,0,0,10,0,0,4
+R1066,Bremerhaven,Marseille, Germany, France,,,,8060,21,N,Barge,5000,25,0,0,0,0,0,0,25,0,0,4
+R1067,Zeebrugge,Lisbon, Belgium, Portugal,,,,6830,18,N,Dredgers,4500,17,0,0,0,0,0,0,17,0,0,3
+R1068,Southampton,Izmir, UK, Turkey,,,,6770,18,S,Tugs,5500,10,0,0,0,0,0,0,10,0,0,7
+R1069,Gothenburg,Athens, Sweden, Greece,,,,8080,21,E,Corvette,6000,16,0,0,0,0,0,0,16,0,0,4
+R1070,Aarhus,Haifa, Denmark, Israel,,,,8590,23,E,Reefer Vessel,5000,7,0,0,0,0,0,0,7,0,0,3
+R1071,Hamburg,Durban, Germany, South Africa,,,,7570,20,N,Frigate,5400,18,0,0,0,0,0,0,18,0,0,7
+R1072,Rotterdam,Lagos, Netherlands, Nigeria,,,,7860,21,S,Offshore Ships,5900,25,0,0,0,0,0,0,25,0,0,3
+R1073,Antwerp,Cape Town, Belgium, South Africa,,,,5630,15,N,Panamax Ship,5200,17,0,0,0,0,0,0,17,0,0,2
+R1074,Le Havre,Abidjan, France, Ivory Coast,,,,5460,14,N,Bulk carrier,4800,10,0,0,0,0,0,0,10,0,0,3
+R1075,Genoa,Mombasa, Italy, Kenya,,,,5920,15,N,Tank,5100,10,0,0,0,0,0,0,10,0,0,2
+R1076,Barcelona,Dakar, Spain, Senegal,,,,6140,16,S,Barge,5480,16,0,0,0,0,0,0,16,0,0,4
+R1077,Marseille,Casablanca, France, Morocco,,,,6190,16,N,Dredgers,4866,7,0,0,0,0,0,0,7,0,0,4
+R1078,Lisbon,Luanda, Portugal, Angola,,,,6200,16,N,Tugs,5000,10,0,0,0,0,0,0,10,0,0,3
+R1079,Valencia,Alexandria, Spain, Egypt,,,,6160,16,N,Corvette,5714,17,0,0,0,0,0,0,17,0,0,3
+R1080,Naples,Tema, Italy, Ghana,,,,5320,14,S,Reefer Vessel,4139,12,0,0,0,0,0,0,12,0,0,4
+R1081,Jebel Ali,Mumbai, UAE, India,,,,995,48,N,Frigate,5461,16,0,0,0,0,0,0,16,0,0,4
