@@ -19,6 +19,12 @@
         <input type="file" id="excel-file" name="excel_file" accept=".xlsx, .xls">
         <button type="submit">Import Excel</button>
     </form>
+    <button onclick="refreshPage()">Clear</button>
+    <script>
+        function refreshPage() {
+            window.location.reload();
+        }
+    </script>
     <div class="horizontal-container">
 
     <button id="calculate-risk-score" type="button">Calculate Risk Score</button>
@@ -86,7 +92,7 @@
     </head>
     <body>
     
-    <h2>Future Prediction</h2>
+    <h2>Fetch Future Incidents</h2>
     
     <label class="switch">
       <input type="checkbox" id="toggle">
