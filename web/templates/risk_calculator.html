@@ -191,7 +191,22 @@
 
     <!-- Second column: Leaflet map -->
     <div style="flex: 1;">
-        <div id="map" style="height: 600px;"></div>
+        <!-- Horizontal Color Indicator for Risk Levels -->
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: green; margin-right: 10px;"></div>
+            <span>Low Risk</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: yellow; margin-right: 10px;"></div>
+            <span>Medium Risk</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: red; margin-right: 10px;"></div>
+            <span>High Risk</span>
+        </div>
+    </div>
+        <div id="map" style="height: 700px;"></div>
     </div>
 </div>
 
