@@ -124,7 +124,9 @@ def allowed_file(filename):
 def process_futures_weather_incidents(incidents_df, routes_df):
     try:
         get_string = str(routes_df.iloc[0]['Stop_Points'])
-        coordinates = re.findall(r"\[([\d.]+)\s*,\s*([\d.]+)\]", get_string)
+        pattern = r'\[([^\]]+)\]'
+        matches = re.findall(pattern, get_string)
+        coordinates = [list(map(float, match.split(', '))) for match in matches]
         latitude_longitude_pairs = [(float(lat), float(lon)) for lat, lon in coordinates]
         
         url = "https://api.open-meteo.com/v1/forecast"
@@ -141,7 +143,7 @@ def process_futures_weather_incidents(incidents_df, routes_df):
             data = response.json()
             df = pd.DataFrame(data['daily'])
             
-            df['Incident_Id'] = range(len(incidents_df) + 1, len(incidents_df) + len(df) + 1)
+            df['Incident_Id'] = [f"INC{i}" for i in range(len(incidents_df) + 1, len(incidents_df) + len(df) + 1)]
             df['Route_Id'] = routes_df.iloc[0]['Route_Id']
             df['Incident_Type'] = df.apply(determine_incident_type, axis=1)
             df['Severity'] = df.apply(determine_severity, axis=1)
@@ -330,7 +332,7 @@ def calculate_risk_score():
         #return {'Risk_Score': risk_value}
 
         route_color="blue"
-        if risk_value>60:
+        if risk_value>40:
             route_color="red"
         elif risk_value>20:
             route_color="yellow"

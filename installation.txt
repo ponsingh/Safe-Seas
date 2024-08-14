@@ -1,3 +1,7 @@
+Python Version 3.10.7 - 64 bit
+
+pip install flask
+
 pip install openpyxl
 
 pip install xlrd
@@ -5,8 +9,6 @@ pip install xlrd
 pip install numpy
 
 pip install pandas
-
-pip install flask
 
 pip install matplotlib.pyplot
 
@@ -16,10 +18,11 @@ pip install scikit-learn
 
 pip install requests
 
+
+
 #not needed
+
 pip install graphviz
-
-
 pip install --upgrade virtualenv
 python -m venv myenv
 source myenv/bin/activate  # Unix/Mac
