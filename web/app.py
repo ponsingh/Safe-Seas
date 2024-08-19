@@ -68,7 +68,7 @@ def import_excel():
             return jsonify({'error': 'No file part in the request'}), 400
         
         excel_file = request.files['excel_file']
-        is_fetch_future= request.form.get('checkbox_state')
+        #is_fetch_future= request.form.get('checkbox_state')
         # Check if no file is selected
         if excel_file.filename == '':
             return jsonify({'error': 'No file selected for uploading'}), 400
@@ -90,23 +90,23 @@ def import_excel():
                 print("Import file process started 3...")
                 global routes_data, incidents_data
                 routes_df = pd.read_excel(excel_file, sheet_name='Routes')
-                print("Import file process started 4...")
-                incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
-                if is_fetch_future == "true":
-                    updated_incidents_df = process_futures_weather_incidents(incidents_df, routes_df)
-                else:
-                    updated_incidents_df=incidents_df
+                # print("Import file process started 4...")
+                # incidents_df = pd.read_excel(excel_file, sheet_name='Incidents')
+                # if is_fetch_future == "true":
+                #     updated_incidents_df = process_futures_weather_incidents(incidents_df, routes_df)
+                # else:
+                #     updated_incidents_df=incidents_df
 
                 routes_data=routes_df
-                incidents_data=updated_incidents_df
+                #incidents_data=updated_incidents_df
                 # Convert DataFrames to dictionaries
                 updated_routes_data_dic = routes_df.to_dict(orient='records')
-                updated_incidents_df_data = updated_incidents_df.to_dict(orient='records')
+                #updated_incidents_df_data = updated_incidents_df.to_dict(orient='records')
                 
                 print("Import file process completed...")
 
                 # Return JSON response with routes and incidents data
-                return jsonify({'routes': updated_routes_data_dic, 'incidents': updated_incidents_df_data})
+                return jsonify({'routes': updated_routes_data_dic})
             
             except Exception as e:
                 return jsonify({'error': f'Error processing Excel file: {str(e)}'}), 500

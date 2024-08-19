@@ -31,16 +31,16 @@
     <svg class="progress-circle" viewBox="0 0 150 150">
         <!-- Background circle -->
         <circle class="progress-circle-bg" cx="75" cy="75" r="65"></circle>
-        
+
         <!-- Filled circle -->
         <circle class="progress-circle-fill" cx="75" cy="75" r="65"></circle>
-        
+
         <!-- Label -->
         <text class="progress-circle-label" x="75" y="75">0%</text>
       </svg>
 
     </div>
-    
+
     <h2 id="risk-score-value"></h2>
 </div>
 <style>
@@ -50,13 +50,13 @@
       width: 45px;
       height: 20px;
     }
-    
-    .switch input { 
+
+    .switch input {
       opacity: 0;
       width: 0;
       height: 0;
     }
-    
+
     .slider {
       position: absolute;
       cursor: pointer;
@@ -68,7 +68,7 @@
       transition: .4s;
       border-radius: 34px;
     }
-    
+
     .slider:before {
       position: absolute;
       content: "";
@@ -80,29 +80,29 @@
       transition: .4s;
       border-radius: 50%;
     }
-    
+
     input:checked + .slider {
       background-color: #2196F3;
     }
-    
+
     input:checked + .slider:before {
       transform: translateX(26px);
     }
     </style>
     </head>
     <body>
-    
+
     <h2>Fetch Future Incidents</h2>
-    
+
     <label class="switch">
       <input type="checkbox" id="toggle">
       <span class="slider"></span>
     </label>
-    
+
 
 <hr>
 <style>
- 
+
     .horizontal-container {
         display: flex;
         align-items: center;
@@ -145,7 +145,7 @@
         50% { opacity: 0; }
         100% { opacity: 1; }
     }
-    
+
     .blink {
         animation: blink 1s infinite;
     }
@@ -158,12 +158,31 @@
         <table id="routes-table">
             <thead>
                 <tr>
-                    <th>Route Id</th>
-                    <th>Origin Port</th>
-                    <th>Destination Port</th>
-                    <th>No Of Stops</th>
-                    <th>Stops Names</th>
-                    <th>No Of Travels</th>
+                    <th>RouteID</th>	
+                    <th>POL</th>	
+                    <th>POD</th>	
+                    <th>High_Incidents</th>	
+                    <th>Medium_Incidents</th>	
+                    <th>Low_Incidents</th>	
+                    <th>No_Of_Transhipments</th>	
+                    <th>Average_Transit_Days</th>	
+                    <th>Distance</th>	
+                    <th>Crew_Experience_Level</th>	 
+                    <th>Training_Programs</th>	
+                    <th>Navigational_Risks</th>	
+                    <th>Carbon_Emissions</th>	
+                    <th>Operational_Cost</th>	
+                    <th>Insurance_Premium</th>	
+                    <th>Total_Revenue</th>
+                    <th>Regulatory_Compliance</th>	
+                    <th>Previous_Safety_Awards</th>	 
+                    <th>Emergency_Response_Plans</th>	
+                    <th>Cargo_Type</th>	
+                    <th>Ship_Type</th>	
+                    <th>Average_Vessel_Age</th>	
+                    <th>RiskScore</th>	
+                    <th>Scaled_RiskScore</th>	
+                    <th>Risk_Category</th>
                 </tr>
             </thead>
             <tbody>
@@ -171,22 +190,7 @@
             </tbody>
         </table>
 
-        <h2>Incidents</h2>
-        <table id="incidents-table">
-            <thead>
-                <tr>
-                    <th>Incident Id</th>
-                    <th>Route Id</th>
-                    <th>Incident Type</th>
-                    <th>Severity</th>
-                    <th>Incident Date</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be populated here -->
-            </tbody>
-        </table>
+
     </div>
 
     <!-- Second column: Leaflet map -->
@@ -206,8 +210,12 @@
             <span>High Risk</span>
         </div>
     </div>
-        <div id="map" style="height: 700px;"></div>
     </div>
+
+</div>
+<div>
+ <h2>Maps</h2>
+<div id="map" style="display: flex; flex-direction: column; height: 500px; width: 1000px;"></div>
 </div>
 
 <script>
@@ -286,28 +294,18 @@ function generateRoutes(cities) {
 }
 
 var map;
-var global_routes;
+var global_routes =[];
 function renderMap(routes,route_color="teal") {
     try {
-        // Check if a map instance already exists
-        if (map !== undefined) {
-            // Remove the existing map instance
-            map.remove();
-        }
-
-        // Initialize the map
-        map = L.map('map').setView([20, 0], 2);  // Default view is set to be more inclusive of the world map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+        
 
         let allRouteCoordinates = [];
         // Loop through routes and add polylines and markers to the map
         routes.forEach(route => {
             // Add polyline for the route
             L.polyline(route.coordinates, { color: route_color }).addTo(map);
-            allRouteCoordinates = allRouteCoordinates.concat(route.coordinates);  
-            
+            allRouteCoordinates = allRouteCoordinates.concat(route.coordinates);
+
 
             var startPoint = route.coordinates[0];
             var endPoint = route.coordinates[route.coordinates.length - 1];
@@ -329,14 +327,14 @@ function renderMap(routes,route_color="teal") {
             }).addTo(map).bindPopup(route.endCity ||'End City').openPopup();
 
 
-            
+
         });
 
         // Create a single moving marker for all route polylines
         var movingMarker = L.Marker.movingMarker(
         allRouteCoordinates,
         450 * routes.length, // Adjust the duration according to the number of routes
-        { 
+        {
         loop: true,
         icon: L.icon({ iconUrl: 'static/Shipp.png', iconSize: [42, 42] })
         }
@@ -350,7 +348,7 @@ function renderMap(routes,route_color="teal") {
     }
 }
 
-    
+
     // Initial map rendering
     // Generate routes from the list of mock cities
     const routes = generateRoutes(cities);
@@ -372,10 +370,10 @@ function renderMap(routes,route_color="teal") {
         e.preventDefault();
         var formData = new FormData();
         formData.append('excel_file', document.getElementById('excel-file').files[0]);
-        var checkbox_state = document.getElementById('toggle').checked;        
+        var checkbox_state = document.getElementById('toggle').checked;
         formData.append('checkbox_state', checkbox_state);
 
-        
+
         fetch('/import_excel', {
             method: 'POST',
             body: formData
@@ -383,15 +381,32 @@ function renderMap(routes,route_color="teal") {
         .then(response => response.json())
         .then(data => {
             // Display imported data in the UI
-            populateTables(data.routes, data.incidents);
-        const result = convertDataToDictionary(data.routes[0].Stops_Names, data.routes[0].Stop_Points);
-         var routes = generateRoutes(result);
-         global_routes=routes
-        renderMap(routes);
+            populateTables(data.routes);
+            initiatemap();
+        for (let index = 0; index < data.routes.length; index++) {
+            const element = data.routes[index];
+            const result = convertDataToDictionary(element.Stops_Names, element.Stop_Points);
+             var routes = generateRoutes(result);
+             global_routes.push(routes);
+             renderMap(routes);
+        }
         })
         .catch(error => alert('Error importing Excel file:', error));
     });
 
+    function initiatemap(){
+        // Check if a map instance already exists
+        if (map !== undefined) {
+            // Remove the existing map instance
+            map.remove();
+        }
+
+        // Initialize the map
+        map = L.map('map').setView([20, 0], 2);  // Default view is set to be more inclusive of the world map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    }
 
     function convertDataToDictionary(cityString,coordinateString) {
     // Remove any leading/trailing square brackets and whitespace from the coordinates
@@ -401,7 +416,7 @@ function renderMap(routes,route_color="teal") {
     let coordinatePairs = cleanedCoordinatesString.split(/\],\s*\[/);
 
     // Convert each coordinate pair string into an array of numbers
-    let coordinatesArray = coordinatePairs.map(pair => 
+    let coordinatesArray = coordinatePairs.map(pair =>
         pair.replace(/\[|\]/g, '').split(',').map(Number)
     );
 
@@ -424,26 +439,35 @@ function renderMap(routes,route_color="teal") {
         routesTableBody.innerHTML = ''; // Clear existing rows
         routes.forEach(route => {
             const row = routesTableBody.insertRow();
-            row.insertCell(0).textContent = route.Route_Id;
-            row.insertCell(1).textContent = route.Origin_Port;
-            row.insertCell(2).textContent = route.Destination_Port;
-            row.insertCell(3).textContent = route.No_Of_Stops;
-            row.insertCell(4).textContent = route.Stops_Names;
-            row.insertCell(5).textContent = route.No_Of_Travels;
+            row.insertCell(0).textContent = route.RouteID;	
+            row.insertCell(1).textContent = route.POL;	
+            row.insertCell(2).textContent = route.POD;	
+            row.insertCell(3).textContent = route.High_Incidents;	
+            row.insertCell(4).textContent = route.Medium_Incidents;	
+            row.insertCell(5).textContent = route.Low_Incidents;	
+            row.insertCell(6).textContent = route.No_Of_Transhipments;	
+            row.insertCell(7).textContent = route.Average_Transit_Days;	
+            row.insertCell(8).textContent = route.Distance;	
+            row.insertCell(9).textContent = route.Crew_Experience_Level;	
+            row.insertCell(10).textContent = route.Training_Programs;	
+            row.insertCell(11).textContent = route.Navigational_Risks;	
+            row.insertCell(12).textContent = route.Carbon_Emissions;	
+            row.insertCell(13).textContent = route.Operational_Cost;	
+            row.insertCell(14).textContent = route.Insurance_Premium;	
+            row.insertCell(15).textContent = route.Total_Revenue;	
+            row.insertCell(16).textContent = route.Regulatory_Compliance;	
+            row.insertCell(17).textContent = route.Previous_Safety_Awards;	
+            row.insertCell(18).textContent = route.Emergency_Response_Plans;	
+            row.insertCell(19).textContent = route.Cargo_Type;	
+            row.insertCell(20).textContent = route.Ship_Type;	
+            row.insertCell(21).textContent = route.Average_Vessel_Age;	
+            row.insertCell(22).textContent = route.RiskScore;	
+            row.insertCell(23).textContent = route.Scaled_RiskScore;	
+            row.insertCell(24).textContent = route.Risk_Category;
+
         });
 
-        // Populate incidents table
-        const incidentsTableBody = document.getElementById('incidents-table').getElementsByTagName('tbody')[0];
-        incidentsTableBody.innerHTML = ''; // Clear existing rows
-        incidents.forEach(incident => {
-            const row = incidentsTableBody.insertRow();
-            row.insertCell(0).textContent = incident.Incident_Id;
-            row.insertCell(1).textContent = incident.Route_Id;
-            row.insertCell(2).textContent = incident.Incident_Type;
-            row.insertCell(3).textContent = incident.Severity;
-            row.insertCell(4).textContent = incident.Incident_Date;
-            row.insertCell(5).textContent = incident.Description;
-        });
+        
     }
 
     // Event listener for Calculate Risk Score button
@@ -457,7 +481,7 @@ function renderMap(routes,route_color="teal") {
         const percentage = data.Risk_Score;
         const circumference = 2 * Math.PI * 65;
         const progressOffset = circumference - (percentage / 100) * circumference;
-        
+
         if (global_routes !== null && global_routes !== undefined) {
 
             renderMap(global_routes,data.route_color);
@@ -467,7 +491,7 @@ function renderMap(routes,route_color="teal") {
 
         // Show the progress circle
         progressCircle.style.display = 'block';
-        
+
         // Animate the progress circle
         progressCircleFill.style.strokeDasharray = `${circumference}, ${circumference}`;
 
@@ -499,7 +523,7 @@ const progressCircle = document.querySelector('.progress-circle-fill');
   const percentage = 60; // Replace with your actual percentage
   const circumference = 2 * Math.PI * 65;
   const progressOffset = circumference - (percentage / 100) * circumference;
-  
+
   // Animate the progress circle
   progressCircle.style.strokeDasharray = `${circumference}, ${circumference}`;
   progressCircle.style.strokeDashoffset = circumference;
