@@ -30,7 +30,7 @@ with open('risk_randomforest_model.pkl', 'rb') as f:
 
 # Load the data
 try:
-    routes_df = pd.read_csv('Routes.csv')
+    routes_df = pd.read_csv('Files/Routes.csv')
     incidents_df = pd.read_csv('Incidents.csv')
 except FileNotFoundError as e:
     print(f"File not found: {e.filename}")

@@ -18,56 +18,29 @@
 <table>
     <thead>
         <tr>
-            <th>Route Id</th>
-            <th>Origin Port</th>
-            <th>Destination Port</th>
+            <th>RouteID</th>
+            <th>POL</th>
+            <th>POD</th>
+            <th>High_Incidents</th>
+            <th>Medium_Incidents</th>
+            <th>Low_Incidents</th>
+            <th>No_Of_Transhipments</th>
+            <th>Average_Transit_Days</th>
             <th>Distance</th>
-            <th>Vessel Type</th>
-            <th>No of Travels</th>
-            <th>No of Incidents</th>
-            <th>Risk Score</th>
+            <th>Crew_Experience_Level</th>
+            <th>Carbon_Emissions</th>
+            <th>Operational_Cost</th>
+            <th>Insurance_Premium</th>
+            <th>Total_Revenue</th>
+            <th>Cargo_Type</th>
+            <th>Ship_Type</th>
+            <th>Scaled_RiskScore</th>
+            <th>Risk_Category</th> 
             <th>Actions</th>
         </tr>
     </thead>
     <tbody id="tableBody">
-        <!-- {% for route in routes %}
-        {% set incident_percentage = (route['Total_Incidents_Count'] / route['No_Of_Travels']) * 100 %}
-        <tr>
-            <td>{{ route['Route_Id'] }}</td>
-            <td>{{ route['Origin_Port'] }}</td>
-            <td>{{ route['Destination_Port'] }}</td>
-            <td>{{ route['Distance'] }}</td>
-            <td>{{ route['Travel_Direction'] }}</td>
-            <td>{{ route['Vessel_Type'] }}</td>
-            <td>{{ route['No_Of_Travels'] }}</td>
-            <td class="
-                {% if incident_percentage > 50 %}
-                    high-incidents
-                {% elif incident_percentage > 15 %}
-                    medium-incidents
-                {% else %}
-                    low-incidents
-                {% endif %}
-            ">
-                {{ route['Total_Incidents_Count'] }}
-            </td>
-            <td class="
-                    {% if route['Risk_Score'] > 50 %}
-                        high-risk
-                    {% elif route['Risk_Score'] > 20 %}
-                        medium-risk
-                    {% else %}
-                        low-risk
-                    {% endif %}
-                ">
-                    {{ route['Risk_Score'] }}
-                
-            </td>
-            <td>
-                <button onclick="showIncidents('{{ route['Route_Id'] }}')">Incident</button>
-            </td>
-        </tr>
-        {% endfor %} -->
+        
     </tbody>
 </table>
 
@@ -106,23 +79,27 @@ let currentPage = 1;
         const paginatedRoutes = routes.slice(start, end);
 
         paginatedRoutes.forEach(route => {
-            const incidentPercentage = (route.Total_Incidents_Count / route.No_Of_Travels) * 100;
-
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${route.Route_Id}</td>
-                <td>${route.Origin_Port}</td>
-                <td>${route.Destination_Port}</td>
+                <td>${route.RouteID}</td>
+                <td>${route.POL}</td>
+                <td>${route.POD}</td>
+                <td>${route.High_Incidents}</td>
+                <td>${route.Medium_Incidents}</td>
+                <td>${route.Low_Incidents}</td>
+                <td>${route.No_Of_Transhipments}</td>
+                <td>${route.Average_Transit_Days}</td>
                 <td>${route.Distance}</td>
-                <td>${route.Vessel_Type}</td>
-                <td>${route.No_Of_Travels}</td>
-                <td class="${incidentPercentage > 50 ? 'high-incidents' : incidentPercentage > 15 ? 'medium-incidents' : 'low-incidents'}">
-                    ${route.Total_Incidents_Count}
-                </td>
-                <td class="${route.Risk_Score > 50 ? 'high-risk' : route.Risk_Score > 20 ? 'medium-risk' : 'low-risk'}">
-                    ${route.Risk_Score}
-                </td>
-                <td><button onclick="showIncidents('${route.Route_Id}')">Incident</button></td>
+                <td>${route.Crew_Experience_Level}</td>
+                <td>${route.Carbon_Emissions}</td>
+                <td>${route.Operational_Cost}</td>
+                <td>${route.Insurance_Premium}</td>
+                <td>${route.Total_Revenue}</td>
+                <td>${route.Cargo_Type}</td>
+                <td>${route.Ship_Type}</td>
+                <td>${route.Scaled_RiskScore}</td>
+                <td>${route.Risk_Category}</td>                
+                <td><button onclick="showIncidents('${route.RouteID}')">Incident</button></td>
             `;
             tableBody.appendChild(row);
         });
@@ -130,8 +107,8 @@ let currentPage = 1;
         document.getElementById('pageNumber').innerText = `Page ${page}`;
     }
     
-    function showIncidents(routeId) {
-        fetch(`/incidents/${routeId}`) 
+    function showIncidents(RouteID) {
+        fetch(`/incidents/${RouteID}`) 
             .then(response => response.text())
             .then(html => {
                 document.getElementById('incident-content').innerHTML = html;
@@ -172,7 +149,7 @@ let currentPage = 1;
     
     .modal {
         display: none; 
-        position: fixed; 
+        position: absolute; 
         z-index: 1; 
         left: 0;
         top: 0;

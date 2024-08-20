@@ -168,19 +168,19 @@
                     <th>Average_Transit_Days</th>	
                     <th>Distance</th>	
                     <th>Crew_Experience_Level</th>	 
-                    <th>Training_Programs</th>	
-                    <th>Navigational_Risks</th>	
+                    <!-- <th>Training_Programs</th>	
+                    <th>Navigational_Risks</th>	 -->
                     <th>Carbon_Emissions</th>	
                     <th>Operational_Cost</th>	
                     <th>Insurance_Premium</th>	
                     <th>Total_Revenue</th>
-                    <th>Regulatory_Compliance</th>	
+                    <!-- <th>Regulatory_Compliance</th>	
                     <th>Previous_Safety_Awards</th>	 
-                    <th>Emergency_Response_Plans</th>	
+                    <th>Emergency_Response_Plans</th>	 -->
                     <th>Cargo_Type</th>	
                     <th>Ship_Type</th>	
-                    <th>Average_Vessel_Age</th>	
-                    <th>RiskScore</th>	
+                    <!-- <th>Average_Vessel_Age</th>	 -->
+                    <!-- <th>RiskScore</th>	 -->
                     <th>Scaled_RiskScore</th>	
                     <th>Risk_Category</th>
                 </tr>
@@ -215,7 +215,7 @@
 </div>
 <div>
  <h2>Maps</h2>
-<div id="map" style="display: flex; flex-direction: column; height: 500px; width: 1000px;"></div>
+<div id="map" style="display: flex; flex-direction: column; height: 1000px; width: 1500px;"></div>
 </div>
 
 <script>
@@ -352,6 +352,7 @@ function renderMap(routes,route_color="teal") {
     // Initial map rendering
     // Generate routes from the list of mock cities
     const routes = generateRoutes(cities);
+    initiatemap();
     renderMap(routes);
 
 
@@ -449,21 +450,21 @@ function renderMap(routes,route_color="teal") {
             row.insertCell(7).textContent = route.Average_Transit_Days;	
             row.insertCell(8).textContent = route.Distance;	
             row.insertCell(9).textContent = route.Crew_Experience_Level;	
-            row.insertCell(10).textContent = route.Training_Programs;	
-            row.insertCell(11).textContent = route.Navigational_Risks;	
-            row.insertCell(12).textContent = route.Carbon_Emissions;	
-            row.insertCell(13).textContent = route.Operational_Cost;	
-            row.insertCell(14).textContent = route.Insurance_Premium;	
-            row.insertCell(15).textContent = route.Total_Revenue;	
-            row.insertCell(16).textContent = route.Regulatory_Compliance;	
-            row.insertCell(17).textContent = route.Previous_Safety_Awards;	
-            row.insertCell(18).textContent = route.Emergency_Response_Plans;	
-            row.insertCell(19).textContent = route.Cargo_Type;	
-            row.insertCell(20).textContent = route.Ship_Type;	
-            row.insertCell(21).textContent = route.Average_Vessel_Age;	
-            row.insertCell(22).textContent = route.RiskScore;	
-            row.insertCell(23).textContent = route.Scaled_RiskScore;	
-            row.insertCell(24).textContent = route.Risk_Category;
+            //row.insertCell(10).textContent = route.Training_Programs;	
+            //row.insertCell(11).textContent = route.Navigational_Risks;	
+            row.insertCell(10).textContent = route.Carbon_Emissions;	
+            row.insertCell(11).textContent = route.Operational_Cost;	
+            row.insertCell(12).textContent = route.Insurance_Premium;	
+            row.insertCell(13).textContent = route.Total_Revenue;	
+            // row.insertCell(16).textContent = route.Regulatory_Compliance;	
+            // row.insertCell(17).textContent = route.Previous_Safety_Awards;	
+            // row.insertCell(18).textContent = route.Emergency_Response_Plans;	
+            row.insertCell(14).textContent = route.Cargo_Type;	
+            row.insertCell(15).textContent = route.Ship_Type;	
+            //row.insertCell(21).textContent = route.Average_Vessel_Age;	
+            // row.insertCell(22).textContent = route.RiskScore;	
+            row.insertCell(16).textContent = route.Scaled_RiskScore;	
+            row.insertCell(17).textContent = route.Risk_Category;
 
         });
 
@@ -481,14 +482,14 @@ function renderMap(routes,route_color="teal") {
         const percentage = data.Risk_Score;
         const circumference = 2 * Math.PI * 65;
         const progressOffset = circumference - (percentage / 100) * circumference;
-
+        initiatemap();
         if (global_routes !== null && global_routes !== undefined) {
 
             renderMap(global_routes,data.route_color);
         } else {
             console.log("global_routes is either null or undefined");
         }
-
+        
         // Show the progress circle
         progressCircle.style.display = 'block';
 
@@ -518,7 +519,7 @@ function renderMap(routes,route_color="teal") {
 
 
 // Set the progress percentage dynamically
-const progressCircle = document.querySelector('.progress-circle-fill');
+  const progressCircle = document.querySelector('.progress-circle-fill');
   const label = document.querySelector('.progress-circle-label');
   const percentage = 60; // Replace with your actual percentage
   const circumference = 2 * Math.PI * 65;
