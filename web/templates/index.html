@@ -36,7 +36,6 @@
             <th>Ship_Type</th>
             <th>Scaled_RiskScore</th>
             <th>Risk_Category</th> 
-            <th>Actions</th>
         </tr>
     </thead>
     <tbody id="tableBody">
@@ -99,7 +98,6 @@ let currentPage = 1;
                 <td>${route.Ship_Type}</td>
                 <td>${route.Scaled_RiskScore}</td>
                 <td>${route.Risk_Category}</td>                
-                <td><button onclick="showIncidents('${route.RouteID}')">Incident</button></td>
             `;
             tableBody.appendChild(row);
         });

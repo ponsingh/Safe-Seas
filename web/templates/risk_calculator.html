@@ -38,7 +38,7 @@
         <!-- Label -->
         <text class="progress-circle-label" x="75" y="75">0%</text>
       </svg>
-
+      
     </div>
 
     <h2 id="risk-score-value"></h2>
@@ -191,32 +191,74 @@
         </table>
 
 
-    </div>
+   
+</div>
 
-    <!-- Second column: Leaflet map -->
-    <div style="flex: 1;">
-        <!-- Horizontal Color Indicator for Risk Levels -->
-    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-        <div style="display: flex; align-items: center;">
-            <div style="width: 20px; height: 20px; background-color: green; margin-right: 10px;"></div>
-            <span>Low Risk</span>
-        </div>
-        <div style="display: flex; align-items: center;">
-            <div style="width: 20px; height: 20px; background-color: yellow; margin-right: 10px;"></div>
-            <span>Medium Risk</span>
-        </div>
-        <div style="display: flex; align-items: center;">
-            <div style="width: 20px; height: 20px; background-color: red; margin-right: 10px;"></div>
-            <span>High Risk</span>
-        </div>
-    </div>
-    </div>
+
+</div>
+<div>
+
+</div>
+<h1>Prediction Results</h1>
+
+
+
+<table id="results-table">
+    <thead>
+        <tr>
+            <th>Route No</th>
+            <th>Predicted Score</th>
+            <th>Color</th>
+        </tr>
+    </thead>
+    <tbody>
+    <!-- Rows will be inserted here by JavaScript -->
+    </tbody>
+</table>
 
 </div>
 <div>
  <h2>Maps</h2>
-<div id="map" style="display: flex; flex-direction: column; height: 1000px; width: 1500px;"></div>
-</div>
+<div id="map" style="display: flex; flex-direction: column; height: 1000px; width: 4000px;"></div>
+<style>
+    /* Rectangle animation */
+    #progress-bar {
+        width: 100%;
+        background-color: #f3f3f3;
+    }
+
+    #progress {
+        width: 0;
+        height: 30px;
+        background-color: #4CAF50;
+        animation: load 2s forwards;
+    }
+
+    @keyframes load {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    /* Style the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
 
 <script>
     // Mock routes for initial map rendering
@@ -473,49 +515,31 @@ function renderMap(routes,route_color="teal") {
 
     // Event listener for Calculate Risk Score button
     document.getElementById('calculate-risk-score').addEventListener('click', function() {
-    fetch('/calculate_risk_score', { method: 'POST' })
-      .then(response => response.json())
-      .then(data => {
-        const progressCircle = document.querySelector('.progress-circle');
-        const progressCircleFill = document.querySelector('.progress-circle-fill');
-        const label = document.querySelector('.progress-circle-label');
-        const percentage = data.Risk_Score;
-        const circumference = 2 * Math.PI * 65;
-        const progressOffset = circumference - (percentage / 100) * circumference;
-        initiatemap();
-        if (global_routes !== null && global_routes !== undefined) {
+            fetch('/calculate_risk_score', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Received data:', data);
+                    const table = document.getElementById('results-table').getElementsByTagName('tbody')[0];
 
-            renderMap(global_routes,data.route_color);
-        } else {
-            console.log("global_routes is either null or undefined");
-        }
-        
-        // Show the progress circle
-        progressCircle.style.display = 'block';
+                    // Clear existing rows except the header
+                    table.innerHTML = ''; // Clear existing rows
+                    
+                    // Populate the table with new data
+                    data.forEach(result => {
+                        const row = table.insertRow();
+                        const cellRouteno = row.insertCell(0);
+                        const cellScore = row.insertCell(1);
+                        const cellColor = row.insertCell(2);
 
-        // Animate the progress circle
-        progressCircleFill.style.strokeDasharray = `${circumference}, ${circumference}`;
-
-        progressCircleFill.style.strokeDashoffset = circumference;
-        label.textContent = `0%`;
-        // Animate the progress circle gradually
-        const animateProgress = () => {
-            let currentOffset = parseFloat(progressCircleFill.style.strokeDashoffset);
-          const interval = setInterval(() => {
-            currentOffset -= 1;
-            progressCircleFill.style.strokeDashoffset = currentOffset;
-            label.textContent = `${Math.round((circumference - currentOffset) / circumference * 100)}%`;
-
-            if (currentOffset <= progressOffset) {
-              clearInterval(interval);
-            }
-          }, 10); // Adjust animation speed here (smaller number = faster animation)
-        };
-
-        animateProgress();
-      })
-      .catch(error => console.error('Error:', error));
-  });
+                        cellRouteno.textContent = result.Routeno;
+                        cellScore.textContent = result.predictedscore.toFixed(2);
+                        cellColor.textContent = result.color;
+                        cellColor.style.backgroundColor = result.color;
+                        cellColor.style.color = 'white';
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+    });
 
 
 // Set the progress percentage dynamically

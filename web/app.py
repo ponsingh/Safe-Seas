@@ -5,7 +5,7 @@ import pickle
 from datetime import datetime, timedelta
 import requests
 import re
-
+import numpy as np
 #Constructor
 app = Flask(__name__)
 
@@ -218,135 +218,149 @@ def calculate_risk_score():
     try:
         global routes_data, incidents_data
         c=len(routes_data)
-        print("Calculating risk score...")
-        # Current date
-        current_date = datetime.now()
-        five_months_ago = date_n_months_ago(current_date, 5)
-        ten_days_ago = date_n_days_ago(current_date, 10)
-        # Adding columns to routes dataframe
 
-
-
-
-        df_incidents = pd.DataFrame(incidents_data)
         df_routes = pd.DataFrame(routes_data)
-        df_routes['Total_Incidents_Count'] = 0
 
-        df_routes['High'] = 0
-        df_routes['Last_5Months_High'] = 0
-        df_routes['Last_10Days_High'] = 0
-
-        df_routes['Medium'] = 0
-        df_routes['Last_5Months_Medium'] = 0
-        df_routes['Last_10Days_Medium'] = 0
-
-        df_routes['Low'] = 0
-        df_routes['Last_5Months_Low'] = 0
-        df_routes['Last_10Days_Low'] = 0
+        print("Calculating risk score...")
+    #     # Current date
+    #     current_date = datetime.now()
+    #     five_months_ago = date_n_months_ago(current_date, 5)
+    #     ten_days_ago = date_n_days_ago(current_date, 10)
+    #     # Adding columns to routes dataframe
 
 
-        for index,row in df_routes.iterrows():
-            #total incidents and count
-            route_incidents=df_incidents[df_incidents['Route_Id']==row['Route_Id']]   
-            incidents_count=route_incidents.shape[0]
-            df_routes.loc[index, 'Total_Incidents_Count']=incidents_count
+
+
+    #     df_incidents = pd.DataFrame(incidents_data)
+    #     df_routes = pd.DataFrame(routes_data)
+    #     df_routes['Total_Incidents_Count'] = 0
+
+    #     df_routes['High'] = 0
+    #     df_routes['Last_5Months_High'] = 0
+    #     df_routes['Last_10Days_High'] = 0
+
+    #     df_routes['Medium'] = 0
+    #     df_routes['Last_5Months_Medium'] = 0
+    #     df_routes['Last_10Days_Medium'] = 0
+
+    #     df_routes['Low'] = 0
+    #     df_routes['Last_5Months_Low'] = 0
+    #     df_routes['Last_10Days_Low'] = 0
+
+
+    #     for index,row in df_routes.iterrows():
+    #         #total incidents and count
+    #         route_incidents=df_incidents[df_incidents['Route_Id']==row['Route_Id']]   
+    #         incidents_count=route_incidents.shape[0]
+    #         df_routes.loc[index, 'Total_Incidents_Count']=incidents_count
             
-            #High incidents and count
-            high_incidents = route_incidents[route_incidents['Severity'] == 'High']
-            high_count=high_incidents.shape[0]
-            high_last10days_count=high_incidents[high_incidents['Incident_Date']>ten_days_ago].shape[0]
-            high_last5Month_count=high_incidents[(ten_days_ago>high_incidents['Incident_Date']) & (high_incidents['Incident_Date'] >five_months_ago)].shape[0]
+    #         #High incidents and count
+    #         high_incidents = route_incidents[route_incidents['Severity'] == 'High']
+    #         high_count=high_incidents.shape[0]
+    #         high_last10days_count=high_incidents[high_incidents['Incident_Date']>ten_days_ago].shape[0]
+    #         high_last5Month_count=high_incidents[(ten_days_ago>high_incidents['Incident_Date']) & (high_incidents['Incident_Date'] >five_months_ago)].shape[0]
 
-            df_routes.loc[index, 'High']=(high_count-high_last5Month_count-high_last10days_count)
-            df_routes.loc[index, 'Last_5Months_High']=(high_last5Month_count)
-            df_routes.loc[index, 'Last_10Days_High']=(high_last10days_count)
+    #         df_routes.loc[index, 'High']=(high_count-high_last5Month_count-high_last10days_count)
+    #         df_routes.loc[index, 'Last_5Months_High']=(high_last5Month_count)
+    #         df_routes.loc[index, 'Last_10Days_High']=(high_last10days_count)
 
             
             
-            #Medium incidents and count
-            medium_incidents = route_incidents[route_incidents['Severity'] == 'Medium']
-            medium_count=medium_incidents.shape[0]
-            medium_last10Days_count=medium_incidents[medium_incidents['Incident_Date']>ten_days_ago].shape[0]
-            medium_last5Month_count=medium_incidents[(ten_days_ago>medium_incidents['Incident_Date']) & (medium_incidents['Incident_Date']>five_months_ago)].shape[0]
+    #         #Medium incidents and count
+    #         medium_incidents = route_incidents[route_incidents['Severity'] == 'Medium']
+    #         medium_count=medium_incidents.shape[0]
+    #         medium_last10Days_count=medium_incidents[medium_incidents['Incident_Date']>ten_days_ago].shape[0]
+    #         medium_last5Month_count=medium_incidents[(ten_days_ago>medium_incidents['Incident_Date']) & (medium_incidents['Incident_Date']>five_months_ago)].shape[0]
 
 
-            df_routes.loc[index, 'Medium'] = (medium_count-medium_last5Month_count-medium_last10Days_count)
-            df_routes.loc[index, 'Last_5Months_Medium'] = (medium_last5Month_count)
-            df_routes.loc[index, 'Last_10Days_Medium'] = (medium_last10Days_count)
+    #         df_routes.loc[index, 'Medium'] = (medium_count-medium_last5Month_count-medium_last10Days_count)
+    #         df_routes.loc[index, 'Last_5Months_Medium'] = (medium_last5Month_count)
+    #         df_routes.loc[index, 'Last_10Days_Medium'] = (medium_last10Days_count)
             
-                #Medium incidents and count
-            low_incidents = route_incidents[route_incidents['Severity'] == 'Low']
-            low_count=low_incidents.shape[0]
-            low_last10Days_count=low_incidents[low_incidents['Incident_Date']>ten_days_ago].shape[0]
-            low_last5Month_count=low_incidents[(ten_days_ago>low_incidents['Incident_Date'])& (low_incidents['Incident_Date']>five_months_ago)].shape[0]
+    #             #Medium incidents and count
+    #         low_incidents = route_incidents[route_incidents['Severity'] == 'Low']
+    #         low_count=low_incidents.shape[0]
+    #         low_last10Days_count=low_incidents[low_incidents['Incident_Date']>ten_days_ago].shape[0]
+    #         low_last5Month_count=low_incidents[(ten_days_ago>low_incidents['Incident_Date'])& (low_incidents['Incident_Date']>five_months_ago)].shape[0]
 
 
-            df_routes.loc[index, 'Low'] = (low_count-low_last5Month_count-low_last10Days_count)
-            df_routes.loc[index, 'Last_5Months_Low'] =(low_last5Month_count)
-            df_routes.loc[index, 'Last_10Days_Low'] =(low_last10Days_count)
+    #         df_routes.loc[index, 'Low'] = (low_count-low_last5Month_count-low_last10Days_count)
+    #         df_routes.loc[index, 'Last_5Months_Low'] =(low_last5Month_count)
+    #         df_routes.loc[index, 'Last_10Days_Low'] =(low_last10Days_count)
 
 
-        # Load your data from a source or import it dynamically if needed
-        # Example: Read from a CSV file or database
-        # Here, we're using static data for demonstration         
-         # Convert data into DataFrame
-        # Create a DataFrame with new data points to predict
+    #     # Load your data from a source or import it dynamically if needed
+    #     # Example: Read from a CSV file or database
+    #     # Here, we're using static data for demonstration         
+    #      # Convert data into DataFrame
+    #     # Create a DataFrame with new data points to predict
 
-        columns_to_keep = [
-                           'No_Of_Travels',
-                           'Total_Incidents_Count',
-                           'High',
-                           'Last_5Months_High',
-                           'Last_10Days_High',
-                           'Medium',
-                           'Last_5Months_Medium',
-                           'Last_10Days_Medium',
-                           'Low',
-                           'Last_5Months_Low',
-                           'Last_10Days_Low']
+    #     columns_to_keep = [
+    #                        'No_Of_Travels',
+    #                        'Total_Incidents_Count',
+    #                        'High',
+    #                        'Last_5Months_High',
+    #                        'Last_10Days_High',
+    #                        'Medium',
+    #                        'Last_5Months_Medium',
+    #                        'Last_10Days_Medium',
+    #                        'Low',
+    #                        'Last_5Months_Low',
+    #                        'Last_10Days_Low']
         
-        new_data = df_routes[columns_to_keep].copy()
-    #     new_data = pd.DataFrame({
-    # 'Distance': [500, 850, 200],
-    # 'Average_Transit_Days': [13, 25, 12],
-    # 'No_Of_Travels': [900, 2008, 3330],
-    # 'Total_Incidents_Count': [600, 150, 300],
-    # 'High': [400, 10, 45],
-    # 'Last_5Months_High': [50, 0, 5],
-    # 'Medium': [50, 100, 100],
-    # 'Last_5Months_Medium': [0, 2, 50],
-    # 'Low': [50, 28, 100],
-    # 'Last_5Months_Low': [50, 10, 0]
-    #     })
+    #     new_data = df_routes[columns_to_keep].copy()
+    # #     new_data = pd.DataFrame({
+    # # 'Distance': [500, 850, 200],
+    # # 'Average_Transit_Days': [13, 25, 12],
+    # # 'No_Of_Travels': [900, 2008, 3330],
+    # # 'Total_Incidents_Count': [600, 150, 300],
+    # # 'High': [400, 10, 45],
+    # # 'Last_5Months_High': [50, 0, 5],
+    # # 'Medium': [50, 100, 100],
+    # # 'Last_5Months_Medium': [0, 2, 50],
+    # # 'Low': [50, 28, 100],
+    # # 'Last_5Months_Low': [50, 10, 0]
+    # #     })
     
-            # Make prediction
-        prediction = model_rf.predict(new_data)
+    #         # Make prediction
+        # prediction_riskscore = model_rf.predict(df_routes)
         print("predicted sucessfully")
-        risk_value=prediction[0]
-        if risk_value>100:
-            risk_value=100
+        # risk_value=prediction[0]
+        # if risk_value>100:
+        #     risk_value=100
         
-        if risk_value<0:
-            risk_value=3
+        # if risk_value<0:
+        #     risk_value=3
         
-        #return {'Risk_Score': risk_value}
+        prediction_riskscore =np.array([0.3, 0.75, 0.55, 0.25])
+        results = []
+        for idx, score in enumerate(prediction_riskscore):
+            result = {
+                'Routeno': df_routes.iloc[idx]['RouteID'],  # Assuming 'Routeno' is a column in df_routes
+                'predictedscore': score,
+                'color': assign_color(score)
+            }
+            results.append(result)
+    # Convert all values to Python native types
+        for result in results:
+            result['predictedscore'] = float(result['predictedscore'])  # Convert to native float
+            result['Routeno'] = int(result['Routeno'])
 
-        route_color="blue"
-        if risk_value>40:
-            route_color="red"
-        elif risk_value>20:
-            route_color="yellow"
-        else:
-            route_color="green"
-    
-        return jsonify({'Risk_Score': risk_value,
-                        "route_color":route_color})
+        return jsonify(results)
 
     except Exception as e:
-        return jsonify({'Risk_Score': 0,
-                        "route_color":"blue"})
+        return jsonify({'error': str(e)}), 500
 
+def assign_color(score):
+    # Define color based on score
+    if score >= 0.8:
+        return 'red'
+    elif 0.5 <= score < 0.8:
+        return 'yellow'
+    else:
+        return 'green'
 
+    
 # Run the application
 if __name__ == "__main__":
     app.run(debug=True)
