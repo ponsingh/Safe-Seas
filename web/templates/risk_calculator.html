@@ -90,7 +90,6 @@
     }
     </style>
     </head>
-    <body>
 
     <h2>Fetch Future Incidents</h2>
 
@@ -155,46 +154,44 @@
     <!-- First column: Display imported data in tables -->
     <div style="flex: 1;">
         <h2>Routes</h2>
-        <table id="routes-table">
-            <thead>
-                <tr>
-                    <th>RouteID</th>	
-                    <th>POL</th>	
-                    <th>POD</th>	
-                    <th>High_Incidents</th>	
-                    <th>Medium_Incidents</th>	
-                    <th>Low_Incidents</th>	
-                    <th>No_Of_Transhipments</th>	
-                    <th>Average_Transit_Days</th>	
-                    <th>Distance</th>	
-                    <th>Crew_Experience_Level</th>	 
-                    <!-- <th>Training_Programs</th>	
-                    <th>Navigational_Risks</th>	 -->
-                    <th>Carbon_Emissions</th>	
-                    <th>Operational_Cost</th>	
-                    <th>Insurance_Premium</th>	
-                    <th>Total_Revenue</th>
-                    <!-- <th>Regulatory_Compliance</th>	
-                    <th>Previous_Safety_Awards</th>	 
-                    <th>Emergency_Response_Plans</th>	 -->
-                    <th>Cargo_Type</th>	
-                    <th>Ship_Type</th>	
-                    <!-- <th>Average_Vessel_Age</th>	 -->
-                    <!-- <th>RiskScore</th>	 -->
-                    <th>Scaled_RiskScore</th>	
-                    <th>Risk_Category</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be populated here -->
-            </tbody>
-        </table>
-
-
-   
-</div>
-
-
+        
+        <!-- Wrap the table in a div with overflow-x: auto to enable horizontal scrolling -->
+        <div style="overflow-x: auto; width: 100%;">
+            <table id="routes-table" style="min-width: 1000px;">
+                <thead>
+                    <tr>
+                        <th>RouteID</th>
+                        <th>POL</th>
+                        <th>POD</th>
+                        <th>High_Incidents</th>
+                        <th>Medium_Incidents</th>
+                        <th>Low_Incidents</th>
+                        <th>No_Of_Travels</th>
+                        <th>No_Of_Transhipments</th>
+                        <!-- <th>Average_Transit_Days</th>
+                        <th>Distance</th> -->
+                        <th>Crew_Experience_Level</th>
+                        <th>Training_Programs</th>
+                        <!-- <th>Navigational_Risks</th> -->
+                        <th>Carbon_Emissions</th>
+                        <th>Operational_Cost</th>
+                        <th>Regulatory_Compliance</th>
+                        <th>Previous_Safety_Awards</th>
+                        <th>Emergency_Response_Plans</th>
+                        <!-- <th>Cargo_Type</th>
+                        <th>Ship_Type</th> -->
+                        <!-- <th>Average_Vessel_Age</th>
+                        <th>Cargo_Value</th>
+                        <th>RiskScore</th>
+                        <th>Risk_Category</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <div>
 
@@ -219,7 +216,7 @@
 </div>
 <div>
  <h2>Maps</h2>
-<div id="map" style="display: flex; flex-direction: column; height: 1000px; width: 4000px;"></div>
+<div id="map" style="display: flex; flex-direction: column; height: 1000px; width: 2000px;"></div>
 <style>
     /* Rectangle animation */
     #progress-bar {
@@ -488,25 +485,24 @@ function renderMap(routes,route_color="teal") {
             row.insertCell(3).textContent = route.High_Incidents;	
             row.insertCell(4).textContent = route.Medium_Incidents;	
             row.insertCell(5).textContent = route.Low_Incidents;	
-            row.insertCell(6).textContent = route.No_Of_Transhipments;	
-            row.insertCell(7).textContent = route.Average_Transit_Days;	
-            row.insertCell(8).textContent = route.Distance;	
-            row.insertCell(9).textContent = route.Crew_Experience_Level;	
-            //row.insertCell(10).textContent = route.Training_Programs;	
-            //row.insertCell(11).textContent = route.Navigational_Risks;	
+            row.insertCell(6).textContent = route.No_Of_Travels;	
+            row.insertCell(7).textContent = route.No_Of_Transhipments;	
+            // row.insertCell(8).textContent = route.Average_Transit_Days;	
+            // row.insertCell(9).textContent = route.Distance;	
+            row.insertCell(8).textContent = route.Crew_Experience_Level;	
+            row.insertCell(9).textContent = route.Training_Programs;	
+            // row.insertCell(12).textContent = route.Navigational_Risks;
             row.insertCell(10).textContent = route.Carbon_Emissions;	
             row.insertCell(11).textContent = route.Operational_Cost;	
-            row.insertCell(12).textContent = route.Insurance_Premium;	
-            row.insertCell(13).textContent = route.Total_Revenue;	
-            // row.insertCell(16).textContent = route.Regulatory_Compliance;	
-            // row.insertCell(17).textContent = route.Previous_Safety_Awards;	
-            // row.insertCell(18).textContent = route.Emergency_Response_Plans;	
-            row.insertCell(14).textContent = route.Cargo_Type;	
-            row.insertCell(15).textContent = route.Ship_Type;	
-            //row.insertCell(21).textContent = route.Average_Vessel_Age;	
-            // row.insertCell(22).textContent = route.RiskScore;	
-            row.insertCell(16).textContent = route.Scaled_RiskScore;	
-            row.insertCell(17).textContent = route.Risk_Category;
+            row.insertCell(12).textContent = route.Regulatory_Compliance;	
+            row.insertCell(13).textContent = route.Previous_Safety_Awards;	
+            row.insertCell(14).textContent = route.Emergency_Response_Plans;	
+            // row.insertCell(18).textContent = route.Cargo_Type;	
+            // row.insertCell(19).textContent = route.Ship_Type;	
+            // row.insertCell(20).textContent = route.Average_Vessel_Age;	
+            // row.insertCell(21).textContent = route.Cargo_Value;	
+            // row.insertCell(22).textContent = route.RiskScore;
+            // row.insertCell(23).textContent = route.Risk_Category;
 
         });
 

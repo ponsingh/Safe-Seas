@@ -27,10 +27,14 @@ with open('risk_model.pkl', 'rb') as f:
 with open('risk_randomforest_model.pkl', 'rb') as f:
     model_rf = pickle.load(f)
 
+# Load the risk_randomforest_model
+with open('riskModel.pkl', 'rb') as f:
+    model_trf = pickle.load(f)
+
 
 # Load the data
 try:
-    routes_df = pd.read_csv('Files/Routes.csv')
+    routes_df = pd.read_csv('Files/shipping_routes.csv')
     incidents_df = pd.read_csv('Incidents.csv')
 except FileNotFoundError as e:
     print(f"File not found: {e.filename}")
@@ -216,12 +220,7 @@ def date_n_days_ago(current_date, n):
 @app.route('/calculate_risk_score', methods=['POST'])
 def calculate_risk_score():
     try:
-        global routes_data, incidents_data
-        c=len(routes_data)
 
-        df_routes = pd.DataFrame(routes_data)
-
-        print("Calculating risk score...")
     #     # Current date
     #     current_date = datetime.now()
     #     five_months_ago = date_n_months_ago(current_date, 5)
@@ -294,21 +293,52 @@ def calculate_risk_score():
     #     # Here, we're using static data for demonstration         
     #      # Convert data into DataFrame
     #     # Create a DataFrame with new data points to predict
+            global routes_data, incidents_data
+            c=len(routes_data)
 
-    #     columns_to_keep = [
-    #                        'No_Of_Travels',
-    #                        'Total_Incidents_Count',
-    #                        'High',
-    #                        'Last_5Months_High',
-    #                        'Last_10Days_High',
-    #                        'Medium',
-    #                        'Last_5Months_Medium',
-    #                        'Last_10Days_Medium',
-    #                        'Low',
-    #                        'Last_5Months_Low',
-    #                        'Last_10Days_Low']
+            df_routes = pd.DataFrame(routes_data)
+            new_data = df_routes.copy()
+            print("Calculating risk score...")
+
+            Training_Programs_map = {'irregular': 0, 'regular': 1}
+            Navigational_Risks_map = {'clear': 0, 'congested areas': 1}
+            Regulatory_Compliance_map = {'compliant': 0, 'non-compliant': 1}
+            Previous_Safety_Awards_map = {'no': 0, 'yes': 1}
+            Emergency_Response_Plans_map = {'in place': 0, 'not in place': 1}
+            Cargo_Type_map = {'both': 0, 'hazardous': 1,'non-hazardous': 2}
+            Ship_Type_map = {'bulk carrier': 0, 'container': 1}
         
-    #     new_data = df_routes[columns_to_keep].copy()
+
+            new_data['Training_Programs'] = new_data['Training_Programs'].map(Training_Programs_map)
+            new_data['Navigational_Risks'] = new_data['Navigational_Risks'].map(Navigational_Risks_map)
+            new_data['Regulatory_Compliance'] = new_data['Regulatory_Compliance'].map(Regulatory_Compliance_map)
+            new_data['Previous_Safety_Awards'] = new_data['Previous_Safety_Awards'].map(Previous_Safety_Awards_map)
+            new_data['Emergency_Response_Plans'] = new_data['Emergency_Response_Plans'].map(Emergency_Response_Plans_map)
+            new_data['Cargo_Type'] = new_data['Cargo_Type'].map(Cargo_Type_map)
+            new_data['Ship_Type'] = new_data['Ship_Type'].map(Ship_Type_map)
+
+            columns_to_keep = [
+                             'High_Incidents'	
+                            ,'Medium_Incidents'	
+                            ,'Low_Incidents'	
+                            ,'No_Of_Travels'	
+                            ,'No_Of_Transhipments'	
+                            ,'Average_Transit_Days'	
+                            ,'Distance'	
+                            ,'Crew_Experience_Level'	
+                            ,'Training_Programs'	
+                            ,'Navigational_Risks'	
+                            ,'Carbon_Emissions'	
+                            ,'Operational_Cost'	
+                            ,'Regulatory_Compliance'	
+                            ,'Previous_Safety_Awards'	
+                            ,'Emergency_Response_Plans'	
+                            ,'Cargo_Type'	
+                            ,'Ship_Type'	
+                            ,'Average_Vessel_Age'	
+                            ,'Cargo_Value']
+        
+            modelinput = new_data[columns_to_keep]
     # #     new_data = pd.DataFrame({
     # # 'Distance': [500, 850, 200],
     # # 'Average_Transit_Days': [13, 25, 12],
@@ -323,42 +353,35 @@ def calculate_risk_score():
     # #     })
     
     #         # Make prediction
-        # prediction_riskscore = model_rf.predict(df_routes)
-        print("predicted sucessfully")
-        # risk_value=prediction[0]
-        # if risk_value>100:
-        #     risk_value=100
-        
-        # if risk_value<0:
-        #     risk_value=3
-        
-        prediction_riskscore =np.array([0.3, 0.75, 0.55, 0.25])
-        results = []
-        for idx, score in enumerate(prediction_riskscore):
-            result = {
-                'Routeno': df_routes.iloc[idx]['RouteID'],  # Assuming 'Routeno' is a column in df_routes
-                'predictedscore': score,
-                'color': assign_color(score)
-            }
-            results.append(result)
+            prediction_riskscore = model_trf.predict(modelinput)
+            print("predicted sucessfully")
+ 
+            ## prediction_riskscore =np.array([0.3, 0.75, 0.55, 0.25])
+            results = []
+            for idx, score in enumerate(prediction_riskscore):
+                result = {
+                    'Routeno': df_routes.iloc[idx]['RouteID'],  # Assuming 'Routeno' is a column in df_routes
+                    'predictedscore': score,
+                    'color': assign_color(score)
+                }
+                results.append(result)
     # Convert all values to Python native types
-        for result in results:
-            result['predictedscore'] = float(result['predictedscore'])  # Convert to native float
-            result['Routeno'] = int(result['Routeno'])
+            for result in results:
+                result['predictedscore'] = float(result['predictedscore'])  # Convert to native float
 
-        return jsonify(results)
+            return jsonify(results)
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 def assign_color(score):
     # Define color based on score
-    if score >= 0.8:
-        return 'red'
-    elif 0.5 <= score < 0.8:
-        return 'yellow'
+    if score >= 55:
+        return 'Red'
+    elif 25 <= score < 55:
+        return 'Yellow'
     else:
-        return 'green'
+        return 'Green'
 
     
 # Run the application

@@ -15,6 +15,8 @@
 <div>
     <p></p>
 </div>
+<!-- Wrap the table in a div with overflow-x: auto to enable horizontal scrolling -->
+<div style="overflow-x: auto;">
 <table>
     <thead>
         <tr>
@@ -24,25 +26,31 @@
             <th>High_Incidents</th>
             <th>Medium_Incidents</th>
             <th>Low_Incidents</th>
+            <th>No_Of_Travels</th>
             <th>No_Of_Transhipments</th>
             <th>Average_Transit_Days</th>
             <th>Distance</th>
             <th>Crew_Experience_Level</th>
+            <th>Training_Programs</th>
+            <th>Navigational_Risks</th>
             <th>Carbon_Emissions</th>
             <th>Operational_Cost</th>
-            <th>Insurance_Premium</th>
-            <th>Total_Revenue</th>
+            <th>Regulatory_Compliance</th>
+            <th>Previous_Safety_Awards</th>
+            <th>Emergency_Response_Plans</th>
             <th>Cargo_Type</th>
             <th>Ship_Type</th>
-            <th>Scaled_RiskScore</th>
-            <th>Risk_Category</th> 
+            <th>Average_Vessel_Age</th>
+            <th>Cargo_Value</th>
+            <th>RiskScore</th>
+            <th>Risk_Category</th>
         </tr>
     </thead>
     <tbody id="tableBody">
         
     </tbody>
 </table>
-
+</div>
 <div id="incident-details" class="modal"> 
     <div class="modal-content">
         <span class="close-button" onclick="closeModal()">&times;</span>
@@ -86,17 +94,23 @@ let currentPage = 1;
                 <td>${route.High_Incidents}</td>
                 <td>${route.Medium_Incidents}</td>
                 <td>${route.Low_Incidents}</td>
+                <td>${route.No_Of_Travels}</td>
                 <td>${route.No_Of_Transhipments}</td>
                 <td>${route.Average_Transit_Days}</td>
                 <td>${route.Distance}</td>
                 <td>${route.Crew_Experience_Level}</td>
+                <td>${route.Training_Programs}</td>
+                <td>${route.Navigational_Risks}</td>
                 <td>${route.Carbon_Emissions}</td>
                 <td>${route.Operational_Cost}</td>
-                <td>${route.Insurance_Premium}</td>
-                <td>${route.Total_Revenue}</td>
+                <td>${route.Regulatory_Compliance}</td>
+                <td>${route.Previous_Safety_Awards}</td>
+                <td>${route.Emergency_Response_Plans}</td>
                 <td>${route.Cargo_Type}</td>
                 <td>${route.Ship_Type}</td>
-                <td>${route.Scaled_RiskScore}</td>
+                <td>${route.Average_Vessel_Age}</td>
+                <td>${route.Cargo_Value}</td>
+                <td>${route.RiskScore}</td>
                 <td>${route.Risk_Category}</td>                
             `;
             tableBody.appendChild(row);
