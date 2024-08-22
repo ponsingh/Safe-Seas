@@ -196,27 +196,140 @@
 <div>
 
 </div>
+<style>
+    /* General styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    #results-table {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+    }
+
+    #results-table thead {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #results-table th, #results-table td {
+        padding: 12px;
+        text-align: center;
+    }
+
+    #results-table tbody tr {
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #results-table tbody tr:hover {
+        background-color: #f1f1f1;
+        transform: scale(1.02);
+    }
+
+    #results-table tbody tr td:last-child {
+        font-weight: bold;
+        color: white;
+        border-radius: 4px;
+    }
+
+    /* Colors based on risk score */
+    .color-yellow {
+        background-color: yellow;
+    }
+
+    .color-green {
+        background-color: green;
+    }
+
+    .color-red {
+        background-color: red;
+    }
+
+    /* Animated progress bar style */
+    .progress-bar {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .progress-bar-inner {
+        height: 100%;
+        line-height: 20px;
+        border-radius: 20px;
+        text-align: center;
+        color: white;
+        white-space: nowrap;
+        transition: width 0.6s ease;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 600px) {
+        #results-table thead {
+            display: none;
+        }
+
+        #results-table, #results-table tbody, #results-table tr, #results-table td {
+            display: block;
+            width: 100%;
+        }
+
+        #results-table tr {
+            margin-bottom: 15px;
+        }
+
+        #results-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+        #results-table td:before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            width: calc(50% - 20px);
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+</style>
+<body></body>
 <h1>Prediction Results</h1>
-
-
 
 <table id="results-table">
     <thead>
         <tr>
             <th>Route No</th>
             <th>Predicted Score</th>
-            <th>Color</th>
+            <th>Severity</th>
         </tr>
     </thead>
     <tbody>
-    <!-- Rows will be inserted here by JavaScript -->
+        <!-- Example Rows -->
+        
     </tbody>
 </table>
 
 </div>
 <div>
  <h2>Maps</h2>
-<div id="map" style="display: flex; flex-direction: column; height: 1000px; width: 2000px;"></div>
+<div id="map" style="display: flex; flex-direction: column; height: 800px; width: 2000px;"></div>
 <style>
     /* Rectangle animation */
     #progress-bar {
@@ -333,29 +446,29 @@ function generateRoutes(cities) {
 }
 
 var map;
-var global_routes =[];
-function renderMap(routes,route_color="teal") {
-    try {
-        
+var global_routes = [];
 
+function renderMap(routes, route_color = "teal") {
+    try {
         let allRouteCoordinates = [];
+
         // Loop through routes and add polylines and markers to the map
         routes.forEach(route => {
             // Add polyline for the route
-            L.polyline(route.coordinates, { color: route_color }).addTo(map);
+            const polyline = L.polyline(route.coordinates, { color: route_color }).addTo(map);
             allRouteCoordinates = allRouteCoordinates.concat(route.coordinates);
-
 
             var startPoint = route.coordinates[0];
             var endPoint = route.coordinates[route.coordinates.length - 1];
 
+            // Add start and end circle markers
             var s_circle = L.circleMarker(startPoint, {
                 radius: 2, // Adjust the size of the circle
                 color: '#3388ff', // Adjust the color of the circle
                 fillColor: '#3388ff', // Adjust the fill color of the circle
                 fillOpacity: 1, // Adjust the opacity of the fill color
                 className: 'blink' // Apply the blink CSS class
-            }).addTo(map).bindPopup(route.startCity ||'Start City').openPopup();
+            }).addTo(map).bindPopup(route.startCity || 'Start City').openPopup();
 
             var e_circle = L.circleMarker(endPoint, {
                 radius: 2, // Adjust the size of the circle
@@ -363,20 +476,23 @@ function renderMap(routes,route_color="teal") {
                 fillColor: '#3388ff', // Adjust the fill color of the circle
                 fillOpacity: 1, // Adjust the opacity of the fill color
                 className: 'blink' // Apply the blink CSS class
-            }).addTo(map).bindPopup(route.endCity ||'End City').openPopup();
-
-
-
+            }).addTo(map).bindPopup(route.endCity || 'End City').openPopup();
         });
+
+        // Adjust the map to show the entire route (zoom in and center on the polyline)
+        if (allRouteCoordinates.length > 0) {
+            const bounds = L.latLngBounds(allRouteCoordinates);
+            map.fitBounds(bounds);
+        }
 
         // Create a single moving marker for all route polylines
         var movingMarker = L.Marker.movingMarker(
-        allRouteCoordinates,
-        450 * routes.length, // Adjust the duration according to the number of routes
-        {
-        loop: true,
-        icon: L.icon({ iconUrl: 'static/Shipp.png', iconSize: [42, 42] })
-        }
+            allRouteCoordinates,
+            1400 * routes.length, // Adjust the duration according to the number of routes
+            {
+                loop: true,
+                icon: L.icon({ iconUrl: 'static/Shipp.png', iconSize: [42, 42] })
+            }
         ).addTo(map);
 
         movingMarker.start();
@@ -515,24 +631,73 @@ function renderMap(routes,route_color="teal") {
                 .then(response => response.json())
                 .then(data => {
                     console.log('Received data:', data);
-                    const table = document.getElementById('results-table').getElementsByTagName('tbody')[0];
+                    const tbody = document.querySelector('#results-table tbody');
 
-                    // Clear existing rows except the header
-                    table.innerHTML = ''; // Clear existing rows
+                    // Clear existing rows
+                    tbody.innerHTML = '';
                     
                     // Populate the table with new data
                     data.forEach(result => {
-                        const row = table.insertRow();
-                        const cellRouteno = row.insertCell(0);
-                        const cellScore = row.insertCell(1);
-                        const cellColor = row.insertCell(2);
+                        const row = document.createElement('tr');
 
-                        cellRouteno.textContent = result.Routeno;
-                        cellScore.textContent = result.predictedscore.toFixed(2);
-                        cellColor.textContent = result.color;
-                        cellColor.style.backgroundColor = result.color;
-                        cellColor.style.color = 'white';
-                    });
+                                // Route No
+                        const routeCell = document.createElement('td');
+                        routeCell.setAttribute('data-label', 'Route No');
+                        routeCell.textContent = result.Routeno || 'N/A';
+                        row.appendChild(routeCell);
+
+                        // Predicted Score
+                        const scoreCell = document.createElement('td');
+                        scoreCell.setAttribute('data-label', 'Predicted Score');
+                        const progressBar = document.createElement('div');
+                        progressBar.classList.add('progress-bar');
+                        const progressBarInner = document.createElement('div');
+
+                        // Safely accessing the color and converting to lowercase
+                        const color = result.color ? result.color.toLowerCase() : 'gray';
+                        progressBarInner.classList.add('progress-bar-inner', `color-${color}`);
+
+                        // Safely accessing and formatting the score
+                        const score = result.predictedscore != null && !isNaN(result.predictedscore) 
+                                    ? result.predictedscore.toFixed(2) 
+                                    : 'N/A';
+                        progressBarInner.style.width = `${result.predictedscore || 0}%`;
+                        progressBarInner.textContent = score;
+                        progressBarInner.style.color ='black';
+                        progressBar.appendChild(progressBarInner);
+                        scoreCell.appendChild(progressBar);
+                        row.appendChild(scoreCell);
+
+                        // Color
+                        const colorCell = document.createElement('td');
+                        colorCell.setAttribute('data-label', 'Severity');
+
+                        // Map the color to the appropriate risk level
+                        let riskLevel;
+                        switch (result.color.toLowerCase()) {
+                            case 'red':
+                                riskLevel = 'High';
+                                break;
+                            case 'yellow':
+                                riskLevel = 'Medium';
+                                break;
+                            case 'green':
+                                riskLevel = 'Low';
+                                break;
+                            default:
+                                riskLevel = 'Unknown';
+                        }
+
+                        // Set the risk level as the text content of the cell
+                        colorCell.textContent = riskLevel;
+                        // Ensure the text color is black
+                        colorCell.style.color = 'black';
+                        row.appendChild(colorCell);
+                        // Optionally, add a class to style the cell based on the color
+
+                        // Append row to table body
+                        tbody.appendChild(row);
+                        });
                 })
                 .catch(error => console.error('Error:', error));
     });

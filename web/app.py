@@ -369,11 +369,11 @@ def calculate_risk_score():
 def assign_color(score):
     # Define color based on score
     if score >= 55:
-        return 'Red'
+        return 'red'
     elif 25 <= score < 55:
-        return 'Yellow'
+        return 'yellow'
     else:
-        return 'Green'
+        return 'green'
 
     
 # Run the application
