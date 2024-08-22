@@ -19,14 +19,6 @@ global routes_data, incidents_data
 # Debug: Print the current working directory
 print("Current working directory:", os.getcwd())
 
-# Load the risk_model
-with open('risk_model.pkl', 'rb') as f:
-    model = pickle.load(f)
-
-# Load the risk_randomforest_model
-with open('risk_randomforest_model.pkl', 'rb') as f:
-    model_rf = pickle.load(f)
-
 # Load the risk_randomforest_model
 with open('riskModel.pkl', 'rb') as f:
     model_trf = pickle.load(f)
@@ -35,7 +27,7 @@ with open('riskModel.pkl', 'rb') as f:
 # Load the data
 try:
     routes_df = pd.read_csv('Files/shipping_routes.csv')
-    incidents_df = pd.read_csv('Incidents.csv')
+    incidents_df = pd.read_csv('Files/shipping_routes.csv')
 except FileNotFoundError as e:
     print(f"File not found: {e.filename}")
     raise
