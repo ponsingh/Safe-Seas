@@ -635,7 +635,7 @@ function renderMap(routes, route_color = "teal") {
 
                     // Clear existing rows
                     tbody.innerHTML = '';
-                    
+                    let i=0;
                     // Populate the table with new data
                     data.forEach(result => {
                         const row = document.createElement('tr');
@@ -697,6 +697,8 @@ function renderMap(routes, route_color = "teal") {
 
                         // Append row to table body
                         tbody.appendChild(row);
+                        renderMap(global_routes[i],result.color.toLowerCase());
+                        i++;
                         });
                 })
                 .catch(error => console.error('Error:', error));
